@@ -5,7 +5,7 @@ import './App.css';
 import Login from './components/Login';
 import Signup from './components/Signup.js';
 import GoalSetup from './components/GoalSetup.js';
-import FixedSetup from './components/FixedSetup.js';
+import FixedSetup from './components/FixedSetup.js';//to be fixed by shaun
 import VariableExpense from './components/VariableExpense';
 import SavingsStatus from './components/SavingsStatus';
 import DailyBudget from './components/DailyBudget';
@@ -29,7 +29,7 @@ class App extends Component {
     <Route path = '/' exact ={true} render ={() => <Login sendUserIDToApp ={this.getUserIdFromLogin}/>} />
         <Route path = '/Signup' exact ={true} render ={() => <Signup/>} />
         <Route path = '/setUpGoal' exact ={true} render ={() => <GoalSetup userID = {this.state.userID}/>} />
-        <Route path = '/setUpFixed' exact ={true} render ={() => <FixedSetup/>} />
+        <Route path = '/setUpFixed' exact ={true} render ={() => <FixedSetup/>} /> to be updated 
         <Route path = '/inputVariable' exact ={true} render ={() => <VariableExpense userID = {this.state.userID}/>} />
         <Route path = '/getSavingsStatus' exact ={true} render ={() => <SavingsStatus/>} />
         <Route path = '/todaysBudget' exact ={true} render ={() => <DailyBudget/>} />
