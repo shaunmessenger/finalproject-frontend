@@ -2,8 +2,8 @@ import React, { Component } from "react";
 
 
 class FixedInputs extends Component{
-   constructor(){
-   super();
+   constructor(props){
+   super(props);
    this.state = {
        income: "",
        housing: "",
@@ -35,10 +35,10 @@ handleSubmit = event => {
     fetch('/setUpFixed',{ 
         method: "POST",
         body: (JSON.stringify({
-            userID: 4755,
+            userID: this.props.userID,
             fixedIncome: {
-                Amount: newIncome,
-                Type: 'biweekly'
+                amount: newIncome,
+                type: 'biweekly'
             },
             fixedExpense: {
                 Housing: newHousing,
@@ -51,7 +51,6 @@ handleSubmit = event => {
     .then(response => response.text())
     .then(response => {
         console.log(response)
-        //console.log(response)
     })
         
         
