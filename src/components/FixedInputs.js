@@ -51,7 +51,7 @@ handleSubmit = event => {
         return response.json()
         
     }
-}
+
 
 handleIncomeChange = event => {
     this.setState({inputIncome: event.target.value})
@@ -107,7 +107,7 @@ handleOtherChange = event => {
         </div>
        )
    }
-
+}
 
 
 export default FixedInputs;
