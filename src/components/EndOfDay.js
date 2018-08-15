@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 
 
-class GoalSetup extends Component {
+class EndOfDay extends Component {
     constructor() {
         super();
         
@@ -16,11 +16,11 @@ class GoalSetup extends Component {
     render(){
         return (
         <div>
-            Goal Setup
+            End of Day
         </div>
         )
     }
 }
 
 
-export default GoalSetup;
+export default EndOfDay;

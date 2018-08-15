@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 
 
-class GoalSetup extends Component {
+class SavingsStatus extends Component {
     constructor() {
         super();
         
@@ -16,11 +16,11 @@ class GoalSetup extends Component {
     render(){
         return (
         <div>
-            Goal Setup
+            Savings Status
         </div>
         )
     }
 }
 
 
-export default GoalSetup;
+export default SavingsStatus;
