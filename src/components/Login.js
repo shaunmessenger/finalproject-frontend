@@ -9,7 +9,6 @@ class Login extends Component{
             password: "",
             inputUsername: "",
             inputPassword: "",
-            msg: "",
             loginFailed: false
 
         }
@@ -35,14 +34,12 @@ class Login extends Component{
         })
         
         .then(json => {
-            console.log(json.msg);
-            this.setState({msg:json.msg})
+            //console.log(json.msg);
+            this.setState({loginFailed:json.loginFailed})
           
         })
     
     }
-
-
     handleUsernameChange = event => {
         this.setState({inputUsername: event.target.value})
     }
