@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import { BrowserRouter, Route} from 'react-router-dom';
 import './App.css';
 import Login from './components/Login';
@@ -29,7 +28,7 @@ class App extends Component {
         <Route path = '/' exact ={true} render ={() => <Login sendUserIDToApp ={this.getUserIdFromLogin}/>} />
         <Route path = '/Signup' exact ={true} render ={() => <Signup/>} />
         <Route path = '/setUpGoal' exact ={true} render ={() => <GoalSetup userID = {this.state.userID}/>} />
-        <Route path = '/setUpFixed' exact ={true} render ={() => <FixedInputs/>} />
+        <Route path = '/setUpFixed' exact ={true} render ={() => <FixedInputs userID = {this.state.userID}/>} />
         <Route path = '/inputVariable' exact ={true} render ={() => <VariableExpense userID = {this.state.userID}/>} />
         <Route path = '/getSavingsStatus' exact ={true} render ={() => <SavingsStatus/>} />
         <Route path = '/todaysBudget' exact ={true} render ={() => <DailyBudget/>} />

@@ -41,11 +41,13 @@ class LoginBasic extends Component{
                 this.setState({
                     userID: json.userID
                     })
+                    this.props.sendUserIDToApp(json.userID)
                 this.props.history.push('/setUpGoal')
             } else {
                 this.setState({
                     userID: json.userID
                     })
+                    this.props.sendUserIDToApp(json.userID)
                 this.props.history.push('/getSavingsStatus')
             }
 
