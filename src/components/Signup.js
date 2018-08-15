@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 
 import NavbarStatic from './NavbarStatic.js';
 import { connect } from 'react-redux';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 
-class Signup extends Component {
+class SignupForm extends Component {
     constructor() {
         super();
         this.state ={
@@ -33,7 +33,7 @@ class Signup extends Component {
         .then(response => {
             let parsed = JSON.parse(response)
             console.log(parsed)
-
+            this.props.history.push('/')
         })
     }
     handleNewName(evt){
@@ -67,5 +67,5 @@ class Signup extends Component {
     }
 }
 
-
+let Signup = withRouter(SignupForm)
 export default Signup;
