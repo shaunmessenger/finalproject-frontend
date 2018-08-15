@@ -1,7 +1,8 @@
 import React, {Component} from "react";
+import { Link, withRouter } from 'react-router-dom';
 
 
-class Login extends Component{
+class LoginBasic extends Component{
     constructor(){
         super();
         this.state = {
@@ -32,11 +33,16 @@ class Login extends Component{
         .then(response => {
             return response.json();
         })
-        
         .then(json => {
-            //console.log(json.msg);
             this.setState({loginFailed:json.loginFailed})
-          
+            console.log(json)
+            console.log(json.loginFailed)
+            if(json.loginFailed){
+            console.log("you failed")
+            } else {
+            console.log("welcome")
+            this.props.history.push('/Homepage')
+            }
         })
     
     }
@@ -76,5 +82,5 @@ class Login extends Component{
         )
     }
 }
-
+let Login = withRouter(LoginBasic)
 export default Login;

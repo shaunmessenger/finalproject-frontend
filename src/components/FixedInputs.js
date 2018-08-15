@@ -34,10 +34,12 @@ handleSubmit = event => {
     fetch('/setUpFixed',{ 
         method: "POST",
         body: (JSON.stringify({
+            userID: 4755,
             fixedIncome: {
                 Amount: newIncome,
+                Type: 'biweekly'
             },
-            fixedCosts: {
+            fixedExpense: {
                 Housing: newHousing,
                 Transport: newTransport,
                 Food: newFood,
@@ -46,9 +48,11 @@ handleSubmit = event => {
         }))
     })
     .then(response => response.text())
-        console.log("hello")
+    .then(response => {
         console.log(response)
-        return response.json()
+        //console.log(response)
+    })
+        
         
     }
 
