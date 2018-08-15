@@ -11,7 +11,6 @@ class LoginBasic extends Component{
             inputUsername: "",
             inputPassword: "",
             loginFailed: false
-
         }
     }
 
@@ -35,14 +34,22 @@ class LoginBasic extends Component{
         })
         .then(json => {
             this.setState({loginFailed:json.loginFailed})
-            console.log(json)
-            console.log(json.loginFailed)
+            
             if(json.loginFailed){
-            console.log("you failed")
+                console.log("you failed")
+            } else if (json.mustMakeGoalProfile){
+                this.setState({
+                    userID: json.userID
+                    })
+                this.props.history.push('/GoalSetup')
             } else {
-            console.log("welcome")
-            this.props.history.push('/Homepage')
+                this.setState({
+                    userID: json.userID
+                    })
+                this.props.history.push('/SavingsStatus')
             }
+
+            
         })
     
     }

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
 
 
-
-class GoalSetup extends Component {
+class GoalSetupForm extends Component {
     constructor() {
         super();
         this.state ={
@@ -21,20 +21,22 @@ class GoalSetup extends Component {
     handleSubmit(evt){
         evt.preventDefault();
         //check for missing input
-        let bod = JSON.stringify({
-            goalValue: this.state.goalValue,
-            goalDate: this.state.goalDate,
-            goalType: this.state.goalType
+        let bod = JSON.stringify({ userID, goal:{
+            amount: this.state.goalValue,
+            endDate: this.state.goalDate,
+            type: this.state.goalType}
         });
 
-        fetch('./setupGoal', {
+        fetch('./setUpGoal', {
             method: 'POST',
             body: bod
         })
         .then(response => response.text())
         .then(response => {
+
             let parsed = JSON.parse(response)
             console.log(parsed)
+            this.props.history.push('/setUpFixed')
         })
     }
     
@@ -77,5 +79,12 @@ class GoalSetup extends Component {
     }
 }
 
-
+let GoalSetup = withRouter(GoalSetupForm)
 export default GoalSetup;
+
+
+
+
+
+
+//Jainal 15/7/2018
