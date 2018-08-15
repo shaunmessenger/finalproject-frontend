@@ -12,13 +12,23 @@ import DailyBudget from './components/DailyBudget';
 import EndOfDay from './components/EndOfDay';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state={
+      userID: null
+    }
+    this.getUserIdFromLogin = this.getUserIdFromLogin.bind(this)
+  }
+  getUserIdFromLogin (userID)  {
+    this.setState({userID: userID})
+  }
   render() {
     return (
       <BrowserRouter>
         <div>
-        <Route path = '/' exact ={true} render ={() => <Login/>} />
+    <Route path = '/' exact ={true} render ={() => <Login sendUserIDToApp ={this.getUserIdFromLogin}/>} />
         <Route path = '/Signup' exact ={true} render ={() => <Signup/>} />
-        <Route path = '/setUpGoal' exact ={true} render ={() => <GoalSetup/>} />
+        <Route path = '/setUpGoal' exact ={true} render ={() => <GoalSetup userID= {this.state.userID}/>} />
         <Route path = '/setUpFixed' exact ={true} render ={() => <FixedSetup/>} />
         <Route path = '/inputVariable' exact ={true} render ={() => <VariableExpense/>} />
         <Route path = '/getSavingsStatus' exact ={true} render ={() => <SavingsStatus/>} />
