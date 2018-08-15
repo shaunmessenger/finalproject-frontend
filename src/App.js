@@ -34,7 +34,6 @@ class App extends Component {
         <Route path = '/getSavingsStatus' exact ={true} render ={() => <SavingsStatus/>} />
         <Route path = '/todaysBudget' exact ={true} render ={() => <DailyBudget/>} />
         <Route path = '/endOfDay' exact ={true} render ={() => <EndOfDay/>} />
-        <FixedInputs/>
         </div>      
       </BrowserRouter>  
       
