@@ -16,7 +16,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div>
-        <Route path = '/Login' exact ={true} render ={() => <Login/>} />
+        <Route path = '/' exact ={true} render ={() => <Login/>} />
         <Route path = '/Signup' exact ={true} render ={() => <Signup/>} />
         <Route path = '/setUpGoal' exact ={true} render ={() => <GoalSetup/>} />
         <Route path = '/setUpFixed' exact ={true} render ={() => <FixedSetup/>} />

@@ -1,0 +1,1 @@
+<div>Will render the days of the week on the week view</div>
