@@ -20,7 +20,7 @@ class App extends Component {
     this.getUserIdFromLogin = this.getUserIdFromLogin.bind(this)
   }
   getUserIdFromLogin (userID)  {
-    this.setState({userID: userID})
+    this.setState({userID: userID})//this code is sending the userID to the components where needed
   }
   render() {
     return (
@@ -30,7 +30,7 @@ class App extends Component {
         <Route path = '/Signup' exact ={true} render ={() => <Signup/>} />
         <Route path = '/setUpGoal' exact ={true} render ={() => <GoalSetup userID= {this.state.userID}/>} />
         <Route path = '/setUpFixed' exact ={true} render ={() => <FixedInputs/>} />
-        <Route path = '/inputVariable' exact ={true} render ={() => <VariableExpense/>} />
+        <Route path = '/inputVariable' exact ={true} render ={() => <VariableExpense userID = {this.state.userID}/>} />
         <Route path = '/getSavingsStatus' exact ={true} render ={() => <SavingsStatus/>} />
         <Route path = '/todaysBudget' exact ={true} render ={() => <DailyBudget/>} />
         <Route path = '/endOfDay' exact ={true} render ={() => <EndOfDay/>} />

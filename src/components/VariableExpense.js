@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom;'
 
 
 
-
-class VariableExpense extends Component {
+class VariableExpenseForm extends Component {
     constructor() {
         super();
         this.state={
@@ -18,9 +18,12 @@ class VariableExpense extends Component {
     handleSubmit(evt) {
         evt.preventDefault();
         //check for missing input
-        let bod = JSON.stringify({
-            expenseAmt: this.state.expenseAmt,
-            expenseType: this.state.expenseType
+        let bod = JSON.stringify({ 
+            userID:this.props.userID,
+            expense:{
+            amount: this.state.expenseAmt,
+            type: this.state.expenseType
+            }
         });
 
         fetch('./inputVariable', {
@@ -31,6 +34,7 @@ class VariableExpense extends Component {
         .then(response => {
             let parsed = JSON.parse(response)
             console.log(parsed)
+            this.props.history.push('/getSavingsStatus')
         })
 
     }
@@ -68,5 +72,8 @@ class VariableExpense extends Component {
     }
 }
 
-
+let VariableExpense = withRouter(VariableExpenseForm)
 export default VariableExpense;
+
+
+//Jainal 15/7/2018

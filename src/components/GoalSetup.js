@@ -21,12 +21,13 @@ class GoalSetupForm extends Component {
     handleSubmit(evt){
         evt.preventDefault();
         //check for missing input
-        let bod = JSON.stringify({
-             //userID, 
-             goal:{
+        let bod = JSON.stringify({ 
+            userID: this.props.userID, 
+            goal:{
             amount: this.state.goalValue,
             endDate: this.state.goalDate,
-            type: this.state.goalType}
+            type: this.state.goalType
+            }
         });
 
         fetch('./setUpGoal', {
