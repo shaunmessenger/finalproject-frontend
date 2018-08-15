@@ -1,7 +1,8 @@
 import React, {Component} from "react";
+import { Link, withRouter } from 'react-router-dom';
 
 
-class Login extends Component{
+class LoginBasic extends Component{
     constructor(){
         super();
         this.state = {
@@ -10,7 +11,6 @@ class Login extends Component{
             inputUsername: "",
             inputPassword: "",
             loginFailed: false
-
         }
     }
 
@@ -32,11 +32,24 @@ class Login extends Component{
         .then(response => {
             return response.json();
         })
-        
         .then(json => {
-            //console.log(json.msg);
             this.setState({loginFailed:json.loginFailed})
-          
+            
+            if(json.loginFailed){
+                console.log("you failed")
+            } else if (json.mustMakeGoalProfile){
+                this.setState({
+                    userID: json.userID
+                    })
+                this.props.history.push('/setUpGoal')
+            } else {
+                this.setState({
+                    userID: json.userID
+                    })
+                this.props.history.push('/getSavingsStatus')
+            }
+
+            
         })
     
     }
@@ -47,6 +60,9 @@ class Login extends Component{
     handlePasswordChange = event => {
         // NOTE: event.target.value is not exatly the same as the value in 'input'
         this.setState({inputPassword: event.target.value})
+    }
+    linkToSignup = event => {
+        this.props.history.push('/Signup')
     }
 
     render(){
@@ -61,20 +77,27 @@ class Login extends Component{
                     value={this.state.inputUsername}
                     onChange={this.handleUsernameChange}>
                 </input>
+                <br/>
                 <input
                     type="text"
-                    placeholder="username"
+                    placeholder="password"
                     value={this.state.inputPassword}
                     onChange={this.handlePasswordChange}>
                 </input>
+                <br/>
                 <input 
                     type="submit">
                 </input>
+                <br/>
+                <button onClick={this.linkToSignup}>
+                    New User?
+                </button>
+
                 </form>    
                 <p>{this.state.loginFailed ? "Failed Login" : null }</p>
             </div>
         )
     }
 }
-
+let Login = withRouter(LoginBasic)
 export default Login;

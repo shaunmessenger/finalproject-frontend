@@ -29,7 +29,7 @@ class GoalSetupForm extends Component {
             type: this.state.goalType
             }
         });
-
+        console.log(bod)
         fetch('./setUpGoal', {
             method: 'POST',
             body: bod
