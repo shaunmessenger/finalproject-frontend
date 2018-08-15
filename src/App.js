@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import { BrowserRouter, Route} from 'react-router-dom';
 import './App.css';
+<<<<<<< HEAD
+import FixedInputs from './components/FixedInputs'
+=======
 import Login from './components/Login';
 import Signup from './components/Signup.js';
 import GoalSetup from './components/GoalSetup.js';
@@ -10,6 +13,7 @@ import VariableExpense from './components/VariableExpense';
 import SavingsStatus from './components/SavingsStatus';
 import DailyBudget from './components/DailyBudget';
 import EndOfDay from './components/EndOfDay';
+>>>>>>> 68e9f554acaa2d3517e3540f14a6ebf51f0c1cdd
 
 class App extends Component {
   constructor() {
@@ -24,6 +28,18 @@ class App extends Component {
   }
   render() {
     return (
+<<<<<<< HEAD
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <h1 className="App-title">Welcome to React</h1>
+        </header>
+        <p className="App-intro">
+          To get started, edit <code>src/App.js</code> and save to reload.
+        </p>
+        <FixedInputs/>
+      </div>
+=======
       <BrowserRouter>
         <div>
     <Route path = '/' exact ={true} render ={() => <Login sendUserIDToApp ={this.getUserIdFromLogin}/>} />
@@ -38,6 +54,7 @@ class App extends Component {
         </div>      
       </BrowserRouter>  
       
+>>>>>>> 68e9f554acaa2d3517e3540f14a6ebf51f0c1cdd
     );
   }
 }
