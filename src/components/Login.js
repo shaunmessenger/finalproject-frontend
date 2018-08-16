@@ -39,21 +39,25 @@ class LoginBasic extends Component{
                 console.log("you failed")
             } else if (json.mustMakeGoalProfile){
                 this.setState({
-                    userID: json.userID
+                    userID: json.userID,
                     })
                     this.props.sendUserIDToApp(json.userID)
                 this.props.history.push('/setUpGoal')
             } else if (json.mustMakeFixedProfile){
                 this.setState({
-                    userID: json.userID
+                    userID: json.userID,
+                    dailySaveGoal: json.dailySaveGoal
                 })
+                this.props.sendSaveGoalToApp (json.dailySaveGoal)
                 this.props.sendUserIDToApp(json.userID)
                 this.props.history.push('/setUpFixed')
             } else {
                 this.setState({
-                    userID: json.userID
+                    userID: json.userID,
+                    dailySaveGoal: json.dailySaveGoal
                     })
                     this.props.sendUserIDToApp(json.userID)
+                    this.props.sendSaveGoalToApp (json.dailySaveGoal)
                 this.props.history.push('/getSavingsStatus')
             }
 

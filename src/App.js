@@ -20,6 +20,7 @@ class App extends Component {
     }
     this.getUserIdFromLogin = this.getUserIdFromLogin.bind(this)
     this.getSaveGoalfromGoalSetup = this.getSaveGoalfromGoalSetup.bind(this)
+    this.getSaveGoalFromLogin = this.getSaveGoalFromLogin.bind(this)
   }
   getUserIdFromLogin (userID)  {
     this.setState({userID: userID})//sending the userID to the components where needed
@@ -27,11 +28,14 @@ class App extends Component {
   getSaveGoalfromGoalSetup(dailySaveGoal){
     this.setState({dailySaveGoal: dailySaveGoal})//sending the dailySaveGoal to end of day
   }
+  getSaveGoalFromLogin(dailySaveGoal){
+    this.setState({dailySaveGoal: dailySaveGoal})
+  }
   render() {
     return (
       <BrowserRouter>
         <div>
-        <Route path = '/' exact ={true} render ={() => <Login sendUserIDToApp ={this.getUserIdFromLogin}/>} />
+        <Route path = '/' exact ={true} render ={() => <Login sendUserIDToApp ={this.getUserIdFromLogin} sendSaveGoalToApp={this.getSaveGoalFromLogin}/>} />
         <Route path = '/Signup' exact ={true} render ={() => <Signup/>} />
         <Route path = '/setUpGoal' exact ={true} render ={() => <GoalSetup userID = {this.state.userID} sendSaveGoalToApp = {this.getSaveGoalfromGoalSetup}/>} />
         <Route path = '/setUpFixed' exact ={true} render ={() => <FixedInputs userID = {this.state.userID}/>} />
