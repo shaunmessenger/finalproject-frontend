@@ -15,7 +15,7 @@ class GoalSetupForm extends Component {
         this.newGoalDate = this.newGoalDate.bind(this)
         this.newGoalValue = this.newGoalValue.bind(this)
         this.newGoalType = this.newGoalType.bind(this)
-        
+        this.renderFixedInput = this.renderFixedInput.bind(this)
     }
 
     handleSubmit(evt){
@@ -39,7 +39,16 @@ class GoalSetupForm extends Component {
 
             let parsed = JSON.parse(response)
             console.log(parsed)
+            if (parsed.unrealistic){
+                this.setState({
+                    unrealistic: true, 
+                    dailySaveGoal: parsed.dailySaveGoal
+                })
+            } else {
+            this.setState({dailySaveGoal: response.dailySaveGoal})
+            this.props.sendSaveGoalToApp(response.dailySaveGoal)
             this.props.history.push('/setUpFixed')
+            }
         })
     }
     
@@ -52,6 +61,9 @@ class GoalSetupForm extends Component {
     }
     newGoalType(evt){
         this.setState({goalType: evt.target.value})
+    }
+    renderFixedInput() {
+        this.props.history.push('/setUpFixed')
     }
 
     render(){
@@ -77,6 +89,15 @@ class GoalSetupForm extends Component {
                 <br></br>
                 <input type="submit"/>
             </form>
+            <p>
+                {
+                    (this.state.unrealistic)?
+                    <p>A daily savings goal of ${this.state.dailySaveGoal} 
+                    might not be realistic. Modify your goal, or click 
+                    <button onClick={this.renderFixedInput}>here</button> 
+                    to continue </p>: null
+                }
+            </p>    
         </div>
         )
     }

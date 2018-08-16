@@ -14,12 +14,18 @@ class App extends Component {
   constructor() {
     super();
     this.state={
-      userID: null
+      userID: null,
+      dailySaveGoal: null
+      
     }
     this.getUserIdFromLogin = this.getUserIdFromLogin.bind(this)
+    this.getSaveGoalfromGoalSetup = this.getSaveGoalfromGoalSetup.bind(this)
   }
   getUserIdFromLogin (userID)  {
-    this.setState({userID: userID})//this code is sending the userID to the components where needed
+    this.setState({userID: userID})//sending the userID to the components where needed
+  }
+  getSaveGoalfromGoalSetup(dailySaveGoal){
+    this.setState({dailySaveGoal: dailySaveGoal})//sending the dailySaveGoal to end of day
   }
   render() {
     return (
@@ -27,12 +33,12 @@ class App extends Component {
         <div>
         <Route path = '/' exact ={true} render ={() => <Login sendUserIDToApp ={this.getUserIdFromLogin}/>} />
         <Route path = '/Signup' exact ={true} render ={() => <Signup/>} />
-        <Route path = '/setUpGoal' exact ={true} render ={() => <GoalSetup userID = {this.state.userID}/>} />
+        <Route path = '/setUpGoal' exact ={true} render ={() => <GoalSetup userID = {this.state.userID} sendSaveGoalToApp = {this.getSaveGoalfromGoalSetup}/>} />
         <Route path = '/setUpFixed' exact ={true} render ={() => <FixedInputs userID = {this.state.userID}/>} />
         <Route path = '/inputVariable' exact ={true} render ={() => <VariableExpense userID = {this.state.userID}/>} />
         <Route path = '/getSavingsStatus' exact ={true} render ={() => <SavingsStatus userID = {this.state.userID}/>} />
         <Route path = '/todaysBudget' exact ={true} render ={() => <DailyBudget/>} />
-        <Route path = '/endOfDay' exact ={true} render ={() => <EndOfDay userID = {this.state.userID}/>} />
+        <Route path = '/endOfDay' exact ={true} render ={() => <EndOfDay userID = {this.state.userID} dailySaveGoal = {this.state.dailySaveGoal}/>} />
 
         </div>      
       </BrowserRouter>  
