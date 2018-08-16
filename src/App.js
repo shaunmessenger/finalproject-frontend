@@ -5,10 +5,10 @@ import Login from './components/Login';
 import Signup from './components/Signup.js';
 import GoalSetup from './components/GoalSetup.js';
 import FixedInputs from './components/FixedInputs.js';
-import VariableExpense from './components/VariableExpense';
-import SavingsStatus from './components/SavingsStatus';
-import DailyBudget from './components/DailyBudget';
-import EndOfDay from './components/EndOfDay';
+import VariableExpense from './components/VariableExpense.js';
+import SavingsStatus from './components/SavingsStatus.js';
+import DailyBudget from './components/DailyBudget.js';
+import EndOfDay from './components/EndOfDay.js';
 
 class App extends Component {
   constructor() {
@@ -32,7 +32,8 @@ class App extends Component {
         <Route path = '/inputVariable' exact ={true} render ={() => <VariableExpense userID = {this.state.userID}/>} />
         <Route path = '/getSavingsStatus' exact ={true} render ={() => <SavingsStatus userID = {this.state.userID}/>} />
         <Route path = '/todaysBudget' exact ={true} render ={() => <DailyBudget/>} />
-        <Route path = '/endOfDay' exact ={true} render ={() => <EndOfDay/>} />
+        <Route path = '/endOfDay' exact ={true} render ={() => <EndOfDay userID = {this.state.userID}/>} />
+
         </div>      
       </BrowserRouter>  
       
