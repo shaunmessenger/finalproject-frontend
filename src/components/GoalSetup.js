@@ -45,8 +45,8 @@ class GoalSetupForm extends Component {
                     dailySaveGoal: parsed.dailySaveGoal
                 })
             } else {
-            this.setState({dailySaveGoal: response.dailySaveGoal})
-            this.props.sendSaveGoalToApp(response.dailySaveGoal)
+            this.setState({dailySaveGoal: parsed.dailySaveGoal})
+            this.props.sendSaveGoalToApp(parsed.dailySaveGoal)
             this.props.history.push('/setUpFixed')
             }
         })
