@@ -63,6 +63,7 @@ class GoalSetupForm extends Component {
         this.setState({goalType: evt.target.value})
     }
     renderFixedInput() {
+        this.props.sendSaveGoalToApp(this.state.dailySaveGoal)
         this.props.history.push('/setUpFixed')
     }
 
