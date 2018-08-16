@@ -43,6 +43,12 @@ class LoginBasic extends Component{
                     })
                     this.props.sendUserIDToApp(json.userID)
                 this.props.history.push('/setUpGoal')
+            } else if (json.mustMakeFixedProfile){
+                this.setState({
+                    userID: json.userID
+                })
+                this.props.sendUserIDToApp(json.userID)
+                this.props.history.push('/setUpFixed')
             } else {
                 this.setState({
                     userID: json.userID
