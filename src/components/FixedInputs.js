@@ -1,9 +1,10 @@
 import React, { Component } from "react";
+import { withRouter } from 'react-router-dom';
 
 
-class FixedInputs extends Component{
-   constructor(){
-   super();
+class FixedInputsBasic extends Component{
+   constructor(props){
+   super(props);
    this.state = {
        income: "",
        housing: "",
@@ -35,10 +36,10 @@ handleSubmit = event => {
     fetch('/setUpFixed',{ 
         method: "POST",
         body: (JSON.stringify({
-            userID: 4755,
+            userID: this.props.userID,
             fixedIncome: {
-                Amount: newIncome,
-                Type: 'biweekly'
+                amount: newIncome,
+                type: 'biweekly'
             },
             fixedExpense: {
                 Housing: newHousing,
@@ -51,7 +52,8 @@ handleSubmit = event => {
     .then(response => response.text())
     .then(response => {
         console.log(response)
-        //console.log(response)
+        this.props.history.push('/getSavingsStatus')
+
     })
         
         
@@ -114,5 +116,5 @@ handleOtherChange = event => {
    }
 }
 
-
+let FixedInputs = withRouter(FixedInputsBasic)
 export default FixedInputs;
