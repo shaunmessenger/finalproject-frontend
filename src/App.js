@@ -30,7 +30,7 @@ class App extends Component {
         <Route path = '/setUpGoal' exact ={true} render ={() => <GoalSetup userID = {this.state.userID}/>} />
         <Route path = '/setUpFixed' exact ={true} render ={() => <FixedInputs userID = {this.state.userID}/>} />
         <Route path = '/inputVariable' exact ={true} render ={() => <VariableExpense userID = {this.state.userID}/>} />
-        <Route path = '/getSavingsStatus' exact ={true} render ={() => <SavingsStatus/>} />
+        <Route path = '/getSavingsStatus' exact ={true} render ={() => <SavingsStatus userID = {this.state.userID}/>} />
         <Route path = '/todaysBudget' exact ={true} render ={() => <DailyBudget/>} />
         <Route path = '/endOfDay' exact ={true} render ={() => <EndOfDay/>} />
         </div>      

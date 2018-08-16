@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+import { withRouter } from 'react-router-dom';
 
 
-class FixedInputs extends Component{
+class FixedInputsBasic extends Component{
    constructor(props){
    super(props);
    this.state = {
@@ -51,6 +52,8 @@ handleSubmit = event => {
     .then(response => response.text())
     .then(response => {
         console.log(response)
+        this.props.history.push('/getSavingsStatus')
+
     })
         
         
@@ -113,5 +116,5 @@ handleOtherChange = event => {
    }
 }
 
-
+let FixedInputs = withRouter(FixedInputsBasic)
 export default FixedInputs;
