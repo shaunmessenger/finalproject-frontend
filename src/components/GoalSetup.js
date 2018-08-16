@@ -78,6 +78,7 @@ class GoalSetupForm extends Component {
                     <option value="vacation">Vacation</option>
                     <option value="newCar">New car</option>
                     <option value="payLoan">Pay off loan</option>
+                    <option value="other">Other</option>
                 </select>
                 <br></br>
                 <input placeholder="Goal Amount"
@@ -93,10 +94,8 @@ class GoalSetupForm extends Component {
             <p>
                 {
                     (this.state.unrealistic)?
-                    <p>A daily savings goal of ${this.state.dailySaveGoal} 
-                     might not be realistic. Modify your goal, or click 
-                    <button onClick={this.renderFixedInput}>here</button> 
-                    to continue </p>: null
+                    <div>A daily savings goal of ${this.state.dailySaveGoal} might not be realistic. Modify your goal, or click <button onClick={this.renderFixedInput}>here</button> to continue </div>
+                    : null
                 }
             </p>    
         </div>
