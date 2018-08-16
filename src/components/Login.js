@@ -58,6 +58,8 @@ class LoginBasic extends Component{
                     })
                     this.props.sendUserIDToApp(json.userID)
                     this.props.sendSaveGoalToApp (json.dailySaveGoal)
+                    this.props.sendTodaysBudgetToApp(json.todaysBudget)
+                    this.props.sendTodaysVariableToApp(json.todaysVariable)
                 this.props.history.push('/getSavingsStatus')
             }
 
