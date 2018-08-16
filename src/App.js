@@ -32,12 +32,8 @@ class App extends Component {
         <Route path = '/inputVariable' exact ={true} render ={() => <VariableExpense userID = {this.state.userID}/>} />
         <Route path = '/getSavingsStatus' exact ={true} render ={() => <SavingsStatus userID = {this.state.userID}/>} />
         <Route path = '/todaysBudget' exact ={true} render ={() => <DailyBudget/>} />
-<<<<<<< HEAD
         <Route path = '/endOfDay' exact ={true} render ={() => <EndOfDay userID = {this.state.userID}/>} />
 
-=======
-        <Route path = '/endOfDay' exact ={true} render ={() => <EndOfDay/>} />
->>>>>>> 050df2f2e00494ab0a13206d746c2ce15aa155fc
         </div>      
       </BrowserRouter>  
       

@@ -20,7 +20,7 @@ class EndOfDayForm extends Component {
     handleSubmit(evt){
         evt.preventDefault();
         let bod = JSON.stringify({
-            userID: this.props.userID,
+            userID:   this.props.userID,
             savedAmount: this.state.daySavings,
             rolloverAmount: this.state.dayRollover
         });
@@ -67,3 +67,5 @@ class EndOfDayForm extends Component {
 
 let EndOfDay = withRouter(EndOfDayForm)
 export default EndOfDay;
+
+//jainal 16/8/2018
