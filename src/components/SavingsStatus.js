@@ -40,7 +40,7 @@ class SavingsStatusBasic extends Component {
                <div class="progressbarred" style={{width:percentage+"%"}}></div>
            </div>
            <h3>Daily Budget ${this.state.todaysBudget}</h3>
-           <h3>SaVING mETRIC</h3>
+           <h3>{percentage}% of goal reached</h3>
            <Link to="/inputVariable" class="container">
                <button>Submit Expense</button>
            </Link>

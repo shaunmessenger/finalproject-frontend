@@ -33,6 +33,9 @@ class VariableExpenseForm extends Component {
         .then(response => response.text())
         .then(response => {
             let parsed = JSON.parse(response)
+            let todaysBudget = parsed.todaysBudget
+            let todaysVariable = parsed.todaysVariable
+            this.props.sendInfoToApp(todaysBudget, todaysVariable)
             console.log(parsed)
             this.props.history.push('/getSavingsStatus')
         })

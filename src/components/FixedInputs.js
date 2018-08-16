@@ -51,7 +51,9 @@ handleSubmit = event => {
     })
     .then(response => response.text())
     .then(response => {
-        console.log(response)
+        let parsed = JSON.parse(response)
+        console.log(parsed.todaysBudget)
+        this.props.sendTodaysBudgetToApp(parsed.todaysBudget)
         this.props.history.push('/getSavingsStatus')
 
     })

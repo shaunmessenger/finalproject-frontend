@@ -33,6 +33,10 @@ class EndOfDayForm extends Component {
         .then(response => {
             let parsed = JSON.parse(response)
             console.log(parsed)
+            let todaysBudget = parsed.todaysBudget
+            let todaysVariable = parsed.todaysVariable
+            this.props.sendInfoToApp(todaysBudget, todaysVariable)
+            
             this.props.history.push('/getSavingsStatus')
         })
     }
@@ -56,8 +60,8 @@ class EndOfDayForm extends Component {
                 <input placeholder="Rollover"
                        value ={this.state.dayRollover}
                        onChange={this.handleRollover}/>
-                <div>Savings Goal: /* {this.state.dailySaveGoal} */</div>
-                <div>Budget remaining: /*{this.state.todaysBudget}*/</div>
+                <div>Savings Goal: {this.props.dailySaveGoal}</div>
+                <div>Budget remaining: {this.props.todaysBudget}</div>
                 <input type="submit"/>
             </form>                   
         </div>
