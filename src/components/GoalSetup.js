@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 
 
@@ -30,7 +30,7 @@ class GoalSetupForm extends Component {
             }
         });
         console.log(bod)
-        fetch('./setUpGoal', {
+        fetch('/setUpGoal', {
             method: 'POST',
             body: bod
         })
@@ -63,6 +63,7 @@ class GoalSetupForm extends Component {
         this.setState({goalType: evt.target.value})
     }
     renderFixedInput() {
+        this.props.sendSaveGoalToApp(this.state.dailySaveGoal)
         this.props.history.push('/setUpFixed')
     }
 

@@ -16,7 +16,7 @@ class DailyBudget extends Component {
     render(){
         return (
         <div>
-            Daily Budget
+            
         </div>
         )
     }
