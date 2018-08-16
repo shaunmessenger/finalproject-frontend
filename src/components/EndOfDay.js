@@ -25,7 +25,7 @@ class EndOfDayForm extends Component {
             rolloverAmount: this.state.dayRollover
         });
         console.log(bod)
-        fetch('./endOfDay', {
+        fetch('/endOfDay', {
             method:'POST',
             body: bod
         })
