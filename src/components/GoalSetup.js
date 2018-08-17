@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 
 
@@ -30,7 +30,7 @@ class GoalSetupForm extends Component {
             }
         });
         console.log(bod)
-        fetch('./setUpGoal', {
+        fetch('/setUpGoal', {
             method: 'POST',
             body: bod
         })
@@ -94,7 +94,11 @@ class GoalSetupForm extends Component {
             <p>
                 {
                     (this.state.unrealistic)?
-                    <div>A daily savings goal of ${this.state.dailySaveGoal} might not be realistic. Modify your goal, or click <button onClick={this.renderFixedInput}>here</button> to continue </div>
+                    <div>A daily savings goal of ${this.state.dailySaveGoal} 
+                        might not be realistic. Modify your goal, or click 
+                       <button onClick={this.renderFixedInput}>here</button> 
+                        to continue 
+                    </div>
                     : null
                 }
             </p>    
