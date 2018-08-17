@@ -35,9 +35,15 @@ const styles = {
 };
 
 class MenuAppBarBasic extends React.Component {
-  state = {
+  constructor(){
+    super();
+  this.state = {
     anchorEl: null,
+    userID: ""
   };
+  this.hamburger = this.hamburger.bind(this)
+}
+
 
   handleChange = (event, checked) => {
     this.setState({ auth: checked });
@@ -48,28 +54,29 @@ class MenuAppBarBasic extends React.Component {
   };
 
   // passing the event as an argument and letting 'path' = each MenuItem's Id
+  handleMinimize = () => {
+    this.setState({ anchorEl: null });
+      }
+    
+  
   handleClose = (e) => {
     let path = e.target.id
     this.setState({ anchorEl: null });
     this.props.history.push(path)
     if(path === "/"){
       this.props.logout()
+      
       }
     };
 
-  render() {
+  hamburger(){
     const { classes, userID } = this.props;
     const { anchorEl } = this.state;
     const open = Boolean(anchorEl);
-
-    return (
-      <div className={classes.root}>
-        <AppBar position="static">
-          <Toolbar style={styles.toolbar}>
-            <Typography variant="title" color={primary.main} className={classes.flex}>
-              Saver
-            </Typography>
-            {userID && (
+    if(!this.props.userID) {
+      return null
+    } else {
+      return this.props.userID && (
               <div>
                 <IconButton
                   aria-owns={open ? 'menu-appbar' : null}
@@ -87,20 +94,38 @@ class MenuAppBarBasic extends React.Component {
                     horizontal: 'right',
                   }}
                   transformOrigin={{
-                    vertical: 'top',
+                    // had to change this to bottom... no idea why
+                    vertical: 'bottom',
                     horizontal: 'right',
                   }}
                   open={open}
-                  onClose={this.handleClose}
+                  onClose={this.handleMinimize}
                 >
                   <MenuItem id="/getSavingsStatus" onClick={this.handleClose}>Homepage</MenuItem>
-                  <MenuItem id="/" onClick={this.handleClose}>Weekly Dashboard</MenuItem>
+                  <MenuItem id="/getSavingsStatus" onClick={this.handleClose}>Weekly Dashboard</MenuItem>
                   <MenuItem id="/setUpFixed" onClick={this.handleClose}>Reset Fixed Costs</MenuItem>
                   <MenuItem id="/setupGoal" onClick={this.handleClose}> Reset Goals </MenuItem>
                   <MenuItem id="/" onClick={this.handleClose}>Logout</MenuItem>
                 </Menu>
               </div>
-            )}
+            )
+    }
+
+  }
+
+  render() {
+    const { classes, userID } = this.props;
+    const { anchorEl } = this.state;
+    const open = Boolean(anchorEl);
+
+    return (
+      <div className={classes.root}>
+        <AppBar position="static">
+          <Toolbar style={styles.toolbar}>
+            <Typography variant="title" color={primary.main} className={classes.flex}>
+              Saver
+            </Typography>
+            {this.hamburger()}
           </Toolbar>
         </AppBar>
       </div>
