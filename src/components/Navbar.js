@@ -52,7 +52,10 @@ class MenuAppBarBasic extends React.Component {
     let path = e.target.id
     this.setState({ anchorEl: null });
     this.props.history.push(path)
-  };
+    if(path === "/"){
+      this.props.logout()
+      }
+    };
 
   render() {
     const { classes, userID } = this.props;
