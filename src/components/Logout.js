@@ -5,8 +5,9 @@ class LogoutBasic extends Component {
 
     render(){
         this.props.reset()
+        this.props.history.push('/')
         return (
-            this.props.history.push('/')
+            null
         )
     }
 }

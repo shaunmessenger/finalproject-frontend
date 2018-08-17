@@ -60,8 +60,8 @@ class EndOfDayForm extends Component {
                 <input placeholder="Rollover"
                        value ={this.state.dayRollover}
                        onChange={this.handleRollover}/>
-                <div>Savings Goal: {this.props.dailySaveGoal}</div>
-                <div>Budget remaining: {this.props.todaysBudget}</div>
+                <div>Your savings goal for today: ${this.props.dailySaveGoal}</div>
+                <div>Budget remaining: ${this.props.todaysBudget}</div>
                 <input type="submit"/>
             </form>                   
         </div>

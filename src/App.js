@@ -66,7 +66,7 @@ class App extends Component {
         <Route path = '/getSavingsStatus' exact ={true} render ={() => <SavingsStatus userID = {this.state.userID} todaysBudget={this.state.todaysBudget}/>} />
         <Route path = '/todaysBudget' exact ={true} render ={() => <DailyBudget/>} />
         <Route path = '/endOfDay' exact ={true} render ={() => <EndOfDay userID = {this.state.userID} dailySaveGoal = {this.state.dailySaveGoal} todaysBudget={this.state.todaysBudget} sendInfoToApp={this.getBudgetAndVarFromInputExp}/>} />
-        <Logout reset={this.state.clearStateFromLogout}/>
+        {/* <Logout reset={this.clearStateFromLogout}/> */}
         </div>      
       </BrowserRouter>  
       
