@@ -77,7 +77,7 @@ class GoalSetupForm extends Component {
                         onChange ={this.newGoalType}>
                     <option value="vacation">Vacation</option>
                     <option value="newCar">New car</option>
-                    <option value="payLoan">Pay off loan</option>
+                    <option value="buyAHouse">Buy a house</option>
                     <option value="other">Other</option>
                 </select>
                 <br></br>

@@ -2,6 +2,9 @@
     height: 50px;
     width: 250px;
     border: thick double black;
+    margin-left: auto;
+    margin-right: auto;
+    
 }
 
 .progressbarred{
@@ -12,4 +15,14 @@
 
 .container{
   position: relative;
+}
+
+.mainPageWithoutButtons {
+  background-repeat: no-repeat;
+  height: 300px;
+  width: 300px;
+  background-size: cover;
+  text-align: center;
+
+
 }
