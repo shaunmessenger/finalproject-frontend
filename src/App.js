@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route} from 'react-router-dom';
 import './App.css';
-
 import MenuAppBar from './components/Navbar';
 import Login from './components/Login';
 import Signup from './components/Signup';
@@ -28,6 +27,8 @@ class App extends Component {
     this.getBudgetAndVarFromInputExp = this.getBudgetAndVarFromInputExp.bind(this)
     this.getTodaysVariableFromLogin = this.getTodaysVariableFromLogin.bind(this)
     this.clearStateFromLogout = this.clearStateFromLogout.bind(this)
+    this.handleClickOpen = this.handleClickOpen.bind(this)
+    this.handleClickClose = this.handleClickClose.bind(this)
   }
   getUserIdFromLogin (userID)  {
     this.setState({userID: userID})//sending the userID to the components where needed
@@ -52,6 +53,12 @@ class App extends Component {
   }
   clearStateFromLogout(){
     this.setState({todaysBudget: 0, todaysVariable: 0, dailySaveGoal: 0, userID: 0})
+  }
+  handleClickOpen() {
+    this.setState({ open: true });
+  }
+  handleClickClose() {
+    this.setState({ open: false });
   }
 
   render() {
@@ -92,9 +99,10 @@ class App extends Component {
           <EndOfDay userID = {this.state.userID} 
                     dailySaveGoal = {this.state.dailySaveGoal} 
                     todaysBudget={this.state.todaysBudget} 
-                    sendInfoToApp={this.getBudgetAndVarFromInputExp}/>} 
+                    sendInfoToApp={this.getBudgetAndVarFromInputExp}
+                    handleOpen={this.handleClickOpen}
+                    handleClosed={this.handleClickClose}/>} 
           />
-
         </div>      
       </BrowserRouter>  
       

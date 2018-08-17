@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import AlertDialogSlide from './PopUp';
 
 
 
@@ -9,7 +10,8 @@ class EndOfDayForm extends Component {
         super();
         this.state ={
             daySavings: null,
-            dayRollover:null
+            dayRollover:null,
+            open: false,
         }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleSavings = this.handleSavings.bind(this)
@@ -19,6 +21,7 @@ class EndOfDayForm extends Component {
 
     handleSubmit(evt){
         evt.preventDefault();
+        this.setState({open: !this.state.open})
         let bod = JSON.stringify({
             userID:   this.props.userID,
             savedAmount: this.state.daySavings,
@@ -37,7 +40,6 @@ class EndOfDayForm extends Component {
             let todaysVariable = parsed.todaysVariable
             this.props.sendInfoToApp(todaysBudget, todaysVariable)
             
-            this.props.history.push('/getSavingsStatus')
         })
     }
 
@@ -47,11 +49,19 @@ class EndOfDayForm extends Component {
     handleRollover(evt) {
         this.setState({dayRollover: evt.target.value})
     }
+    handleClickOpen = () => {
+        this.setState({ open: true });
+    };
+    handleClose = () => {
+        this.setState({ open: false });
+        this.props.history.push('/getSavingsStatus')
+    };
  
 
     render(){
         return (
         <div>
+             <AlertDialogSlide open={this.state.open} handleClose={this.handleClose}/>
             <form onSubmit = {this.handleSubmit}>
                 <h2>Done for the day?</h2>
                 Add to savings:
