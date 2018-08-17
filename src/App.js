@@ -10,7 +10,7 @@ import VariableExpense from './components/VariableExpense';
 import SavingsStatus from './components/SavingsStatus';
 import DailyBudget from './components/DailyBudget';
 import EndOfDay from './components/EndOfDay';
-import Logout from './components/Logout';
+
 
 class App extends Component {
   constructor() {
