@@ -10,6 +10,7 @@ import VariableExpense from './components/VariableExpense';
 import SavingsStatus from './components/SavingsStatus';
 import DailyBudget from './components/DailyBudget';
 import EndOfDay from './components/EndOfDay';
+import Logout from './components/Logout'
 
 class App extends Component {
   constructor() {
@@ -26,6 +27,7 @@ class App extends Component {
     this.getTodaysBudgetFromFixedSetup = this.getTodaysBudgetFromFixedSetup.bind(this)
     this.getBudgetAndVarFromInputExp = this.getBudgetAndVarFromInputExp.bind(this)
     this.getTodaysVariableFromLogin = this.getTodaysVariableFromLogin.bind(this)
+    this.clearStateFromLogout = this.clearStateFromLogout.bind(this)
   }
   getUserIdFromLogin (userID)  {
     this.setState({userID: userID})//sending the userID to the components where needed
@@ -48,6 +50,9 @@ class App extends Component {
   getTodaysVariableFromLogin(todaysVar){
     this.setState({todaysVariable: todaysVar})
   }
+  clearStateFromLogout(){
+    this.setState({todaysBudget: 0, todaysVariable: 0, dailySaveGoal: 0, userID: 0})
+  }
   render() {
     return (
       <BrowserRouter>
@@ -61,7 +66,7 @@ class App extends Component {
         <Route path = '/getSavingsStatus' exact ={true} render ={() => <SavingsStatus userID = {this.state.userID} todaysBudget={this.state.todaysBudget}/>} />
         <Route path = '/todaysBudget' exact ={true} render ={() => <DailyBudget/>} />
         <Route path = '/endOfDay' exact ={true} render ={() => <EndOfDay userID = {this.state.userID} dailySaveGoal = {this.state.dailySaveGoal} todaysBudget={this.state.todaysBudget} sendInfoToApp={this.getBudgetAndVarFromInputExp}/>} />
-
+        {/* <Logout reset={this.clearStateFromLogout}/> */}
         </div>      
       </BrowserRouter>  
       
