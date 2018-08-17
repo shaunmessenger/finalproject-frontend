@@ -52,7 +52,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div>
-        {/* <MenuAppBar userID={this.state.userID}/>  */}
+        <MenuAppBar userID={this.state.userID}/> 
         <Route path = '/' exact ={true} render ={() => <Login sendUserIDToApp ={this.getUserIdFromLogin} sendSaveGoalToApp={this.getSaveGoalFromLogin} sendTodaysBudgetToApp={this.getTodaysBudgetFromLogin} sendTodaysVariableToApp={this.getTodaysVariableFromLogin}/>} />
         <Route path = '/Signup' exact ={true} render ={() => <Signup/>} />
         <Route path = '/setUpGoal' exact ={true} render ={() => <GoalSetup userID = {this.state.userID} sendSaveGoalToApp = {this.getSaveGoalfromGoalSetup}/>} />
