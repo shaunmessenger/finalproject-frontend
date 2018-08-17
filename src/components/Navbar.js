@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -6,15 +7,15 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import Switch from '@material-ui/core/Switch';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormGroup from '@material-ui/core/FormGroup';
+// import AccountCircle from '@material-ui/icons/AccountCircle';
+// import Switch from '@material-ui/core/Switch';
+// import FormControlLabel from '@material-ui/core/FormControlLabel';
+// import FormGroup from '@material-ui/core/FormGroup';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import { theme } from '../theming/theme';
 
-// const { palette: { primary } } = theme;
+// const { palette: { primary } } = theme; (example of destructuring, same as line 19)
 const primary = theme.palette.primary;
 
 const styles = {
@@ -33,7 +34,7 @@ const styles = {
   }
 };
 
-class MenuAppBar extends React.Component {
+class MenuAppBarBasic extends React.Component {
   state = {
     anchorEl: null,
   };
@@ -46,13 +47,16 @@ class MenuAppBar extends React.Component {
     this.setState({ anchorEl: event.currentTarget });
   };
 
-  handleClose = () => {
+  // passing the event as an argument and letting 'path' = each MenuItem's Id
+  handleClose = (e) => {
+    let path = e.target.id
     this.setState({ anchorEl: null });
+    this.props.history.push(path)
   };
 
   render() {
     const { classes, userID } = this.props;
-    const { auth, anchorEl } = this.state;
+    const { anchorEl } = this.state;
     const open = Boolean(anchorEl);
 
     return (
@@ -86,11 +90,11 @@ class MenuAppBar extends React.Component {
                   open={open}
                   onClose={this.handleClose}
                 >
-                  <MenuItem onClick={this.handleClose}>Homepage</MenuItem>
-                  <MenuItem onClick={this.handleClose}>Weekly Dashboard</MenuItem>
-                  <MenuItem onClick={this.handleClose}>Manage Profile</MenuItem>
-                  <MenuItem onClick={this.handleClose}>Submit Expense</MenuItem>
-                  <MenuItem onClick={this.handleClose}>Logout</MenuItem>
+                  <MenuItem id="/getSavingsStatus" onClick={this.handleClose}>Homepage</MenuItem>
+                  <MenuItem id="/" onClick={this.handleClose}>Weekly Dashboard</MenuItem>
+                  <MenuItem id="/setUpFixed" onClick={this.handleClose}>Reset Fixed Costs</MenuItem>
+                  <MenuItem id="/setupGoal" onClick={this.handleClose}> Reset Goals </MenuItem>
+                  <MenuItem id="/" onClick={this.handleClose}>Logout</MenuItem>
                 </Menu>
               </div>
             )}
@@ -101,8 +105,8 @@ class MenuAppBar extends React.Component {
   }
 }
 
-MenuAppBar.propTypes = {
+MenuAppBarBasic.propTypes = {
   classes: PropTypes.object.isRequired,
 };
-
+let MenuAppBar = withRouter(MenuAppBarBasic)
 export default withStyles(styles)(MenuAppBar);
