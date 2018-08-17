@@ -47,6 +47,7 @@ class MenuAppBarBasic extends React.Component {
     this.setState({ anchorEl: event.currentTarget });
   };
 
+  // passing the event as an argument and letting 'path' = each MenuItem's Id
   handleClose = (e) => {
     let path = e.target.id
     this.setState({ anchorEl: null });
