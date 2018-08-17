@@ -30,6 +30,9 @@ class SavingsStatusBasic extends Component {
 
    render(){
        let percentage = (this.state.savingsToDate/this.state.goalAmount)*100
+       if (isNaN(percentage)){
+           percentage = 0
+       }
        if (percentage > 100){
            percentage = 100
        }
