@@ -12,6 +12,10 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormGroup from '@material-ui/core/FormGroup';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
+import { theme } from '../theming/theme';
+
+// const { palette: { primary } } = theme;
+const primary = theme.palette.primary;
 
 const styles = {
   root: {
@@ -24,6 +28,9 @@ const styles = {
     marginLeft: -12,
     marginRight: 20,
   },
+  toolbar: {
+    background: primary.main
+  }
 };
 
 class MenuAppBar extends React.Component {
@@ -51,8 +58,8 @@ class MenuAppBar extends React.Component {
     return (
       <div className={classes.root}>
         <AppBar position="static">
-          <Toolbar>
-            <Typography variant="title" color="inherit" className={classes.flex}>
+          <Toolbar style={styles.toolbar}>
+            <Typography variant="title" color={primary.main} className={classes.flex}>
               Saver
             </Typography>
             {userID && (

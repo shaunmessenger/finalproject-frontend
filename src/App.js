@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route} from 'react-router-dom';
 import './App.css';
-import MenuAppBar from './components/Navbar.js';
+import MenuAppBar from './components/Navbar';
 import Login from './components/Login';
-import Signup from './components/Signup.js';
-import GoalSetup from './components/GoalSetup.js';
-import FixedInputs from './components/FixedInputs.js';
-import VariableExpense from './components/VariableExpense.js';
-import SavingsStatus from './components/SavingsStatus.js';
-import DailyBudget from './components/DailyBudget.js';
-import EndOfDay from './components/EndOfDay.js';
+import Signup from './components/Signup';
+import GoalSetup from './components/GoalSetup';
+import FixedInputs from './components/FixedInputs';
+import VariableExpense from './components/VariableExpense';
+import SavingsStatus from './components/SavingsStatus';
+import DailyBudget from './components/DailyBudget';
+import EndOfDay from './components/EndOfDay';
 
 class App extends Component {
   constructor() {

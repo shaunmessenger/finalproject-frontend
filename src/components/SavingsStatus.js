@@ -5,7 +5,7 @@ class SavingsStatusBasic extends Component {
    constructor() {
        super();
        this.state = {
-           savingsToDate: null
+           savingsToDate: 0
        }
 
    }
