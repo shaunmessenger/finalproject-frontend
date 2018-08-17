@@ -8,7 +8,7 @@ import GoalSetup from './components/GoalSetup';
 import FixedInputs from './components/FixedInputs';
 import VariableExpense from './components/VariableExpense';
 import SavingsStatus from './components/SavingsStatus';
-import DailyBudget from './components/DailyBudget';
+import WeekContainer from './components/WeekContainer.js';
 import EndOfDay from './components/EndOfDay';
 
 class App extends Component {
@@ -65,7 +65,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div>
-        <MenuAppBar userID={this.state.userID} logout={this.clearStateFromLogout}/>  
+        <MenuAppBar userID={this.state.userID} logout={this.clearStateFromLogout}/> 
         <Route path = '/' exact ={true} render ={() => 
           <Login sendUserIDToApp ={this.getUserIdFromLogin} 
                  sendSaveGoalToApp={this.getSaveGoalFromLogin} 
@@ -93,8 +93,8 @@ class App extends Component {
         {/* <Route path = '/todaysBudget' exact ={true} render ={() => 
           <WeekContainer userID = {this.state.userID} 
                        todaysBudget={this.state.todaysBudget}
-                       todaysVariable ={this.state.todaysVariable}/>} 
-          /> */}
+                       todaysVariable ={this.state.todaysVariable}/>}  */}
+          {/* /> */}
         <Route path = '/endOfDay' exact ={true} render ={() => 
           <EndOfDay userID = {this.state.userID} 
                     dailySaveGoal = {this.state.dailySaveGoal} 

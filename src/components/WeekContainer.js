@@ -8,22 +8,9 @@ class WeekContainer extends Component {
         this.state = {
             currentDate: ''
         }
-        // this.getDay = this.getDay.bind(this)
-    }
-    // componentDidMount(){}
-
-    
-
-
-    // newDate () {
-    //     let today = new Date();
-    //     let lastSunday = new Date(today.setDate(today.getDate()-today.getDay()))
-    //     if((new Date() + "").slice(0, 3) === "Sun"){
-    //         return (new Date + " ").slice(0, 10) 
-    //     }
-    //     else { return (lastSunday + " ").slice(0, 10)}
         
-    // }
+    }
+    
     
     render(){
         return (
