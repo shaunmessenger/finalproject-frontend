@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route} from 'react-router-dom';
 import './App.css';
-import MenuAppBar from './components/Navbar.js';
+// import MenuAppBar from './components/Navbar.js';
 import Login from './components/Login';
 import Signup from './components/Signup.js';
 import GoalSetup from './components/GoalSetup.js';
@@ -52,7 +52,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div>
-        <MenuAppBar userID={this.state.userID}/> 
+        {/* <MenuAppBar userID={this.state.userID}/>  */}
         <Route path = '/' exact ={true} render ={() => <Login sendUserIDToApp ={this.getUserIdFromLogin} sendSaveGoalToApp={this.getSaveGoalFromLogin} sendTodaysBudgetToApp={this.getTodaysBudgetFromLogin} sendTodaysVariableToApp={this.getTodaysVariableFromLogin}/>} />
         <Route path = '/Signup' exact ={true} render ={() => <Signup/>} />
         <Route path = '/setUpGoal' exact ={true} render ={() => <GoalSetup userID = {this.state.userID} sendSaveGoalToApp = {this.getSaveGoalfromGoalSetup}/>} />
