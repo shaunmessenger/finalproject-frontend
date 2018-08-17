@@ -94,7 +94,11 @@ class GoalSetupForm extends Component {
             <p>
                 {
                     (this.state.unrealistic)?
-                    <div>A daily savings goal of ${this.state.dailySaveGoal} might not be realistic. Modify your goal, or click <button onClick={this.renderFixedInput}>here</button> to continue </div>
+                    <div>A daily savings goal of ${this.state.dailySaveGoal} 
+                        might not be realistic. Modify your goal, or click 
+                       <button onClick={this.renderFixedInput}>here</button> 
+                        to continue 
+                    </div>
                     : null
                 }
             </p>    
