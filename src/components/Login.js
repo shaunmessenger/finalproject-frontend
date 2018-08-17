@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { withRouter } from 'react-router-dom';
 
 
+
 class LoginBasic extends Component{
     constructor(){
         super();
@@ -34,7 +35,7 @@ class LoginBasic extends Component{
         })
         .then(json => {
             this.setState({loginFailed:json.loginFailed})
-            
+ 
             if(json.loginFailed){
                 console.log("you failed")
             } else if (json.mustMakeGoalProfile){
@@ -60,10 +61,10 @@ class LoginBasic extends Component{
                     this.props.sendSaveGoalToApp (json.dailySaveGoal)
                     this.props.sendTodaysBudgetToApp(json.todaysBudget)
                     this.props.sendTodaysVariableToApp(json.todaysVariable)
-                this.props.history.push('/getSavingsStatus')
+                    this.props.history.push('/getSavingsStatus')
             }
-
-            
+ 
+ 
         })
     
     }
@@ -106,7 +107,6 @@ class LoginBasic extends Component{
                 <button onClick={this.linkToSignup}>
                     New User?
                 </button>
-
                 </form>    
                 <p>{this.state.loginFailed ? "Failed Login" : null }</p>
             </div>

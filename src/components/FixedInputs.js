@@ -7,6 +7,7 @@ class FixedInputsBasic extends Component{
    super(props);
    this.state = {
        income: "",
+       incomeType:"biweekly",
        housing: "",
        transport: "",
        food: "",
@@ -17,6 +18,7 @@ class FixedInputsBasic extends Component{
        inputFood: "",
        inputOther: ""
    }
+   this.handleIncomeType = this.handleIncomeType.bind(this)
 }
 
 handleSubmit = event => {
@@ -26,8 +28,10 @@ handleSubmit = event => {
     let newTransport =  this.state.inputTransport
     let newFood = this.state.inputFood
     let newOther = this.state.inputOther
+    let newIncomeType = this.state.incomeType
     this.setState({
         income: newIncome,
+        incomeType: newIncomeType,
         housing: newHousing,
         transport: newTransport,
         food: newFood,
@@ -39,7 +43,7 @@ handleSubmit = event => {
             userID: this.props.userID,
             fixedIncome: {
                 amount: newIncome,
-                type: 'biweekly'
+                type: newIncomeType
             },
             fixedExpense: {
                 Housing: newHousing,
@@ -78,15 +82,25 @@ handleOtherChange = event => {
     this.setState({inputOther: event.target.value})
 }
 
+handleIncomeType(event){
+    this.setState({incomeType: event.target.value})
+}
 
    render(){
        return(
         <div>
-        <h2>Income and Fixed Expenses</h2>
+        <h2>Income and Fixed Monthly Expenses</h2>
         <form onSubmit={this.handleSubmit}>
+            <select name="income type"
+            value={this.state.incomeType}
+            onChange={this.handleIncomeType}>
+        <option value="biweekly">Bi-weekly</option>
+        <option value='monthly'>Monthly</option>
+        <option value='yearly'>Yearly</option>
+            </select>
             <input
                 type="text"
-                placeholder="monthly income"
+                placeholder="$$$$"
                 value={this.state.inputIncome}
                 onChange={this.handleIncomeChange}/>
             <input

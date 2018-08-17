@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-
-import NavbarStatic from './NavbarStatic.js';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
@@ -49,7 +47,6 @@ class SignupForm extends Component {
     render(){
         return (
         <div>
-            {/* <Navbar/> */}
         <form onSubmit = {this.handleSubmit}>
             <h2>New User? Sign up!</h2>
             <input placeholder = "username"
