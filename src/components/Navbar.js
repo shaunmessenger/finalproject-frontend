@@ -102,7 +102,7 @@ class MenuAppBarBasic extends React.Component {
                   onClose={this.handleMinimize}
                 >
                   <MenuItem id="/getSavingsStatus" onClick={this.handleClose}>Homepage</MenuItem>
-                  <MenuItem id="/getSavingsStatus" onClick={this.handleClose}>Weekly Dashboard</MenuItem>
+                  <MenuItem id="/todaysBudget" onClick={this.handleClose}>Weekly Dashboard</MenuItem>
                   <MenuItem id="/setUpFixed" onClick={this.handleClose}>Reset Fixed Costs</MenuItem>
                   <MenuItem id="/setupGoal" onClick={this.handleClose}> Reset Goals </MenuItem>
                   <MenuItem id="/" onClick={this.handleClose}>Logout</MenuItem>

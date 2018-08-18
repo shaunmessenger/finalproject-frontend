@@ -90,11 +90,11 @@ class App extends Component {
           <SavingsStatus userID = {this.state.userID} 
                          todaysBudget={this.state.todaysBudget}/>} 
           />
-        {/* <Route path = '/todaysBudget' exact ={true} render ={() => 
+        <Route path = '/todaysBudget' exact ={true} render ={() => 
           <WeekContainer userID = {this.state.userID} 
                        todaysBudget={this.state.todaysBudget}
-                       todaysVariable ={this.state.todaysVariable}/>}  */}
-          {/* /> */}
+                       todaysVariable ={this.state.todaysVariable}/>} 
+           />
         <Route path = '/endOfDay' exact ={true} render ={() => 
           <EndOfDay userID = {this.state.userID} 
                     dailySaveGoal = {this.state.dailySaveGoal} 
