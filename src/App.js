@@ -8,7 +8,8 @@ import GoalSetup from './components/GoalSetup';
 import FixedInputs from './components/FixedInputs';
 import VariableExpense from './components/VariableExpense';
 import SavingsStatus from './components/SavingsStatus';
-import WeekContainer from './components/WeekContainer.js';
+// import WeekContainer from './components/WeekContainer.js';
+import WeekContainer from './components/TestingWeekview.js';
 import EndOfDay from './components/EndOfDay';
 
 class App extends Component {
