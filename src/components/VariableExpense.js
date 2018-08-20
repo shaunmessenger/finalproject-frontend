@@ -48,7 +48,7 @@ class VariableExpenseForm extends Component {
 
   render() {
     return (
-      <div>
+      <div className='login-container'>
         <form onSubmit={this.handleSubmit}>
           <h2>Submit Expense</h2>
           <select
