@@ -1,5 +1,9 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+import LoginButton from "./MaterialUI/LoginButton";
+import InputPassword from "./MaterialUI/LoginInputPassword";
+import InputUsername from "./MaterialUI/LoginInputUsername";
+import LoginSubmitButton from "./MaterialUI/LoginSubmitButton";
 import "../App.css";
 
 class LoginBasic extends Component {
@@ -81,24 +85,18 @@ class LoginBasic extends Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <h2>Login Page</h2>
-          <input
-            type="text"
-            placeholder="username"
-            //NOTE: we can set the state without value, but we can't clear the input box
+          <InputUsername
             value={this.state.inputUsername}
             onChange={this.handleUsernameChange}
           />
-          <br />
-          <input
-            type="text"
-            placeholder="password"
+          <InputPassword
             value={this.state.inputPassword}
             onChange={this.handlePasswordChange}
           />
+
+          <LoginSubmitButton onClick={this.handleSubmit} />
           <br />
-          <input type="submit" />
-          <br />
-          <button onClick={this.linkToSignup}>New User?</button>
+          <LoginButton onClick={this.linkToSignup}>New User?</LoginButton>
         </form>
         <p>{this.state.loginFailed ? "Failed Login" : null}</p>
       </div>
