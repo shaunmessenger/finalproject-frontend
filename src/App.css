@@ -4,6 +4,7 @@
   border: thick double black;
   margin-left: auto;
   margin-right: auto;
+      margin-top: 60%;
 }
 
 .progressbarred {
@@ -23,6 +24,7 @@
   background-size: cover;
   text-align: center;
   background-position: center;
+  margin-top: 10px;
 }
 
 .paper {
@@ -30,4 +32,11 @@
   margin: auto;
   justify-content: center !important;
   padding: 10px;
+}
+
+.buttons {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-around;
 }

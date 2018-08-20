@@ -59,10 +59,10 @@ class DailyBudget extends Component {
 
                         <div>
                             <div>
-                                Budget: {this.props.budget}
+                                Budget: {this.props.todaysBudget + this.props.todaysVariable}
                             </div>
                             <div>
-                                Spent: {this.props.spent}
+                                Spent: {this.props.todaysVariable}
                             </div></div> :
                         <div>
                             <div>
