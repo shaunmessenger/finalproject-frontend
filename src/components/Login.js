@@ -82,7 +82,7 @@ class LoginBasic extends Component {
 
   render() {
     return (
-      <div>
+      <div className='login-container'>
         <form onSubmit={this.handleSubmit}>
           <h2>Login Page</h2>
           <InputUsername
@@ -93,11 +93,12 @@ class LoginBasic extends Component {
             value={this.state.inputPassword}
             onChange={this.handlePasswordChange}
           />
-
+        <div className='buttons-at-login'>
           <LoginSubmitButton onClick={this.handleSubmit} />
-          <br />
+          
           <LoginButton onClick={this.linkToSignup}>New User?</LoginButton>
-        </form>
+       </div>
+       </form>
         <p>{this.state.loginFailed ? "Failed Login" : null}</p>
       </div>
     );
