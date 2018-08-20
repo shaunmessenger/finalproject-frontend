@@ -52,7 +52,7 @@ class SavingsStatusBasic extends Component {
                 <div className="mainPageWithoutButtons" style={{ backgroundImage: "url(" + images[this.state.goalType] + ")" }}>
                     <div>Goal Progress</div>
                     <div className="progressbar">
-                        <div className="progressbarred" style={{ width: percentage + "%" }}></div>
+                        <div className="progressbarred" style={{opacity:0.8,  width: percentage + "%" }}></div>
                     </div>
                     <div>Daily Budget ${this.state.todaysBudget}</div>
                     <div>{parseInt(percentage)}% of goal reached</div>

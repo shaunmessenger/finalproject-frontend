@@ -136,7 +136,7 @@ class MenuAppBarBasic extends React.Component {
               color={primary.main}
               className={classes.flex}
             >
-              Saver
+              #GOALS
             </Typography>
             {this.hamburger()}
           </Toolbar>
