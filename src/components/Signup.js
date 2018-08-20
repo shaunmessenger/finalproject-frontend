@@ -45,7 +45,7 @@ class SignupForm extends Component {
 
   render() {
     return (
-      <div>
+      <div className="login-container">
         <h2>New User? Sign up!</h2>
         <InputUsername
           placeholder="username"
