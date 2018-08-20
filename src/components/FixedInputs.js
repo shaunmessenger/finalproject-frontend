@@ -93,7 +93,7 @@ class FixedInputsBasic extends Component {
 
   render() {
     return (
-      <div>
+      <div className='login-container'>
         <h2>Income and Fixed Monthly Expenses</h2>
 
         <FormControl>
