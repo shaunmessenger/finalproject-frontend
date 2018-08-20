@@ -7,15 +7,10 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
-// import AccountCircle from '@material-ui/icons/AccountCircle';
-// import Switch from '@material-ui/core/Switch';
-// import FormControlLabel from '@material-ui/core/FormControlLabel';
-// import FormGroup from '@material-ui/core/FormGroup';
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import { theme } from "../theming/theme";
 
-// const { palette: { primary } } = theme; (example of destructuring, same as line 19)
 const primary = theme.palette.primary;
 
 const styles = {
@@ -27,7 +22,7 @@ const styles = {
   },
   menuButton: {
     marginLeft: -12,
-    marginRight: 20
+    marginRight: 200
   },
   toolbar: {
     background: primary.main
@@ -133,6 +128,7 @@ class MenuAppBarBasic extends React.Component {
           <Toolbar style={styles.toolbar}>
             <Typography
               variant="title"
+              
               color={primary.main}
               className={classes.flex}
             >
