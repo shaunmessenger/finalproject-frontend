@@ -1,19 +1,18 @@
-.progressbar{
-    height: 50px;
-    width: 250px;
-    border: thick double black;
-    margin-left: auto;
-    margin-right: auto;
-    
+.progressbar {
+  height: 50px;
+  width: 250px;
+  border: thick double black;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.progressbarred{
+.progressbarred {
   height: 50px;
   width: 170px;
   background-color: red;
 }
 
-.container{
+.container {
   position: relative;
 }
 
@@ -23,6 +22,11 @@
   width: 300px;
   background-size: cover;
   text-align: center;
+}
 
-
+.paper {
+  max-width: 60%;
+  margin: auto;
+  justify-content: center !important;
+  padding: 10px;
 }
