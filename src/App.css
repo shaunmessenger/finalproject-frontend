@@ -73,3 +73,12 @@ body {
 .goal-container{
   padding-top: 10px
 }
+
+@keyframes slidein{
+  from{transform:translateX(-2000%)}
+  70%{transform:translateX(70%)}
+  to{transform:translateX(0%)}
+  }   
+  
+
+also add the animation tag to 
