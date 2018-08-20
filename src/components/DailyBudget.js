@@ -2,75 +2,81 @@ import React, { Component } from 'react';
 
 
 
-
 class DailyBudget extends Component {
-    // constructor() {
-    //     super();
-
-    //     this.state = {
-    //         todaysBudget: null,
-    //         todaysVariable: null,
-    //     }
-
-    // }
-    renderDay(dayNum) {
-        if (dayNum >= 7) {
-            dayNum = dayNum - 7
-        }
-        if (dayNum === 0) {
-            return "SUN"
-        }
-        if (dayNum === 1) {
-            return "MON"
-        }
-        if (dayNum === 2) {
-            return "TUE"
-        }
-        if (dayNum === 3) {
-            return "WED"
-        }
-        if (dayNum === 4) {
-            return "THU"
-        }
-        if (dayNum === 5) {
-            return "FRI"
-        }
-        if (dayNum === 6) {
-            return "SAT"
+    constructor() {
+        super()
+        this.state = {
+            budget: 0,
+            spent: 0
         }
 
     }
+    componentDidMount() {
+        fetch('/getRecord', {
+            method: "POST",
+            body: JSON.stringify({
+                userID: this.props.userID,
+                date: this.props.day
+            })
+        })
+        .then(response => response.text())
+        .then(response => {
+            let startOfDayBudget;
+            let spent;
+            console.log(response)
+            let parsedResponse = JSON.parse(response)
+            if (parsedResponse.startOfDayBudget) {
+                startOfDayBudget = parsedResponse.startOfDayBudget
+                }
+                else {
+                startOfDayBudget = 0;
+                }
 
-    /*  componentDidMount(){
-         console.log("component did mount")
-         fetch('/todaysBudget' + this.props.userID)
-         .then(response => response.text())
-         .then(response => {
-             console.log(response);
-             let parsed = JSON.parse(response);
-             console.log(parsed);
-             this.setState({
-                 todaysBudget: parsed.todaysBudget,
-                 spent: parsed.todaysVariable
- 
-             })
-         })
-     } */
+            if (parsedResponse.leftoverFromDay) {
+                spent = startOfDayBudget - parsedResponse.leftoverFromDay
+                } else {
+                spent = 0
+                }
 
-
-
+                this.setState({ 
+                    budget: startOfDayBudget, 
+                    spent: spent })
+            })
+    }
     render() {
+        let date = this.props.day
+        let numbersOnly = parseInt(date.replace(/[^0-9]/g, ""))
+        // console.log(typeof(numbersOnly))
+        let today = new Date()
+        let todaysDate = today.getDate()
+        // console.log(typeof(todaysDate))
         return (
             <div>
                 <div>
                     {(this.props.day)}
                 </div>
+
+
+                {
+                    (todaysDate === numbersOnly) ?
+
                         <div>
-                            Budget: {this.props.budget}
-                        </div>
+                            <div>
+                                Budget: {this.props.budget}
+                            </div>
+                            <div>
+                                Spent: {this.props.spent}
+                            </div></div> :
                         <div>
-                            Spent: {this.props.spent}
+                            <div>
+                                Budget: {this.state.budget}
+                            </div>
+                            <div>
+                                Spent: {this.state.spent}
+                            </div>
                         </div>
+                }
+
             </div>
         )
     }
