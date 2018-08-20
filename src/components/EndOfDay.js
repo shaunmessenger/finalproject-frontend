@@ -1,19 +1,22 @@
-import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
-import AlertDialogSlide from "./PopUp";
+import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+import AlertDialogSlide from './PopUp';
+
+
+
 
 class EndOfDayForm extends Component {
-  constructor() {
-    super();
-    this.state = {
-      daySavings: null,
-      dayRollover: null,
-      open: false
-    };
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleSavings = this.handleSavings.bind(this);
-    this.handleRollover = this.handleRollover.bind(this);
-  }
+    constructor() {
+        super();
+        this.state = {
+            daySavings: null,
+            dayRollover:null,
+            open: false
+        }
+        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleSavings = this.handleSavings.bind(this)
+        this.handleRollover = this.handleRollover.bind(this)
+    }
 
   handleSubmit(evt) {
     evt.preventDefault();
@@ -49,74 +52,65 @@ class EndOfDayForm extends Component {
     }  
   }
 
-  handleSavings(evt) {
-    this.setState({ daySavings: evt.target.value });
-  }
-  handleRollover(evt) {
-    this.setState({ dayRollover: evt.target.value });
-  }
-  handleClickOpen = () => {
-    this.setState({ open: true });
-  };
-  handleClose = () => {
-    this.setState({ open: false });
-    this.props.history.push("/getSavingsStatus");
-  };
+    
 
-  render() {
-    let text;
-    if (this.state.daySavings > this.props.dailySaveGoal) {
-      text = "You surpassed your daily save goal! Congratulations!";
-    } else if (this.state.daySavings < this.props.dailySaveGoal) {
-      text =
-        "You didn't reach your goal, but you still managed to save something!";
-    } else {
-      text = "You hit your daily save goal for the day! Keep it up!";
+    handleSavings(evt) {
+        this.setState({ daySavings: evt.target.value })
     }
-    return (
-      <div>
-        <AlertDialogSlide
-          open={this.state.open}
-          handleClose={this.handleClose}
-          text={text}
-        />
-        {this.props.todaysBudget > 0 ? (
-          <div>
-            <form onSubmit={this.handleSubmit}>
-              <h2>Done for the day?</h2>
-              Add to savings:
-              <input
-                placeholder={"$" + this.props.dailySaveGoal}
-                value={this.state.daySavings}
-                onChange={this.handleSavings}
-              />
-              Rollover to tomorrow:
-              <input
-                placeholder={
-                  "$" + (this.props.todaysBudget - this.state.daySavings)
-                }
-                value={this.state.dayRollover}
-                onChange={this.handleRollover}
-              />
-              <div>
-                Your savings goal for today: ${this.props.dailySaveGoal}
-              </div>
-              <div>Budget remaining: ${this.props.todaysBudget}</div>
-              <input type="submit" />
-            </form>
-          </div>
-        ) : (
-          <div>
-            <form onSubmit={this.handleSubmit}>
-              you over spent today
-              <input type="submit" value="go back" />
-            </form>
-          </div>
-        )}
-      </div>
-    );
-  }
-}
+    handleRollover(evt) {
+        this.setState({ dayRollover: evt.target.value })
+    }
+    handleClickOpen = () => {
+        this.setState({ open: true });
+    };
+    handleClose = () => {
+        this.setState({ open: false });
+        this.props.history.push('/getSavingsStatus')
+    };
+ 
 
-let EndOfDay = withRouter(EndOfDayForm);
+
+    render() {
+        let text;
+        if (this.state.daySavings > this.props.dailySaveGoal){
+            text = "You surpassed your daily save goal! Congratulations!"
+        } else if (this.state.daySavings < this.props.dailySaveGoal) {
+            text = "You didn't reach your goal, but you still managed to save something!"
+        } else {
+            text = "You hit your daily save goal for the day! Keep it up!"
+        }
+        return (
+            
+            <div>
+            <AlertDialogSlide open={this.state.open} handleClose={this.handleClose} text={text}/>
+                {(this.props.todaysBudget > 0) ?
+                    <div>
+                        <form onSubmit={this.handleSubmit}>
+                            <h2>Done for the day?</h2>
+                            Add to savings:
+                <input placeholder={'Your Savings Goal is: $' + this.props.dailySaveGoal}
+                                value={this.state.daySavings}
+                                onChange={this.handleSavings} />
+                            Rollover to tomorrow:
+                <input placeholder={'$' + (this.props.todaysBudget - this.state.daySavings)}
+                                value={this.state.dayRollover}
+                                onChange={this.handleRollover} />
+                            <div>Your savings goal for today: ${this.props.dailySaveGoal}</div>
+                            <div>Budget remaining: ${this.props.todaysBudget}</div>
+                            <input type="submit" />
+                        </form>
+                    </div> :
+
+
+                    <div>
+                        <form onSubmit={this.handleSubmit}>you over spent today, the balance has been deducted from tomorrow's budget
+                <input type='submit' value="go back"/>
+                        </form>
+                    </div>
+                }
+            </div>
+        )
+    }
+}
+let EndOfDay = withRouter(EndOfDayForm)
 export default EndOfDay;
