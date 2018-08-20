@@ -4,13 +4,16 @@ import vacation from "../images/travel.png";
 import car from "../images/car.png";
 import house from "../images/house.png";
 import other from "../images/other.png";
+import AlertDialogSlide from './PopUp';
 
 class SavingsStatusBasic extends Component {
     constructor() {
         super();
         this.state = {
-            savingsToDate: 0
-        };
+            savingsToDate: 0,
+            open: true
+        }
+        this.handleClose = this.handleClose.bind(this)
     }
     componentDidMount() {
         console.log("component did mount");
@@ -30,6 +33,9 @@ class SavingsStatusBasic extends Component {
             });
     }
 
+    handleClose(){
+        this.setState({ open: false })
+    }
 
     render() {
         let percentage = (this.state.savingsToDate / this.state.goalAmount) * 100
@@ -47,8 +53,11 @@ class SavingsStatusBasic extends Component {
             other: other
 
         }
+
+        let text;
         return (
             <div>
+                <AlertDialogSlide open={this.state.open} handleClose={this.handleClose} text={"welcome"}/>
                 <div className="mainPageWithoutButtons" style={{ backgroundImage: "url(" + images[this.state.goalType] + ")" }}>
                     <div>Goal Progress</div>
                     <div className="progressbar">
