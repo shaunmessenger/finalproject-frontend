@@ -60,10 +60,10 @@ class SavingsStatusBasic extends Component {
            <h3>{parseInt(percentage)}% of goal reached</h3>
            </div>
            <div>
-           <Link to="/inputVariable" class="container">
+           <Link to="/inputVariable" className="container">
                <button>Submit Expense</button>
            </Link>
-           <Link to="/endOfDay" class="container">
+           <Link to="/endOfDay" className="container">
                <button>End Day</button>
            </Link>
            </div>

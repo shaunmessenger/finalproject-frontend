@@ -15,23 +15,25 @@ componentDidMount(){
     fetch('/getRecord', {
         method: "POST",
         body: JSON.stringify({
-            userID: 2373,
+            userID: this.props.userID,
             date: this.props.day   
         })
     }).then(response => response.text())
     .then(response => {
         let startOfDayBudget;
         let spent;
+        console.log(response)
         let parsedResponse = JSON.parse(response)
-        (parsedResponse.startOfDayBudget) ?
-        startOfDayBudget = parsedResponse.startOfDayBudget :
-        startOfDayBudget = 0;
+        if (parsedResponse.startOfDayBudget) {
+        startOfDayBudget = parsedResponse.startOfDayBudget }
+        else {
+        startOfDayBudget = 0;}
         
-        (parsedResponse.leftoverFromDay) ?
-        spent = startOfDayBudget - parsedResponse.leftoverFromDay :
-        spent = 0
-
-        console.log(parsedResponse)
+        if (parsedResponse.leftoverFromDay){ 
+        spent = startOfDayBudget - parsedResponse.leftoverFromDay } else
+        {spent = 0
+}
+        
         this.setState({budget: startOfDayBudget, spent: spent})
     })
 }

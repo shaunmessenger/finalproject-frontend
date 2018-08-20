@@ -23,20 +23,20 @@ class EndOfDayForm extends Component {
         evt.preventDefault();
         this.setState({open: !this.state.open})
         let bod;
-        (this.props.todaysBudget > 0) ?
+        if (this.props.todaysBudget > 0) {
             bod = JSON.stringify({
                 userID: this.props.userID,
                 savedAmount: this.state.daySavings,
                 rolloverAmount: this.state.dayRollover
-            })
-            :
+            })}
+    else {
 
             bod = JSON.stringify({
                 userID: this.props.userID,
                 savedAmount: 0,
                 rolloverAmount: this.props.todaysBudget
             })
-
+}
         console.log(bod)
         fetch('/endOfDay', {
             method: 'POST',
