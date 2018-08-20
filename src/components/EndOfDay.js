@@ -17,6 +17,7 @@ class EndOfDayForm extends Component {
 
   handleSubmit(evt) {
     evt.preventDefault();
+    if(this.state.daySavings && this.state.dayRollover){
     this.setState({ open: !this.state.open });
     let bod;
     if (this.props.todaysBudget > 0) {
@@ -45,6 +46,7 @@ class EndOfDayForm extends Component {
         let todaysVariable = parsed.todaysVariable;
         this.props.sendInfoToApp(todaysBudget, todaysVariable);
       });
+    }  
   }
 
   handleSavings(evt) {
