@@ -9,6 +9,7 @@ import Button from "@material-ui/core/Button";
 import InputGoalAmount from "./MaterialUI/GoalsInputAmount";
 import InputGoalDate from "./MaterialUI/GoalsInputDate";
 import GoalsSubmitButton from "./MaterialUI/GoalsSubmitButton";
+import UnrealisticGoalSubmitButton from "./MaterialUI/UnrealisticGoalSubmitButton";
 
 class GoalSetupForm extends Component {
   constructor() {
@@ -79,9 +80,9 @@ class GoalSetupForm extends Component {
 
   render() {
     return (
-      <div>
+      <div className="login-container">
         <form>
-          <h2>Define your Goals</h2>
+          <h2>Define your #Goals</h2>
           {/* Jordan did this component in-line, since sending props would have been difficult */}
           <FormControl>
             <InputLabel>Age</InputLabel>
@@ -107,11 +108,12 @@ class GoalSetupForm extends Component {
         </form>
         <p>
           {this.state.unrealistic ? (
-            <div>
-              A daily savings goal of ${this.state.dailySaveGoal}
-              might not be realistic. Modify your goal, or click
-              <button onClick={this.renderFixedInput}>here</button>
-              to continue
+            <div className="login-failed">
+              A daily savings goal of ${this.state.dailySaveGoal + " "}
+              might not be realistic. Modify your goal, or click to continue.
+              <UnrealisticGoalSubmitButton onClick={this.renderFixedInput}>
+                Continue
+              </UnrealisticGoalSubmitButton>
             </div>
           ) : null}
         </p>
