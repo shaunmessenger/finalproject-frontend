@@ -10,8 +10,13 @@ class EndOfDayForm extends Component {
         super();
         this.state = {
             daySavings: null,
-            dayRollover:null,
+<<<<<<< HEAD
+            dayRollover: null,
             open: false,
+=======
+            dayRollover:null,
+            open: false
+>>>>>>> 09036eed1ec879240770dc6e1f41f0d9157b6c73
         }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleSavings = this.handleSavings.bind(this)
@@ -23,20 +28,20 @@ class EndOfDayForm extends Component {
         evt.preventDefault();
         this.setState({open: !this.state.open})
         let bod;
-        (this.props.todaysBudget > 0) ?
+        if (this.props.todaysBudget > 0) {
             bod = JSON.stringify({
                 userID: this.props.userID,
                 savedAmount: this.state.daySavings,
                 rolloverAmount: this.state.dayRollover
-            })
-            :
+            })}
+    else {
 
             bod = JSON.stringify({
                 userID: this.props.userID,
                 savedAmount: 0,
                 rolloverAmount: this.props.todaysBudget
             })
-
+}
         console.log(bod)
         fetch('/endOfDay', {
             method: 'POST',
@@ -70,9 +75,18 @@ class EndOfDayForm extends Component {
 
 
     render() {
+        let text;
+        if (this.state.daySavings > this.props.dailySaveGoal){
+            text = "You surpassed your daily save goal! Congratulations!"
+        } else if (this.state.daySavings < this.props.dailySaveGoal) {
+            text = "You didn't reach your goal, but you still managed to save something!"
+        } else {
+            text = "You hit your daily save goal for the day! Keep it up!"
+        }
         return (
+            
             <div>
-            <AlertDialogSlide open={this.state.open} handleClose={this.handleClose}/>
+            <AlertDialogSlide open={this.state.open} handleClose={this.handleClose} text={text}/>
                 {(this.props.todaysBudget > 0) ?
                     <div>
                         <form onSubmit={this.handleSubmit}>
@@ -82,7 +96,7 @@ class EndOfDayForm extends Component {
                                 value={this.state.daySavings}
                                 onChange={this.handleSavings} />
                             Rollover to tomorrow:
-                <input placeholder={'$' + (this.props.todaysBudget - this.state.daySavings)}
+                <input placeholder={'Your Savings Goal is: $' + (this.props.todaysBudget - this.state.daySavings)}
                                 value={this.state.dayRollover}
                                 onChange={this.handleRollover} />
                             <div>Your savings goal for today: ${this.props.dailySaveGoal}</div>
@@ -93,8 +107,13 @@ class EndOfDayForm extends Component {
 
 
                     <div>
+<<<<<<< HEAD
                         <form onSubmit={this.handleSubmit}>you over spent today
+                        <input type='submit' value="go back"/>
+=======
+                        <form onSubmit={this.handleSubmit}>you over spent today, the balance has been deducted from tomorrow's budget
                 <input type='submit' value="go back"/>
+>>>>>>> 09036eed1ec879240770dc6e1f41f0d9157b6c73
                         </form>
                     </div>
 

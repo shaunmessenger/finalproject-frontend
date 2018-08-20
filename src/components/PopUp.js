@@ -29,8 +29,7 @@ class AlertDialogSlide extends React.Component {
           </DialogTitle>
           <DialogContent>
             <DialogContentText id="alert-dialog-slide-description">
-              You've already made great progress! 
-              Drake is proud of you! 
+              {this.props.text}
             </DialogContentText>
           </DialogContent>
           <DialogActions>
