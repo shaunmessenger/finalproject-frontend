@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import DailyBudget from './DailyBudget.js'
-var moment = require ('moment');
+var moment = require('moment');
 
 class WeekContainer extends Component {
     constructor() {
@@ -8,17 +8,17 @@ class WeekContainer extends Component {
         this.state = {
             currentDate: ''
         }
-        
+
     }
-    
-    
-    render(){
+
+
+    render() {
         return (
-        <div>    
-            <div>   
-                Week of: {moment().startOf('week').format('ddd D MMM')} to {moment().startOf('week').add(6, 'days').format('ddd D MMM')}
-            </div>
             <div>
+                <div>
+                    Week of: {moment().startOf('week').format('ddd D MMM')} to {moment().startOf('week').add(6, 'days').format('ddd D MMM')}
+                </div>
+                <div>
                 <DailyBudget day = {moment().startOf('week').format('ddd D MMM')} budget = {this.props.todaysBudget} spent ={this.props.todaysVariable}/>
                 <DailyBudget day = {moment().startOf('week').add(1, 'days').format('ddd D MMM')} budget = {this.props.todaysBudget} spent ={this.props.todaysVariable}/>
                 <DailyBudget day = {moment().startOf('week').add(2, 'days').format('ddd D MMM')} budget = {this.props.todaysBudget} spent ={this.props.todaysVariable}/>
@@ -26,9 +26,9 @@ class WeekContainer extends Component {
                 <DailyBudget day = {moment().startOf('week').add(4, 'days').format('ddd D MMM')} budget = {this.props.todaysBudget} spent ={this.props.todaysVariable}/>
                 <DailyBudget day = {moment().startOf('week').add(5, 'days').format('ddd D MMM')} budget = {this.props.todaysBudget} spent ={this.props.todaysVariable}/>
                 <DailyBudget day = {moment().startOf('week').add(6, 'days').format('ddd D MMM')} budget = {this.props.todaysBudget} spent ={this.props.todaysVariable}/>
+                </div>
             </div>
-        </div>    
-        )    
+        )
     }
 }
 

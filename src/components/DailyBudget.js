@@ -6,14 +6,14 @@ import React, { Component } from 'react';
 class DailyBudget extends Component {
     // constructor() {
     //     super();
-    
+
     //     this.state = {
     //         todaysBudget: null,
     //         todaysVariable: null,
     //     }
-        
+
     // }
-    renderDay(dayNum){
+    renderDay(dayNum) {
         if (dayNum >= 7) {
             dayNum = dayNum - 7
         }
@@ -38,40 +38,40 @@ class DailyBudget extends Component {
         if (dayNum === 6) {
             return "SAT"
         }
-        
+
     }
 
-   /*  componentDidMount(){
-        console.log("component did mount")
-        fetch('/todaysBudget' + this.props.userID)
-        .then(response => response.text())
-        .then(response => {
-            console.log(response);
-            let parsed = JSON.parse(response);
-            console.log(parsed);
-            this.setState({
-                todaysBudget: parsed.todaysBudget,
-                spent: parsed.todaysVariable
-
-            })
-        })
-    } */
-
+    /*  componentDidMount(){
+         console.log("component did mount")
+         fetch('/todaysBudget' + this.props.userID)
+         .then(response => response.text())
+         .then(response => {
+             console.log(response);
+             let parsed = JSON.parse(response);
+             console.log(parsed);
+             this.setState({
+                 todaysBudget: parsed.todaysBudget,
+                 spent: parsed.todaysVariable
  
+             })
+         })
+     } */
 
-    render(){
+
+
+    render() {
         return (
-        <div>
             <div>
-                {(this.props.day)}
+                <div>
+                    {(this.props.day)}
+                </div>
+                        <div>
+                            Budget: {this.props.budget}
+                        </div>
+                        <div>
+                            Spent: {this.props.spent}
+                        </div>
             </div>
-            <div>
-                Budget: {this.props.budget}
-            </div>
-            <div>
-                Spent: {this.props.spent}
-            </div>
-        </div>
         )
     }
 }
