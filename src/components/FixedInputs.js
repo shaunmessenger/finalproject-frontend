@@ -1,136 +1,143 @@
 import React, { Component } from "react";
-import { withRouter } from 'react-router-dom';
+import { withRouter } from "react-router-dom";
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
+import FoodExpense from "./MaterialUI/FixedExpFood";
+import HousingExpense from "./MaterialUI/FixedExpHousing";
+import OtherExpense from "./MaterialUI/FixedExpOther";
+import TransportExpense from "./MaterialUI/FixedExpTransport";
+import IncomeInput from "./MaterialUI/FixedIncomeInput";
+import SubmitButton from "./MaterialUI/FixedSubmitButton";
 
+class FixedInputsBasic extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      income: "",
+      incomeType: "biweekly",
+      housing: "",
+      transport: "",
+      food: "",
+      other: "",
+      inputIncome: "",
+      inputHousing: "",
+      inputTransport: "",
+      inputFood: "",
+      inputOther: ""
+    };
+    this.handleIncomeType = this.handleIncomeType.bind(this);
+  }
 
-class FixedInputsBasic extends Component{
-   constructor(props){
-   super(props);
-   this.state = {
-       income: "",
-       incomeType:"biweekly",
-       housing: "",
-       transport: "",
-       food: "",
-       other: "",
-       inputIncome: "",
-       inputHousing: "",
-       inputTransport: "",
-       inputFood: "",
-       inputOther: ""
-   }
-   this.handleIncomeType = this.handleIncomeType.bind(this)
-}
-
-handleSubmit = event => {
-    event.preventDefault()
-    let newIncome =  this.state.inputIncome
-    let newHousing = this.state.inputHousing
-    let newTransport =  this.state.inputTransport
-    let newFood = this.state.inputFood
-    let newOther = this.state.inputOther
-    let newIncomeType = this.state.incomeType
+  handleSubmit = event => {
+    event.preventDefault();
+    let newIncome = this.state.inputIncome;
+    let newHousing = this.state.inputHousing;
+    let newTransport = this.state.inputTransport;
+    let newFood = this.state.inputFood;
+    let newOther = this.state.inputOther;
+    let newIncomeType = this.state.incomeType;
     this.setState({
-        income: newIncome,
-        incomeType: newIncomeType,
-        housing: newHousing,
-        transport: newTransport,
-        food: newFood,
-        other: newOther    
-    }) 
-    fetch('/setUpFixed',{ 
-        method: "POST",
-        body: (JSON.stringify({
-            userID: this.props.userID,
-            fixedIncome: {
-                amount: newIncome,
-                type: newIncomeType
-            },
-            fixedExpense: {
-                Housing: newHousing,
-                Transport: newTransport,
-                Food: newFood,
-                Other: newOther
-            }
-        }))
+      income: newIncome,
+      incomeType: newIncomeType,
+      housing: newHousing,
+      transport: newTransport,
+      food: newFood,
+      other: newOther
+    });
+    fetch("/setUpFixed", {
+      method: "POST",
+      body: JSON.stringify({
+        userID: this.props.userID,
+        fixedIncome: {
+          amount: newIncome,
+          type: newIncomeType
+        },
+        fixedExpense: {
+          Housing: newHousing,
+          Transport: newTransport,
+          Food: newFood,
+          Other: newOther
+        }
+      })
     })
-    .then(response => response.text())
-    .then(response => {
-        let parsed = JSON.parse(response)
-        console.log(parsed.todaysBudget)
-        this.props.sendTodaysBudgetToApp(parsed.todaysBudget)
-        this.props.history.push('/getSavingsStatus')
+      .then(response => response.text())
+      .then(response => {
+        let parsed = JSON.parse(response);
+        console.log(parsed.todaysBudget);
+        this.props.sendTodaysBudgetToApp(parsed.todaysBudget);
+        this.props.history.push("/getSavingsStatus");
+      });
+  };
 
-    })
-        
-        
-    }
+  handleIncomeChange = event => {
+    this.setState({ inputIncome: event.target.value });
+  };
+  handleHousingChange = event => {
+    this.setState({ inputHousing: event.target.value });
+  };
+  handleTransportChange = event => {
+    this.setState({ inputTransport: event.target.value });
+  };
+  handleFoodChange = event => {
+    this.setState({ inputFood: event.target.value });
+  };
+  handleOtherChange = event => {
+    this.setState({ inputOther: event.target.value });
+  };
 
+  handleIncomeType(event) {
+    this.setState({ incomeType: event.target.value });
+  }
 
-handleIncomeChange = event => {
-    this.setState({inputIncome: event.target.value})
-}
-handleHousingChange = event => {
-    this.setState({inputHousing: event.target.value})
-}
-handleTransportChange = event => {
-    this.setState({inputTransport: event.target.value})
-}
-handleFoodChange = event => {
-    this.setState({inputFood: event.target.value})
-}
-handleOtherChange = event => {
-    this.setState({inputOther: event.target.value})
-}
-
-handleIncomeType(event){
-    this.setState({incomeType: event.target.value})
-}
-
-   render(){
-       return(
-        <div>
+  render() {
+    return (
+      <div>
         <h2>Income and Fixed Monthly Expenses</h2>
-        <form onSubmit={this.handleSubmit}>
-            <select name="income type"
+
+        <FormControl>
+          <InputLabel>Income Period</InputLabel>
+          <Select
             value={this.state.incomeType}
-            onChange={this.handleIncomeType}>
-        <option value="biweekly">Bi-weekly</option>
-        <option value='monthly'>Monthly</option>
-        <option value='yearly'>Yearly</option>
-            </select>
-            <input
-                type="text"
-                placeholder="$$$$"
-                value={this.state.inputIncome}
-                onChange={this.handleIncomeChange}/>
-            <input
-                type="text"
-                placeholder="housing"
-                value={this.state.inputHousing}
-                onChange={this.handleHousingChange}/>
-            <input
-                type="text"
-                placeholder="transport"
-                value={this.state.inputTransport}
-                onChange={this.handleTransportChange}/>
-            <input
-                type="text"
-                placeholder="food"
-                value={this.state.inputFood}
-                onChange={this.handleFoodChange}/>
-            <input
-                type="text"
-                placeholder="other"
-                value={this.state.inputOther}
-                onChange={this.handleOtherChange}/>
-            <input type="submit"/>    
-        </form>
+            onChange={this.handleIncomeType}
+          >
+            <MenuItem value="biweekly">Bi-weekly</MenuItem>
+            <MenuItem value="monthly">Monthly</MenuItem>
+            <MenuItem value="yearly">Yearly</MenuItem>
+          </Select>
+        </FormControl>
 
+        <IncomeInput
+          value={this.state.inputIncome}
+          onChange={this.handleIncomeChange}
+        />
 
-        </div>
-       )
-   }
+        <HousingExpense
+          value={this.state.inputHousing}
+          onChange={this.handleHousingChange}
+        />
+
+        <TransportExpense
+          value={this.state.inputTransport}
+          onChange={this.handleTransportChange}
+        />
+
+        <FoodExpense
+          value={this.state.inputFood}
+          onChange={this.handleFoodChange}
+        />
+
+        <OtherExpense
+          value={this.state.inputOther}
+          onChange={this.handleOtherChange}
+        />
+
+        <SubmitButton onClick={this.handleSubmit} />
+      </div>
+    );
+  }
 }
 
-let FixedInputs = withRouter(FixedInputsBasic)
+let FixedInputs = withRouter(FixedInputsBasic);
 export default FixedInputs;

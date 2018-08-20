@@ -82,6 +82,7 @@ class GoalSetupForm extends Component {
       <div>
         <form>
           <h2>Define your Goals</h2>
+          {/* Jordan did this component in-line, since sending props would have been difficult */}
           <FormControl>
             <InputLabel>Age</InputLabel>
             <Select value={this.state.goalType} onChange={this.newGoalType}>
