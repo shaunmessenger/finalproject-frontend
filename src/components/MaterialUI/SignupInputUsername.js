@@ -3,7 +3,7 @@ import { withStyles } from "@material-ui/core/styles";
 import MenuItem from "@material-ui/core/MenuItem";
 import TextField from "@material-ui/core/TextField";
 
-class InputGoalDate extends Component {
+class InputUsername extends Component {
   constructor(props) {
     super(props);
   }
@@ -12,10 +12,10 @@ class InputGoalDate extends Component {
       <div>
         <TextField
           type="text"
-          className="goaldate"
-          placeholder="MM/DD/YYYY"
-          id="select-date-native"
-          label="End Date"
+          className="validate"
+          placeholder="username"
+          id="username-input"
+          label="Username"
           margin="normal"
           value={this.props.value}
           onChange={this.props.onChange}
@@ -24,5 +24,4 @@ class InputGoalDate extends Component {
     );
   }
 }
-
-export default InputGoalDate;
+export default InputUsername;

@@ -6,6 +6,9 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import Button from "@material-ui/core/Button";
+import InputGoalAmount from "./MaterialUI/GoalsInputAmount";
+import InputGoalDate from "./MaterialUI/GoalsInputDate";
+import GoalsSubmitButton from "./MaterialUI/GoalsSubmitButton";
 
 class GoalSetupForm extends Component {
   constructor() {
@@ -77,41 +80,29 @@ class GoalSetupForm extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form>
           <h2>Define your Goals</h2>
-          <form>
-            <FormControl>
-              <InputLabel>Age</InputLabel>
-              <Select
-                value={this.state.goalType}
-                onChange={this.newGoalType}
-                inputProps={{
-                  name: "age",
-                  id: "age-simple"
-                }}
-              >
-                <MenuItem value={"vacation"}>Vaction</MenuItem>
-                <MenuItem value={"newCar"}>New Car</MenuItem>
-                <MenuItem value={"buyAHouse"}>Buy a house</MenuItem>
-                <MenuItem value={"other"}>Other</MenuItem>
-              </Select>
-            </FormControl>
-          </form>
-
+          <FormControl>
+            <InputLabel>Age</InputLabel>
+            <Select value={this.state.goalType} onChange={this.newGoalType}>
+              <MenuItem value="vacation">Vaction</MenuItem>
+              <MenuItem value="newCar">New Car</MenuItem>
+              <MenuItem value="buyAHouse">Buy a house</MenuItem>
+              <MenuItem value="other">Other</MenuItem>
+            </Select>
+          </FormControl>
           <br />
-          <input
-            placeholder="Goal Amount"
+          <InputGoalAmount
             value={this.state.goalValue}
             onChange={this.newGoalValue}
           />
           <br />
-          <input
-            placeholder="MM/DD/YYYY"
+          <InputGoalDate
             value={this.state.goalDate}
             onChange={this.newGoalDate}
           />
           <br />
-          <input type="submit" />
+          <GoalsSubmitButton onClick={this.handleSubmit} />
         </form>
         <p>
           {this.state.unrealistic ? (

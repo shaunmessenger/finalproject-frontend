@@ -3,7 +3,7 @@ import { withStyles } from "@material-ui/core/styles";
 import MenuItem from "@material-ui/core/MenuItem";
 import TextField from "@material-ui/core/TextField";
 
-class InputAmount extends Component {
+class InputGoalAmount extends Component {
   constructor(props) {
     super(props);
   }
@@ -11,12 +11,11 @@ class InputAmount extends Component {
     return (
       <div>
         <TextField
-          type="password"
-          className="validate"
-          placeholder="password"
-          id="password-input"
-          label="Password"
-          autoComplete="current-password"
+          type="select-currency-native"
+          className="goalamount"
+          placeholder="$"
+          id="select-currency-native"
+          label="Goal Amount"
           margin="normal"
           value={this.props.value}
           onChange={this.props.onChange}
@@ -26,4 +25,4 @@ class InputAmount extends Component {
   }
 }
 
-export default InputPassword;
+export default InputGoalAmount;
