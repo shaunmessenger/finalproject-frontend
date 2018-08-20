@@ -34,6 +34,7 @@ class SavingsStatusBasic extends Component {
     }
 
     handleClose(){
+        this.props.toggleFlag()
         this.setState({ open: false })
     }
 
@@ -55,9 +56,24 @@ class SavingsStatusBasic extends Component {
         }
 
         let text;
+        if (percentage > 21 && percentage < 29){
+            text = "Almost a quarter of the way there! Keep it up!"
+        } else if (percentage > 46 && percentage < 54) {
+            text = "Halfway there! You're doing great!"
+        } else if (percentage > 71 && percentage < 79) {
+            text = "So close! You're within reach of your goal."
+        } else if (percentage === 100) {
+            text = "YOU MADE IT!"
+        } else {
+            text = undefined
+        }
         return (
             <div>
-                <AlertDialogSlide open={this.state.open} handleClose={this.handleClose} text={"welcome"}/>
+                {(this.props.receivedAlert) ? 
+                    null : 
+                    (text) ? 
+                    <AlertDialogSlide open={this.state.open} handleClose={this.handleClose} text={text}/>:
+                    null}
                 <div className="mainPageWithoutButtons" style={{ backgroundImage: "url(" + images[this.state.goalType] + ")" }}>
                     <div>Goal Progress</div>
                     <div className="progressbar">

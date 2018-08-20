@@ -11,7 +11,7 @@ class EndOfDayForm extends Component {
         this.state = {
             daySavings: null,
             dayRollover:null,
-            open: false,
+            open: false
         }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleSavings = this.handleSavings.bind(this)
@@ -102,7 +102,7 @@ class EndOfDayForm extends Component {
 
 
                     <div>
-                        <form onSubmit={this.handleSubmit}>you over spent today
+                        <form onSubmit={this.handleSubmit}>you over spent today, the balance has been deducted from tomorrow's budget
                 <input type='submit' value="go back"/>
                         </form>
                     </div>
