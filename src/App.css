@@ -59,3 +59,8 @@
 body {
   background-color: lightgray;
 }
+
+.login-failed{
+  padding-top: 10px;
+  text-align: center;
+}

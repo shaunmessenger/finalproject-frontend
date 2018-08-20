@@ -99,7 +99,7 @@ class LoginBasic extends Component {
           <LoginButton onClick={this.linkToSignup}>New User?</LoginButton>
        </div>
        </form>
-        <p>{this.state.loginFailed ? "Failed Login" : null}</p>
+        <div className='login-failed'>{this.state.loginFailed ? "Login failed, try again" : null}</div>
       </div>
     );
   }
