@@ -15,7 +15,7 @@ class VariableExpenseForm extends Component {
 
   handleSubmit(evt) {
     evt.preventDefault();
-    //check for missing input
+    if(this.state.expenseAmt){
     let bod = JSON.stringify({
       userID: this.props.userID,
       expense: {
@@ -37,6 +37,7 @@ class VariableExpenseForm extends Component {
         console.log(parsed);
         this.props.history.push("/getSavingsStatus");
       });
+    }    
   }
   newExpenseType(evt) {
     this.setState({ expenseType: evt.target.value });

@@ -78,7 +78,7 @@ class LoginBasic extends Component {
 
   render() {
     return (
-      <div>
+      <div className= "login">
         <form onSubmit={this.handleSubmit}>
           <h2>Login Page</h2>
           <input
