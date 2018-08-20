@@ -70,9 +70,18 @@ class EndOfDayForm extends Component {
 
 
     render() {
+        let text;
+        if (this.state.daySavings > this.props.dailySaveGoal){
+            text = "You surpassed your daily save goal! Congratulations!"
+        } else if (this.state.daySavings < this.props.dailySaveGoal) {
+            text = "You didn't reach your goal, but you still managed to save something!"
+        } else {
+            text = "You hit your daily save goal for the day! Keep it up!"
+        }
         return (
+            
             <div>
-            <AlertDialogSlide open={this.state.open} handleClose={this.handleClose}/>
+            <AlertDialogSlide open={this.state.open} handleClose={this.handleClose} text={text}/>
                 {(this.props.todaysBudget > 0) ?
                     <div>
                         <form onSubmit={this.handleSubmit}>
