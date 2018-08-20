@@ -76,7 +76,7 @@ class GoalSetupForm extends Component {
 
   render() {
     return (
-      <div>
+      <div className='login-container'>
         <form onSubmit={this.handleSubmit}>
           <h2>Define your Goals</h2>
           <form>
@@ -97,33 +97,39 @@ class GoalSetupForm extends Component {
               </Select>
             </FormControl>
           </form>
+          <div className='goal-container'>
 
-          <br />
-          <input
-            placeholder="Goal Amount"
-            value={this.state.goalValue}
-            onChange={this.newGoalValue}
-          />
-          <br />
-          <input
-            placeholder="MM/DD/YYYY"
-            value={this.state.goalDate}
-            onChange={this.newGoalDate}
-          />
-          <br />
-          <input type="submit" />
-        </form>
-        <p>
-          {this.state.unrealistic ? (
-            <div>
-              A daily savings goal of ${this.state.dailySaveGoal}
-              might not be realistic. Modify your goal, or click
-              <button onClick={this.renderFixedInput}>here</button>
-              to continue
+            <div className='inputs-on-goalpage'>
+              <input
+                placeholder="Goal Amount"
+                value={this.state.goalValue}
+                onChange={this.newGoalValue}
+              />
             </div>
-          ) : null}
-        </p>
-      </div>
+            <div className='inputs-on-goalpage'>
+              <input
+                placeholder="MM/DD/YYYY"
+                value={this.state.goalDate}
+                onChange={this.newGoalDate}
+              />
+            </div>
+            <div className='inputs-on-goalpage'>
+              <input type="submit" />
+              </div>
+              </div>
+          </form>
+          
+          <p>
+            {this.state.unrealistic ? (
+              <div>
+                A daily savings goal of ${this.state.dailySaveGoal}
+                might not be realistic. Modify your goal, or click
+              <button onClick={this.renderFixedInput}>here</button>
+                to continue
+            </div>
+            ) : null}
+          </p>
+        </div>
     );
   }
 }
