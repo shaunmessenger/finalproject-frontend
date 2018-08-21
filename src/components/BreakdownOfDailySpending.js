@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 
-class Breakdown extends Component {
+class BreakdownBasic extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -10,12 +10,17 @@ class Breakdown extends Component {
             //date: this.props.date,
             date: "21 Aug 2018"
         }
+        let totalCoffee = 0;
+        let totalFood = 0;
+        let totalOther =0;
+        let totalShopping = 0;
+        let totalTransport = 0;
     }
 
 
+    
 
-
-    fetch() {
+    componentDidMount() {
         fetch("/getDaysAnalytics", {
             method: "POST",
             body: JSON.stringify({
@@ -23,36 +28,36 @@ class Breakdown extends Component {
                 date: this.state.date
             })
         })
-            .then(response => response.text())
-            .then(response => {
-                let parsed = JSON.parse(response)
-                console.log(parsed)
-                let totalCoffee;
-                let totalOther;
-                let totalFood;
-                let totalShopping;
-                let totalTransport;
-                for (let i = 0; i < parsed.length; i++) {
-                    if (parsed.type === "coffee") {
-                        totalCoffee += parseFloat(parsed.amount)
-                    } else if (parsed.type === "food") {
-                        totalFood += parseFloat(parsed.amount)
-                    } else if (parsed.type === "transport") {
-                        totalTransport += parseFloat(parsed.amount)
-                    } else if (parsed.type === "shopping") {
-                        totalShopping += parseFloat(parsed.amount)
-                    } else {
-                        totalOther += parseFloat(parsed.amount)
-                    }
-                })
+        .then(response => response.text())
+        .then(response => {
+            let parsed = JSON.parse(response)
+            console.log(parsed)
+
+            for (let i = 0; i < parsed.length; i++) {
+                if (parsed.type === "coffee") {
+                    totalCoffee += parseFloat(parsed.amount)
+                } else if (parsed.type === "food") {
+                    totalFood += parseFloat(parsed.amount)
+                } else if (parsed.type === "transport") {
+                    totalTransport += parseFloat(parsed.amount)
+                } else if (parsed.type === "shopping") {
+                    totalShopping += parseFloat(parsed.amount)
+                } else {
+                    totalOther += parseFloat(parsed.amount)
+                }
+            }
+        })
     }
-}
 
     render() {
-        return ()
+        return (
+            <div>{totalCoffee}</div>
+        )
     }
 
 
 
 }
-export default Breakdown
+
+let Breakdown = withRouter(BreakdownBasic)
+export default Breakdown;

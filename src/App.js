@@ -12,6 +12,7 @@ import WeekContainer from './components/WeekContainer.js';
 import EndOfDay from "./components/EndOfDay";
 import AnalyticsPage from "./components/AnalyticsPage";
 import DailyBudget from "./components/DailyBudget";
+import Breakdown from "./components/BreakdownOfDailySpending"
 
 class App extends Component {
   constructor() {
@@ -170,8 +171,10 @@ class App extends Component {
           <Route
             path="/analytics"
             exact={true}
-            render={() => <AnalyticsPage />}
+            render={() => <Breakdown />}
           />
+
+
         </div>
       </BrowserRouter>
     );
