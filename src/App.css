@@ -101,6 +101,37 @@ body {
   display: flex;
   justify-content: center;
 }
+.daily-container{
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+ 
+}
+.weekof-container{
+  display: flex;
+  justify-content: center;
+  border: solid darkgreen 1px;
+  background: green;
+  color: white;
+}
+.day-budget{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border: solid green;
+  margin: 5px 0px 5px 0px;
+  background: floralwhite;
+}
+.day-budget-item{
+  display: flex;
+  justify-content: center;
+}
+.navbar-title{
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
 @keyframes slidein{
   from{transform:translateX(-2000%)}
   70%{transform:translateX(70%)}

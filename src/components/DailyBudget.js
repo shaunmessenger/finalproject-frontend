@@ -48,29 +48,28 @@ class DailyBudget extends Component {
         let todaysDate = today.getDate()
         // console.log(typeof(todaysDate))
         return (
-            <div>
+            <div className="day-budget">
                 <div>
                     {(this.props.day)}
+                    <br/>
                 </div>
 
 
                 {
                     (todaysDate === numbersOnly) ?
 
-                        <div className="day-budget">
-                            <div>
-                                Budget: {this.props.todaysBudget + this.props.todaysVariable}
-                            </div>
-                            <div>
-                                Spent: {this.props.todaysVariable}
-                            </div></div> :
-                        <div>
-                            <div>
-                                Budget: {this.state.budget}
-                            </div>
-                            <div>
-                                Spent: {this.state.spent}
-                            </div>
+                        <div className="day-budget-item">
+                           
+                                Budget: ${this.props.todaysBudget + this.props.todaysVariable + " "}
+                                Spent: ${this.props.todaysVariable}
+                                
+                            
+                        </div> :
+                        <div className="day-budget-item">
+                            
+                                Budget: ${this.state.budget + " "}
+                                Spent: ${this.state.spent}
+                            
                         </div>
                 }
 
