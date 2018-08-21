@@ -257,6 +257,11 @@ button {
   margin-bottom: 3px !important;
 }
 
+.piechart {
+  justify-content: center;
+  display: flex;
+}
+
 @keyframes progressbarslidein {
   from {
     width: 0%;

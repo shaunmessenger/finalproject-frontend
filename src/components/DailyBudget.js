@@ -67,6 +67,7 @@ class DailyBudgetBasic extends Component {
 
                         <div className="day-budget-item">
                            
+                           
                                 Budget: ${this.props.todaysBudget + this.props.todaysVariable + " "}
                                 Spent: ${this.props.todaysVariable}
 
