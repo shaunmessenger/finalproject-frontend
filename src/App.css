@@ -1,16 +1,21 @@
 .progressbar {
   height: 50px;
   width: 250px;
-  border: thick double black;
+  /* border: thick double black; */
   margin-left: auto;
   margin-right: auto;
-  margin-top: 60%;
+  margin-top: 20px;
+  background-image: url("./images/Stripes2.png");
+  /* background-color: lightgrey; */
+  border-radius: 10px;
 }
 
 .progressbarred {
   height: 50px;
-  width: 170px;
+  width: 168px;
   background-color: rgb(102, 187, 106);
+  border-radius: 10px;
+  animation: progressbarslidein 2s;
 }
 
 .container {
@@ -42,7 +47,7 @@
   margin-left: auto;
   margin-right: auto;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .login-container {
@@ -63,6 +68,37 @@
   justify-content: center;
 }
 
+.fixed-container {
+  width: 450px;
+  display: fixed;
+  margin-left: auto;
+  margin-right: auto;
+  margin: 40px auto;
+  justify-content: space-between;
+  padding: 15px;
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  background-color: white;
+  animation: slidein 2s;
+  border-radius: 10px;
+}
+
+.fixed-input-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  padding: 15px;
+}
+
+.fixed-selector {
+  margin-top: 15px !important;
+}
+
+.fixed-title {
+  text-align: center;
+}
+
 .buttons-at-login {
   display: flex;
   justify-content: space-between;
@@ -80,13 +116,12 @@
   background-color: white;
   border-radius: 10px;
 }
-.status-buttons {
+.buttoncontainer {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 body {
   background-color: #66bc6a;
-  /* background-image: url("./images/Stripes2.png"); */
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 }
 
@@ -134,7 +169,6 @@ body {
   display: flex;
   justify-content: space-evenly;
   padding: 5px;
-
 }
 .navbar-title {
   display: flex;
@@ -159,41 +193,39 @@ a:link {
     transform: translateX(0%);
   }
 }
-.end-day{
+.end-day {
   display: flex;
   justify-content: center;
-  padding:5px;
+  padding: 5px;
 }
-.end-submit{
+.end-submit {
   display: flex;
   justify-content: center;
 }
-.end-item{
+.end-item {
   padding: 0 0 1px 0;
 }
-.var-submit{
+.var-submit {
   display: flex;
   justify-content: center;
 }
-.goal-items{
+.goal-items {
   display: flex;
   justify-content: center;
   font-size: 1.2em;
 }
-.fixed-item{
+.fixed-item {
   display: flex;
   justify-content: center;
-
 }
 .exp-spent {
   stroke: rgb(255, 7, 7) !important;
-  fill: rgba(239, 31, 31, 0.98) !important
+  fill: rgba(239, 31, 31, 0.98) !important;
 }
-.exp-budget{
+.exp-budget {
   stroke: #30b937 !important;
-    fill: #35bb3b !important
+  fill: #35bb3b !important;
 }
-
 
 button {
   background-color: #66bc6a !important;
@@ -221,5 +253,21 @@ button {
 
 .h2title {
   text-align: center;
-  margin-top: 2px;
+  margin-top: 10px;
+  margin-bottom: 3px !important;
+}
+
+@keyframes progressbarslidein {
+  from {
+    width: 0%;
+  }
+}
+
+@media (max-width: 500px) {
+  .fixed-container {
+    width: 300px;
+  }
+  .fixed-input-container {
+    width: 235px;
+  }
 }
