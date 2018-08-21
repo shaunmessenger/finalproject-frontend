@@ -7,7 +7,7 @@ class SubmitButton extends Component {
     super(props);
   }
   render() {
-    return <Button variant="contained">Submit Expense</Button>;
+    return <Button variant="contained">Expense</Button>;
   }
 }
 

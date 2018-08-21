@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import '../App.css'
 
 
 class DailyBudget extends Component {
@@ -57,7 +57,7 @@ class DailyBudget extends Component {
                 {
                     (todaysDate === numbersOnly) ?
 
-                        <div>
+                        <div className="day-budget">
                             <div>
                                 Budget: {this.props.todaysBudget + this.props.todaysVariable}
                             </div>

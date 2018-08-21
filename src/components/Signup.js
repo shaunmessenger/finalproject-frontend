@@ -4,6 +4,7 @@ import { withRouter } from "react-router-dom";
 import InputUsername from "./MaterialUI/SignupInputUsername";
 import InputPassword from "./MaterialUI/SignupInputPassword";
 import SubmitButton from "./MaterialUI/SignupSubmit";
+import '../App.css'
 
 class SignupForm extends Component {
   constructor() {
@@ -46,20 +47,22 @@ class SignupForm extends Component {
   render() {
     return (
       <div className="login-container">
-        <h2>New User? Sign up!</h2>
+        <h2 className="signup-title">New User?</h2>
         <InputUsername
-          placeholder="username"
+          placeholder="new username"
           value={this.state.username}
           onChange={this.handleNewName}
         />
         <br />
         <InputPassword
-          placeholder="password"
+          placeholder="new password"
           value={this.state.password}
           onChange={this.handleNewPassword}
         />
         <br />
+        <div className="signup-button">
         <SubmitButton onClick={this.handleSubmit} />
+        </div>
       </div>
     );
   }
