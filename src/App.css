@@ -49,14 +49,14 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin: 20px auto;
-  padding: 10px;
+  margin: 40px auto;
+  padding: 15px;
   max-width: 200px;
   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
     0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
   background-color: white;
   animation: slidein 2s;
-  border-radius: 15px;
+  border-radius: 10px;
 }
 .login-title {
   display: flex;
@@ -131,7 +131,9 @@ body {
 }
 .day-budget-item {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
+  padding: 5px;
+
 }
 .navbar-title {
   display: flex;
@@ -156,8 +158,52 @@ a:link {
     transform: translateX(0%);
   }
 }
+.end-day{
+  display: flex;
+  justify-content: center;
+  padding:5px;
+}
+.end-submit{
+  display: flex;
+  justify-content: center;
+}
+.end-item{
+  padding: 0 0 1px 0;
+}
+.var-submit{
+  display: flex;
+  justify-content: center;
+}
+.goal-items{
+  display: flex;
+  justify-content: center;
+  font-size: 1.2em;
+}
+.fixed-item{
+  display: flex;
+  justify-content: center;
+
+}
+.exp-spent {
+  stroke: rgb(255, 7, 7) !important;
+  fill: rgba(239, 31, 31, 0.98) !important
+}
+.exp-budget{
+  stroke: #30b937 !important;
+    fill: #35bb3b !important
+}
+
 
 button {
   background-color: #66bc6a !important;
   color: white !important;
+}
+
+/* formating that turns inputs green after click */
+.MuiInput-underline-89:after {
+  border-bottom: 2px solid rgb(60, 182, 60) !important;
+}
+/* formating that turns inputs green after click */
+.MuiFormLabel-root-78.MuiFormLabel-focused-79 {
+  color: #66bc6a !important;
 }

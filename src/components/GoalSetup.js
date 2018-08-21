@@ -80,7 +80,9 @@ class GoalSetupForm extends Component {
     return (
       <div className="login-container">
         <form>
-          <h2>Define your #Goals</h2>
+          <div className="goal-items">
+            <h2 className="goal-items">Define your #Goals</h2>
+          </div>
           {/* Jordan did this component in-line, since sending props would have been difficult */}
           <FormControl>
             <InputLabel/>
@@ -102,7 +104,9 @@ class GoalSetupForm extends Component {
             onChange={this.newGoalDate}
           />
           <br />
-          <GoalsSubmitButton onClick={this.handleSubmit} />
+          <div className="goal-items">
+            <GoalsSubmitButton onClick={this.handleSubmit} />
+          </div>  
         </form>
         <p>
           {this.state.unrealistic ? (

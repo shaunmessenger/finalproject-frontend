@@ -95,7 +95,7 @@ class FixedInputsBasic extends Component {
   render() {
     return (
       <div className='login-container'>
-        <h2>Income and Fixed Monthly Expenses</h2>
+        <h2 className="fixed-item">Income and Fixed Monthly Expenses</h2>
 
         <FormControl>
           <InputLabel>Income Period</InputLabel>
@@ -138,8 +138,9 @@ class FixedInputsBasic extends Component {
           onChange={this.handleOtherChange}
           label={"Other expense"}
         />
-
-        <SubmitButton onClick={this.handleSubmit} />
+        <div className="fixed-item">  
+          <SubmitButton onClick={this.handleSubmit} />
+        </div>  
       </div>
     );
   }
