@@ -127,7 +127,9 @@ body {
 }
 .day-budget-item{
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
+  padding: 5px;
+
 }
 .navbar-title{
   display: flex;
@@ -139,6 +141,41 @@ body {
 a:link {
   text-decoration: none
 }
+.end-day{
+  display: flex;
+  justify-content: center;
+  padding:5px;
+}
+.end-submit{
+  display: flex;
+  justify-content: center;
+}
+.end-item{
+  padding: 0 0 1px 0;
+}
+.var-submit{
+  display: flex;
+  justify-content: center;
+}
+.goal-items{
+  display: flex;
+  justify-content: center;
+  font-size: 1.2em;
+}
+.fixed-item{
+  display: flex;
+  justify-content: center;
+
+}
+.exp-spent {
+  stroke: rgb(255, 7, 7) !important;
+  fill: rgba(239, 31, 31, 0.98) !important
+}
+.exp-budget{
+  stroke: #30b937 !important;
+    fill: #35bb3b !important
+}
+
 
 @keyframes slidein{
   from{transform:translateX(-2000%)}

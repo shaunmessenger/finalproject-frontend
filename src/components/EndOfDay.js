@@ -87,32 +87,35 @@ class EndOfDayForm extends Component {
             <div className='login-container'>
             <AlertDialogSlide open={this.state.open} handleClose={this.handleClose} text={text}/>
                 {(this.props.todaysBudget > 0) ?
-                    <div>
+                    <div className="end-day">
                         <form >
                         
                             <h2>Done for the day?</h2>
-                            <div>Your daily save goal: ${this.props.dailySaveGoal}</div>
-                            <div>Budget remaining: ${this.props.todaysBudget}</div>
-                            <div>
+                            <div className="end-day">Your daily save goal: ${this.props.dailySaveGoal}</div>
+                            <div className="end-day">Budget remaining: ${this.props.todaysBudget}</div>
+                            <br/>
+                            <div className="end-item">
                             Add to savings:
 
-            
                                 <Expense value={this.state.daySavings}
                                 onChange={this.handleSavings}
                                 label={'$' + this.props.dailySaveGoal}/>
                                 
                                 </div>
-                                <div>
+                                <br/>
+                                <div className="end-item">
                             Rollover to tomorrow:
-    <Expense 
-    label={'$' + (this.props.todaysBudget - this.state.daySavings)}
-    value={this.state.dayRollover}
-    onChange={this.handleRollover}
+                        <Expense 
+                        label={'$' + (this.props.todaysBudget - this.state.daySavings)}
+                        value={this.state.dayRollover}
+                        onChange={this.handleRollover}
     />
 
 
                                 </div>
-                            <SubmitButton onClick={this.handleSubmit}/>
+                            <div className="end-submit">
+                                <SubmitButton onClick={this.handleSubmit}/>
+                            </div>
                         </form>
                     </div> :
 

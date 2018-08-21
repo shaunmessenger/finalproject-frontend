@@ -56,8 +56,9 @@ class VariableExpenseForm extends Component {
   render() {
     return (
       <div className="login-container">
-        
+        <div className="var-submit">
           <h2>Submit expense</h2>
+        </div>  
           {/* Jordan did this component in-line, since sending props would have been difficult */}
           <FormControl>
             <InputLabel/>
@@ -76,7 +77,7 @@ class VariableExpenseForm extends Component {
             onChange={this.handleNewExpense}
           />
           <br />
-          <LoginSubmitButton onClick={this.handleSubmit} />
+          <div className="var-submit"> <LoginSubmitButton onClick={this.handleSubmit} /></div>
         
       </div>
     );
