@@ -52,13 +52,7 @@
   margin: 20px auto;
   padding: 10px;
   max-width: 200px;
-<<<<<<< HEAD
-  /* border-style: outset; */
-  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
-    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
-=======
   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
->>>>>>> 71221ed9d3e731dfe506899ffdcc5d8ab98fb5a1
   background-color: floralwhite;
   animation: slidein 2s;
 }
@@ -160,8 +154,4 @@ a:link {
   }
 }
 
-<<<<<<< HEAD
 /* also add the animation tag to  */
-=======
-/* also add the animation tag to  */
->>>>>>> 71221ed9d3e731dfe506899ffdcc5d8ab98fb5a1
