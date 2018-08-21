@@ -10,6 +10,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import { theme } from "../theming/theme";
+import '../App.css'
 
 const primary = theme.palette.primary;
 
@@ -132,7 +133,9 @@ class MenuAppBarBasic extends React.Component {
               color={primary.main}
               className={classes.flex}
             >
+            <div className="navbar-title">
               #GOALS
+            </div>  
             </Typography>
             {this.hamburger()}
           </Toolbar>
