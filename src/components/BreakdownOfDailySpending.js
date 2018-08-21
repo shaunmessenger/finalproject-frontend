@@ -59,9 +59,11 @@ class BreakdownBasic extends Component {
 
         ]
         return (
-            <div>
+            <div className='status-container'>
 
-                <PieChart width={800} height={400}>
+                <h2 className='h2title'>{this.state.date}</h2>
+                <div className='piechart'>
+                <PieChart width={400} height={400}>
                     <Pie
                         isAnimationActive={false}
                         data={data}
@@ -73,7 +75,7 @@ class BreakdownBasic extends Component {
                     />
                     <Tooltip />
                 </PieChart>
-
+                </div>
             </div>
         )
     }
