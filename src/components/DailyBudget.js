@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css'
-
+import { RadialChart } from 'react-vis';
 
 class DailyBudget extends Component {
     constructor() {
@@ -62,14 +62,28 @@ class DailyBudget extends Component {
                            
                                 Budget: ${this.props.todaysBudget + this.props.todaysVariable + " "}
                                 Spent: ${this.props.todaysVariable}
-                                
+                                <div><RadialChart 
+                                                data={[{angle:this.props.todaysVariable, className:"exp-spent"}, {angle:this.props.todaysBudget, className:"exp-budget"}]}
+                                                height={55}
+                                                width={55}
+                                                radius={20}
+                                                innerRadius={10}
+                                                   />
+                                </div>
                             
                         </div> :
                         <div className="day-budget-item">
                             
                                 Budget: ${this.state.budget + " "}
                                 Spent: ${this.state.spent}
-                            
+                                <div className="exp-inactive"><RadialChart 
+                                                data={[{angle:this.state.spent}, {angle:this.state.budget}]}
+                                                height={55}
+                                                width={55}
+                                                radius={20}
+                                                innerRadius={10}
+                                                   />
+                                </div>
                         </div>
                 }
 
