@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import DailyBudget from './DailyBudget.js'
+import DailyBudget from './DailyBudget.js';
+import '../App.css'
 var moment = require('moment');
+
 
 class WeekContainer extends Component {
     constructor() {
@@ -15,10 +17,11 @@ class WeekContainer extends Component {
     render() {
 
         return (
-            <div>
-                <div>
+            <div className="daily-container">
+                <div className="weekof-container">
                     Week of: {moment().startOf('week').format('ddd D MMM')} to {moment().startOf('week').add(6, 'days').format('ddd D MMM')}
                 </div>
+                
                 <div>
                     <DailyBudget userID={this.props.userID} todaysBudget={this.props.todaysBudget} todaysVariable={this.props.todaysVariable} day={moment().startOf('week').format('ddd D MMM')} />
                     <DailyBudget userID={this.props.userID} todaysBudget={this.props.todaysBudget} todaysVariable={this.props.todaysVariable} day={moment().startOf('week').add(1, 'days').format('ddd D MMM')} />

@@ -9,9 +9,7 @@ class SubmitButton extends Component {
   render() {
     return (
       <div>
-        <Button variant="contained" onClick={this.props.onClick}>
-          Submit
-        </Button>
+        <Button variant="contained" onClick={this.props.onClick}>Submit</Button>
       </div>
     );
   }

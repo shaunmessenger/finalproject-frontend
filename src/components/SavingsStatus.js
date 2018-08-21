@@ -7,6 +7,7 @@ import other from "../images/other.png";
 import AlertDialogSlide from "./PopUp";
 import EndofDayButton from "./MaterialUI/GSSEndofDayButton";
 import SubmitButton from "./MaterialUI/GSSSubmitButton";
+import '../App.css'
 
 class SavingsStatusBasic extends Component {
   constructor() {
@@ -69,7 +70,7 @@ class SavingsStatusBasic extends Component {
       text = undefined;
     }
     return (
-      <div>
+      <div className = "status-container">
         {this.props.receivedAlert ? null : text ? (
           <AlertDialogSlide
             open={this.state.open}
@@ -90,14 +91,14 @@ class SavingsStatusBasic extends Component {
               style={{ opacity: 0.8, width: percentage + "%" }}
             />
           </div>
-          <div>Daily Budget ${this.state.todaysBudget}</div>
+          <div>Today's Budget ${this.state.todaysBudget}</div>
           <div>{parseInt(percentage)}% of goal reached</div>
         </div>
-        <div className="buttons">
-          <Link to="/inputVariable" className="container">
-            <SubmitButton />
+        <div className="status-buttons">
+          <Link to="/inputVariable">
+            <SubmitButton>RecordExpense</SubmitButton>
           </Link>
-          <Link to="/endOfDay" className="container">
+          <Link to="/endOfDay" >
             <EndofDayButton />
           </Link>
         </div>

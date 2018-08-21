@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
-import GoalTypeSelector from "./MaterialUI/GoalsTypeSelector";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
-import Button from "@material-ui/core/Button";
 import InputGoalAmount from "./MaterialUI/GoalsInputAmount";
 import InputGoalDate from "./MaterialUI/GoalsInputDate";
 import GoalsSubmitButton from "./MaterialUI/GoalsSubmitButton";
@@ -85,10 +83,10 @@ class GoalSetupForm extends Component {
           <h2>Define your #Goals</h2>
           {/* Jordan did this component in-line, since sending props would have been difficult */}
           <FormControl>
-            <InputLabel>Age</InputLabel>
+            <InputLabel/>
             <Select value={this.state.goalType} onChange={this.newGoalType}>
-              <MenuItem value="vacation">Vaction</MenuItem>
-              <MenuItem value="newCar">New Car</MenuItem>
+              <MenuItem value="vacation">Vacation</MenuItem>
+              <MenuItem value="newCar">New car</MenuItem>
               <MenuItem value="buyAHouse">Buy a house</MenuItem>
               <MenuItem value="other">Other</MenuItem>
             </Select>
