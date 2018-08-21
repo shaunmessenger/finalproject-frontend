@@ -51,11 +51,11 @@ class BreakdownBasic extends Component {
     }
 
     render() {
-        let data = [{ name: "Coffee", value: this.state.totalCoffee },
-        { name: "Transport", value: this.state.totalTransport },
-        { name: "Other", value: this.state.totalOther },
-        { name: "Food", value: this.state.totalFood },
-        { name: "Shopping", value: this.state.totalShopping}
+        let data = [{ name: "Coffee", value: this.state.totalCoffee, fill: 'purple' },
+        { name: "Transport", value: this.state.totalTransport, fill: 'red' },
+        { name: "Other", value: this.state.totalOther, fill: 'orange'},
+        { name: "Food", value: this.state.totalFood, fill: 'yellow' },
+        { name: "Shopping", value: this.state.totalShopping, fill: 'green'}
 
         ]
         return (
@@ -68,7 +68,7 @@ class BreakdownBasic extends Component {
                         cx={200}
                         cy={100}
                         outerRadius={100}
-                        fill="#8884d8"
+                        fill={data.fill}
                         label
                     />
                     <Tooltip />
