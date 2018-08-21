@@ -82,29 +82,34 @@ class EndOfDayForm extends Component {
         }
         return (
             
-            <div>
+            <div className='login-container'>
             <AlertDialogSlide open={this.state.open} handleClose={this.handleClose} text={text}/>
                 {(this.props.todaysBudget > 0) ?
                     <div>
                         <form onSubmit={this.handleSubmit}>
+                        
                             <h2>Done for the day?</h2>
+                            <div>Your daily save goal: ${this.props.dailySaveGoal}</div>
+                            <div>Budget remaining: ${this.props.todaysBudget}</div>
+                            <div>
                             Add to savings:
-                <input placeholder={'Your savings goal for today: $' + this.props.dailySaveGoal}
+                <input placeholder={'$' + this.props.dailySaveGoal}
                                 value={this.state.daySavings}
                                 onChange={this.handleSavings} />
+                                </div>
+                                <div>
                             Rollover to tomorrow:
-                <input placeholder={'Your Savings Goal is: $' + (this.props.todaysBudget - this.state.daySavings)}
+                <input placeholder={'$' + (this.props.todaysBudget - this.state.daySavings)}
                                 value={this.state.dayRollover}
                                 onChange={this.handleRollover} />
-                            <div>${this.props.dailySaveGoal}</div>
-                            <div>Budget remaining: ${this.props.todaysBudget}</div>
+                                </div>
                             <input type="submit" />
                         </form>
                     </div> :
 
 
                     <div>
-                        <form onSubmit={this.handleSubmit}>you over spent today, the balance has been deducted from tomorrow's budget
+                        <form onSubmit={this.handleSubmit}>You over spent today, the balance has been deducted from tomorrow's budget
                 <input type='submit' value="go back"/>
                         </form>
                     </div>
