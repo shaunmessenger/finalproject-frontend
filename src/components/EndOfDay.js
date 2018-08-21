@@ -23,14 +23,25 @@ class EndOfDayForm extends Component {
 
     handleSubmit(evt) {
         evt.preventDefault();
-        if(this.state.daySavings && this.state.dayRollover){
+        // if(this.state.daySavings && this.state.dayRollover){
+        
+        let notStateDaySavings = this.state.daySavings
+        if (!notStateDaySavings){
+            notStateDaySavings = 0
+        }
+        let notStateRolloverAmount = this.state.dayRollover
+        if (!notStateRolloverAmount){
+            notStateRolloverAmount = 0
+        }
+
+
         this.setState({open: !this.state.open})
         let bod;
         if (this.props.todaysBudget > 0) {
             bod = JSON.stringify({
                 userID: this.props.userID,
-                savedAmount: this.state.daySavings,
-                rolloverAmount: this.state.dayRollover
+                savedAmount: notStateDaySavings,
+                rolloverAmount: notStateRolloverAmount
             })}
     else {
 
@@ -54,7 +65,7 @@ class EndOfDayForm extends Component {
             this.props.sendInfoToApp(todaysBudget, todaysVariable)
             
         })
-    }
+    // }
     }
 
     handleSavings(evt) {
@@ -77,10 +88,12 @@ class EndOfDayForm extends Component {
         let text;
         if (this.state.daySavings > this.props.dailySaveGoal){
             text = "You surpassed your daily save goal! Congratulations!"
-        } else if (this.state.daySavings < this.props.dailySaveGoal) {
+        } else if (this.state.daySavings < this.props.dailySaveGoal && this.state.daySavings > 0) {
             text = "You didn't reach your goal, but you still managed to save something!"
-        } else {
+        } else if (this.state.daySavings === this.props.dailySaveGoal){
             text = "You hit your daily save goal for the day! Keep it up!"
+        } else {
+            text = "You didn't manage to save anything today. Take it easy on the spending tomorrow! "
         }
         return (
             
@@ -121,10 +134,11 @@ class EndOfDayForm extends Component {
 
 
                     <div>
-                        <form onSubmit={this.handleSubmit}>You over spent today, the balance has been deducted from tomorrow's budget
-                <input type='submit' value="go back"/>
-                        {/* <SubmitButton/> */}
-                        </form>
+                        {/* <form onSubmit={this.handleSubmit}> */}
+                        You over spent today, the balance has been deducted from tomorrow's budget
+                {/* <input type='submit' value="go back"/> */}
+                        <SubmitButton onClick={this.handleSubmit}/>
+                        {/* </form> */}
                     </div>
 
 
