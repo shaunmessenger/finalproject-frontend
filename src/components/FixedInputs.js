@@ -94,53 +94,60 @@ class FixedInputsBasic extends Component {
 
   render() {
     return (
-      <div className='login-container'>
+      <div className="fixed-container">
         <h2 className="fixed-item">Income and Fixed Monthly Expenses</h2>
+        <div className="fixed-input-container">
+          <FormControl className="fixed-selector">
+            <InputLabel>Income Period</InputLabel>
+            <Select
+              value={this.state.incomeType}
+              onChange={this.handleIncomeType}
+            >
+              <MenuItem value="biweekly">Bi-weekly</MenuItem>
+              <MenuItem value="monthly">Monthly</MenuItem>
+              <MenuItem value="yearly">Yearly</MenuItem>
+            </Select>
+          </FormControl>
 
-        <FormControl>
-          <InputLabel>Income Period</InputLabel>
-          <Select
-            value={this.state.incomeType}
-            onChange={this.handleIncomeType}
-          >
-            <MenuItem value="biweekly">Bi-weekly</MenuItem>
-            <MenuItem value="monthly">Monthly</MenuItem>
-            <MenuItem value="yearly">Yearly</MenuItem>
-          </Select>
-        </FormControl>
+          <Expense
+            className="bogo"
+            value={this.state.inputIncome}
+            onChange={this.handleIncomeChange}
+            label={"Personal income"}
+          />
 
-        <Expense
-          value={this.state.inputIncome}
-          onChange={this.handleIncomeChange}
-          label={"Personal income"}
-        />
+          <Expense
+            className="bogo"
+            value={this.state.inputHousing}
+            onChange={this.handleHousingChange}
+            label={"Housing expense"}
+          />
 
-        <Expense
-          value={this.state.inputHousing}
-          onChange={this.handleHousingChange}
-          label={"Housing expense"}
-        />
+          <Expense
+            className="bogo"
+            value={this.state.inputTransport}
+            onChange={this.handleTransportChange}
+            label={"Transport expense"}
+          />
 
-        <Expense
-          value={this.state.inputTransport}
-          onChange={this.handleTransportChange}
-          label={"Transport expense"}
-        />
+          <Expense
+            data-component={"expense"}
+            className={"bogo"}
+            value={this.state.inputFood}
+            onChange={this.handleFoodChange}
+            label={"Food expense"}
+          />
 
-        <Expense
-          value={this.state.inputFood}
-          onChange={this.handleFoodChange}
-          label={"Food expense"}
-        />
-
-        <Expense
-          value={this.state.inputOther}
-          onChange={this.handleOtherChange}
-          label={"Other expense"}
-        />
-        <div className="fixed-item">  
+          <Expense
+            className="bogo"
+            value={this.state.inputOther}
+            onChange={this.handleOtherChange}
+            label={"Other expense"}
+          />
+        </div>
+        <div className="fixed-item">
           <SubmitButton onClick={this.handleSubmit} />
-        </div>  
+        </div>
       </div>
     );
   }

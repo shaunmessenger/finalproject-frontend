@@ -7,7 +7,13 @@ import other from "../images/other.png";
 import AlertDialogSlide from "./PopUp";
 import EndofDayButton from "./MaterialUI/GSSEndofDayButton";
 import SubmitButton from "./MaterialUI/GSSSubmitButton";
-import '../App.css'
+import "../App.css";
+
+const divStyle = {
+  marginBottom: "15px",
+  marginTop: "15px",
+  textAlign: "center"
+};
 
 class SavingsStatusBasic extends Component {
   constructor() {
@@ -70,7 +76,7 @@ class SavingsStatusBasic extends Component {
       text = undefined;
     }
     return (
-      <div className = "status-container">
+      <div className="status-container">
         {this.props.receivedAlert ? null : text ? (
           <AlertDialogSlide
             open={this.state.open}
@@ -78,27 +84,28 @@ class SavingsStatusBasic extends Component {
             text={text}
           />
         ) : null}
+
+        <h2 className="h2title">Goal Progress</h2>
         <div
           className="mainPageWithoutButtons"
           style={{
             backgroundImage: "url(" + images[this.state.goalType] + ")"
           }}
         >
-          <div>Goal Progress</div>
-          <div className="progressbar">
-            <div
-              className="progressbarred"
-              style={{ opacity: 0.8, width: percentage + "%" }}
-            />
-          </div>
           <div>Today's Budget ${this.state.todaysBudget}</div>
-          <div>{parseInt(percentage)}% of goal reached</div>
         </div>
-        <div className="status-buttons">
+        <div className="progressbar">
+          <div
+            className="progressbarred"
+            style={{ opacity: 0.8, width: percentage + "%" }}
+          />
+        </div>
+        <div style={divStyle}>{parseInt(percentage)}% of goal reached</div>
+        <div className="buttoncontainer">
           <Link to="/inputVariable">
             <SubmitButton>RecordExpense</SubmitButton>
           </Link>
-          <Link to="/endOfDay" >
+          <Link to="/endOfDay">
             <EndofDayButton />
           </Link>
         </div>
