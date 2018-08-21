@@ -9,6 +9,12 @@ import EndofDayButton from "./MaterialUI/GSSEndofDayButton";
 import SubmitButton from "./MaterialUI/GSSSubmitButton";
 import "../App.css";
 
+const divStyle = {
+  marginBottom: "15px",
+  marginTop: "15px",
+  textAlign: "center"
+};
+
 class SavingsStatusBasic extends Component {
   constructor() {
     super();
@@ -86,16 +92,16 @@ class SavingsStatusBasic extends Component {
             backgroundImage: "url(" + images[this.state.goalType] + ")"
           }}
         >
-          <div className="progressbar">
-            <div
-              className="progressbarred"
-              style={{ opacity: 0.8, width: percentage + "%" }}
-            />
-          </div>
-          <div>{parseInt(percentage)}% of goal reached</div>
           <div>Today's Budget ${this.state.todaysBudget}</div>
         </div>
-        <div className="status-buttons">
+        <div className="progressbar">
+          <div
+            className="progressbarred"
+            style={{ opacity: 0.8, width: percentage + "%" }}
+          />
+        </div>
+        <div style={divStyle}>{parseInt(percentage)}% of goal reached</div>
+        <div className="buttoncontainer">
           <Link to="/inputVariable">
             <SubmitButton>RecordExpense</SubmitButton>
           </Link>
