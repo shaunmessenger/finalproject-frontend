@@ -8,13 +8,13 @@ class BreakdownBasic extends Component {
             //userID: this.props.userID,
             userID: 7195,
             //date: this.props.date,
-            date: "21 Aug 2018"
+            date: "Tue 21 Aug 2018",
+            totalCoffee: 0,
+            totalFood: 0,
+            totalOther: 0,
+            totalShopping: 0,
+            totalTransport: 0
         }
-        let totalCoffee = 0;
-        let totalFood = 0;
-        let totalOther =0;
-        let totalShopping = 0;
-        let totalTransport = 0;
     }
 
 
@@ -34,16 +34,16 @@ class BreakdownBasic extends Component {
             console.log(parsed)
 
             for (let i = 0; i < parsed.length; i++) {
-                if (parsed.type === "coffee") {
-                    totalCoffee += parseFloat(parsed.amount)
-                } else if (parsed.type === "food") {
-                    totalFood += parseFloat(parsed.amount)
-                } else if (parsed.type === "transport") {
-                    totalTransport += parseFloat(parsed.amount)
-                } else if (parsed.type === "shopping") {
-                    totalShopping += parseFloat(parsed.amount)
+                if (parsed[i].type === "coffee") {
+                    this.setState({totalCoffee: this.state.totalCoffee + parseFloat(parsed[i].amount)})
+                } else if (parsed[i].type === "food") {
+                    this.setState({totalFood: this.state.totalFood + parseFloat(parsed[i].amount)})
+                } else if (parsed[i].type === "transport") {
+                    this.setState({totalTransport: this.state.totalTransport + parseFloat(parsed[i].amount)})
+                } else if (parsed[i].type === "shopping") {
+                    this.setState({totalShopping: this.state.totalShopping + parseFloat(parsed[i].amount)})
                 } else {
-                    totalOther += parseFloat(parsed.amount)
+                    this.setState({totalOther: this.state.totalOther + parseFloat(parsed[i].amount)})
                 }
             }
         })
@@ -51,7 +51,7 @@ class BreakdownBasic extends Component {
 
     render() {
         return (
-            <div>{totalCoffee}</div>
+            <div>{this.state.totalTransport}</div>
         )
     }
 
