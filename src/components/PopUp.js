@@ -25,7 +25,7 @@ class AlertDialogSlide extends React.Component {
           aria-describedby="alert-dialog-slide-description"
         >
           <DialogTitle id="alert-dialog-slide-title">
-            {"Amazing"}
+            {"From the #Goals team... "}
           </DialogTitle>
           <DialogContent>
             <DialogContentText id="alert-dialog-slide-description">

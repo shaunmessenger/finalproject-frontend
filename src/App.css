@@ -10,7 +10,7 @@
 .progressbarred {
   height: 50px;
   width: 170px;
-  background-color: red;
+  background-color: rgb(102, 187, 106);
 }
 
 .container {
