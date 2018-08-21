@@ -14,8 +14,8 @@
 }
 
 .container {
- display: flex;
- align-self: flex-end;
+  display: flex;
+  align-self: flex-end;
 }
 
 .mainPageWithoutButtons {
@@ -52,18 +52,13 @@
   margin: 20px auto;
   padding: 10px;
   max-width: 200px;
-<<<<<<< HEAD
-  /* border-style: outset; */
   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
     0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
-=======
-  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
->>>>>>> 71221ed9d3e731dfe506899ffdcc5d8ab98fb5a1
   background-color: floralwhite;
   animation: slidein 2s;
 }
-.login-title{
-  display:flex;
+.login-title {
+  display: flex;
   justify-content: center;
 }
 
@@ -72,17 +67,18 @@
   justify-content: space-between;
 }
 
-.status-container{
+.status-container {
   display: block;
   margin-left: auto;
   margin-right: auto;
   margin: 20px auto;
   max-width: 500px;
   padding: 10px;
-  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
   background-color: floralwhite;
 }
-.status-buttons{
+.status-buttons {
   display: flex;
   justify-content: space-evenly;
 }
@@ -104,28 +100,27 @@ body {
 .goal-container {
   padding-top: 10px;
 }
-.signup-button{
+.signup-button {
   display: flex;
   justify-content: center;
 }
-.signup-title{
+.signup-title {
   display: flex;
   justify-content: center;
 }
-.daily-container{
+.daily-container {
   display: flex;
   flex-flow: column;
   justify-content: center;
- 
 }
-.weekof-container{
+.weekof-container {
   display: flex;
   justify-content: center;
   border: solid darkgreen 1px;
   background: green;
   color: white;
 }
-.day-budget{
+.day-budget {
   display: flex;
   flex-direction: column;
   padding: 10px;
@@ -133,24 +128,25 @@ body {
   margin: 5px 0px 5px 0px;
   background: floralwhite;
 }
-.day-budget-item{
+.day-budget-item {
   display: flex;
   justify-content: center;
 }
-.navbar-title{
+.navbar-title {
   display: flex;
   justify-content: center;
   color: white;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 a:link {
-  text-decoration: none
+  text-decoration: none;
 }
 
 @keyframes slidein {
   from {
-    transform: translateX(-2000%);
+    transform: translateX(-1500%);
   }
   /* 70% {
     transform: translateX(30%);
@@ -160,8 +156,4 @@ a:link {
   }
 }
 
-<<<<<<< HEAD
 /* also add the animation tag to  */
-=======
-/* also add the animation tag to  */
->>>>>>> 71221ed9d3e731dfe506899ffdcc5d8ab98fb5a1
