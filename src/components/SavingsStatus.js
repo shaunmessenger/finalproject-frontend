@@ -91,7 +91,7 @@ class SavingsStatusBasic extends Component {
               style={{ opacity: 0.8, width: percentage + "%" }}
             />
           </div>
-          <div>Daily Budget ${this.state.todaysBudget}</div>
+          <div>Today's Budget ${this.state.todaysBudget}</div>
           <div>{parseInt(percentage)}% of goal reached</div>
         </div>
         <div className="status-buttons">

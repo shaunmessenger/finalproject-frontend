@@ -10,6 +10,7 @@ import OtherExpense from "./MaterialUI/FixedExpOther";
 import TransportExpense from "./MaterialUI/FixedExpTransport";
 import IncomeInput from "./MaterialUI/FixedIncomeInput";
 import SubmitButton from "./MaterialUI/FixedSubmitButton";
+import Expense from "./MaterialUI/Expense";
 
 class FixedInputsBasic extends Component {
   constructor(props) {
@@ -108,29 +109,34 @@ class FixedInputsBasic extends Component {
           </Select>
         </FormControl>
 
-        <IncomeInput
+        <Expense
           value={this.state.inputIncome}
           onChange={this.handleIncomeChange}
+          label={"Personal income"}
         />
 
-        <HousingExpense
+        <Expense
           value={this.state.inputHousing}
           onChange={this.handleHousingChange}
+          label={"Housing expense"}
         />
 
-        <TransportExpense
+        <Expense
           value={this.state.inputTransport}
           onChange={this.handleTransportChange}
+          label={"Transport expense"}
         />
 
-        <FoodExpense
+        <Expense
           value={this.state.inputFood}
           onChange={this.handleFoodChange}
+          label={"Food expense"}
         />
 
-        <OtherExpense
+        <Expense
           value={this.state.inputOther}
           onChange={this.handleOtherChange}
+          label={"Other expense"}
         />
 
         <SubmitButton onClick={this.handleSubmit} />

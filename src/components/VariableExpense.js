@@ -1,5 +1,11 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
+import LoginSubmitButton from "./MaterialUI/LoginSubmitButton";
+import Expense from "./MaterialUI/Expense";
 
 class VariableExpenseForm extends Component {
   constructor() {
@@ -46,30 +52,32 @@ class VariableExpenseForm extends Component {
     this.setState({ expenseAmt: evt.target.value });
   }
 
+
   render() {
     return (
-      <div className='login-container'>
-        <form onSubmit={this.handleSubmit}>
-          <h2>Submit Expense</h2>
-          <select
-            name="expenses"
-            value={this.state.expenseType}
-            onChange={this.newExpenseType}
-          >
-            <option value="food">Food</option>
-            <option value="coffee">Coffee, I needed it</option>
-            <option value="transport">Transport</option>
-            <option value="shopping">Shopping</option>
-          </select>
+      <div className="login-container">
+        
+          <h2>Submit expense</h2>
+          {/* Jordan did this component in-line, since sending props would have been difficult */}
+          <FormControl>
+            <InputLabel/>
+            <Select value={this.state.expenseType} onChange={this.newExpenseType}>
+              <MenuItem value="food">Food</MenuItem>
+              <MenuItem value="coffee">Coffee, I really needed it</MenuItem>
+              <MenuItem value="transport">Transport</MenuItem>
+              <MenuItem value="shopping">Shopping</MenuItem>
+              <MenuItem value="other">Other</MenuItem>
+            </Select>
+          </FormControl>
           <br />
-          <input
-            placeholder="Expense amount"
+          <Expense
+            label={"$"}
             value={this.state.expenseAmt}
             onChange={this.handleNewExpense}
           />
           <br />
-          <input type="submit" />
-        </form>
+          <LoginSubmitButton onClick={this.handleSubmit} />
+        
       </div>
     );
   }

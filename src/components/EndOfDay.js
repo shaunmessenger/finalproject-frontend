@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import AlertDialogSlide from './PopUp';
+import Expense from "./MaterialUI/Expense";
+import SubmitButton from './MaterialUI/SignupSubmit';
 
 
 
@@ -86,24 +88,31 @@ class EndOfDayForm extends Component {
             <AlertDialogSlide open={this.state.open} handleClose={this.handleClose} text={text}/>
                 {(this.props.todaysBudget > 0) ?
                     <div>
-                        <form onSubmit={this.handleSubmit}>
+                        <form >
                         
                             <h2>Done for the day?</h2>
                             <div>Your daily save goal: ${this.props.dailySaveGoal}</div>
                             <div>Budget remaining: ${this.props.todaysBudget}</div>
                             <div>
                             Add to savings:
-                <input placeholder={'$' + this.props.dailySaveGoal}
-                                value={this.state.daySavings}
-                                onChange={this.handleSavings} />
+
+            
+                                <Expense value={this.state.daySavings}
+                                onChange={this.handleSavings}
+                                label={'$' + this.props.dailySaveGoal}/>
+                                
                                 </div>
                                 <div>
                             Rollover to tomorrow:
-                <input placeholder={'$' + (this.props.todaysBudget - this.state.daySavings)}
-                                value={this.state.dayRollover}
-                                onChange={this.handleRollover} />
+    <Expense 
+    label={'$' + (this.props.todaysBudget - this.state.daySavings)}
+    value={this.state.dayRollover}
+    onChange={this.handleRollover}
+    />
+
+
                                 </div>
-                            <input type="submit" />
+                            <SubmitButton onClick={this.handleSubmit}/>
                         </form>
                     </div> :
 
@@ -111,6 +120,7 @@ class EndOfDayForm extends Component {
                     <div>
                         <form onSubmit={this.handleSubmit}>You over spent today, the balance has been deducted from tomorrow's budget
                 <input type='submit' value="go back"/>
+                        {/* <SubmitButton/> */}
                         </form>
                     </div>
 
@@ -120,6 +130,57 @@ class EndOfDayForm extends Component {
 
             </div>
         )
+
+
+        // return (
+            
+        //     <div className='login-container'>
+        //     <AlertDialogSlide open={this.state.open} handleClose={this.handleClose} text={text}/>
+        //         {(this.props.todaysBudget > 0) ?
+        //             <div>
+        //                 <form onSubmit={this.handleSubmit}>
+                        
+        //                     <h2>Done for the day?</h2>
+        //                     <div>Your daily save goal: ${this.props.dailySaveGoal}</div>
+        //                     <div>Budget remaining: ${this.props.todaysBudget}</div>
+        //                     <div>
+        //                     Add to savings:
+        //         <input placeholder={'$' + this.props.dailySaveGoal}
+        //                         value={this.state.daySavings}
+        //                         onChange={this.handleSavings} />
+        //                         </div>
+        //                         <div>
+        //                     Rollover to tomorrow:
+        //         <input placeholder={'$' + (this.props.todaysBudget - this.state.daySavings)}
+        //                         value={this.state.dayRollover}
+        //                         onChange={this.handleRollover} />
+        //                         </div>
+        //                     <input type="submit" />
+        //                 </form>
+        //             </div> :
+
+
+        //             <div>
+        //                 <form onSubmit={this.handleSubmit}>You over spent today, the balance has been deducted from tomorrow's budget
+        //         <input type='submit' value="go back"/>
+        //                 </form>
+        //             </div>
+
+
+        //         }
+
+
+        //     </div>
+        // )
+
+
+
+
+
+
+
+
+
 
 
     }
