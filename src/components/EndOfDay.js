@@ -24,13 +24,24 @@ class EndOfDayForm extends Component {
     handleSubmit(evt) {
         evt.preventDefault();
         // if(this.state.daySavings && this.state.dayRollover){
+        
+        let notStateDaySavings = this.state.daySavings
+        if (!notStateDaySavings){
+            notStateDaySavings = 0
+        }
+        let notStateRolloverAmount = this.state.dayRollover
+        if (!notStateRolloverAmount){
+            notStateRolloverAmount = 0
+        }
+
+
         this.setState({open: !this.state.open})
         let bod;
         if (this.props.todaysBudget > 0) {
             bod = JSON.stringify({
                 userID: this.props.userID,
-                savedAmount: this.state.daySavings,
-                rolloverAmount: this.state.dayRollover
+                savedAmount: notStateDaySavings,
+                rolloverAmount: notStateRolloverAmount
             })}
     else {
 
