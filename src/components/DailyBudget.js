@@ -77,7 +77,7 @@ class DailyBudget extends Component {
                                 Budget: ${this.state.budget + " "}
                                 Spent: ${this.state.spent}
                                 <div className="exp-inactive"><RadialChart 
-                                                data={[{angle:this.state.spent}, {angle:this.state.budget}]}
+                                                data={[{angle:this.state.spent}, {angle:this.state.budget - this.state.spent}]}
                                                 height={55}
                                                 width={55}
                                                 radius={20}
