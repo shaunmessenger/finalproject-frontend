@@ -4,7 +4,7 @@
   border: thick double black;
   margin-left: auto;
   margin-right: auto;
-      margin-top: 60%;
+  margin-top: 60%;
 }
 
 .progressbarred {
@@ -52,8 +52,15 @@
   margin: 20px auto;
   padding: 10px;
   max-width: 200px;
+<<<<<<< HEAD
+  /* border-style: outset; */
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+=======
   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+>>>>>>> 71221ed9d3e731dfe506899ffdcc5d8ab98fb5a1
   background-color: floralwhite;
+  animation: slidein 2s;
 }
 .login-title{
   display:flex;
@@ -80,21 +87,22 @@
   justify-content: space-evenly;
 }
 body {
-  background-color: lightgray;
+  /* background-color: lightgray; */
+  background-image: url("./images/Stripes2.png");
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 }
 
-.login-failed{
+.login-failed {
   padding-top: 10px;
   text-align: center;
 }
 
-.inputs-on-goalpage{
-  padding: 10px
+.inputs-on-goalpage {
+  padding: 10px;
 }
 
-.goal-container{
-  padding-top: 10px
+.goal-container {
+  padding-top: 10px;
 }
 .signup-button{
   display: flex;
@@ -140,11 +148,20 @@ a:link {
   text-decoration: none
 }
 
-@keyframes slidein{
-  from{transform:translateX(-2000%)}
-  70%{transform:translateX(70%)}
-  to{transform:translateX(0%)}
-  }   
-  
+@keyframes slidein {
+  from {
+    transform: translateX(-2000%);
+  }
+  /* 70% {
+    transform: translateX(30%);
+  } */
+  to {
+    transform: translateX(0%);
+  }
+}
 
+<<<<<<< HEAD
 /* also add the animation tag to  */
+=======
+/* also add the animation tag to  */
+>>>>>>> 71221ed9d3e731dfe506899ffdcc5d8ab98fb5a1
