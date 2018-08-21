@@ -23,13 +23,13 @@ class WeekContainer extends Component {
                 </div>
                 
                 <div>
-                    <DailyBudget userID={this.props.userID} todaysBudget={this.props.todaysBudget} todaysVariable={this.props.todaysVariable} day={moment().startOf('week').format('ddd D MMM')} />
-                    <DailyBudget userID={this.props.userID} todaysBudget={this.props.todaysBudget} todaysVariable={this.props.todaysVariable} day={moment().startOf('week').add(1, 'days').format('ddd D MMM')} />
-                    <DailyBudget userID={this.props.userID} todaysBudget={this.props.todaysBudget} todaysVariable={this.props.todaysVariable} day={moment().startOf('week').add(2, 'days').format('ddd D MMM')} />
-                    <DailyBudget userID={this.props.userID} todaysBudget={this.props.todaysBudget} todaysVariable={this.props.todaysVariable} day={moment().startOf('week').add(3, 'days').format('ddd D MMM')} />
-                    <DailyBudget userID={this.props.userID} todaysBudget={this.props.todaysBudget} todaysVariable={this.props.todaysVariable} day={moment().startOf('week').add(4, 'days').format('ddd D MMM')} />
-                    <DailyBudget userID={this.props.userID} todaysBudget={this.props.todaysBudget} todaysVariable={this.props.todaysVariable} day={moment().startOf('week').add(5, 'days').format('ddd D MMM')} />
-                    <DailyBudget userID={this.props.userID} todaysBudget={this.props.todaysBudget} todaysVariable={this.props.todaysVariable} day={moment().startOf('week').add(6, 'days').format('ddd D MMM')} />
+                    <DailyBudget sendDate={this.props.sendDate} userID={this.props.userID} todaysBudget={this.props.todaysBudget} todaysVariable={this.props.todaysVariable} day={moment().startOf('week').format('ddd D MMM')} />
+                    <DailyBudget sendDate={this.props.sendDate} userID={this.props.userID} todaysBudget={this.props.todaysBudget} todaysVariable={this.props.todaysVariable} day={moment().startOf('week').add(1, 'days').format('ddd D MMM')} />
+                    <DailyBudget sendDate={this.props.sendDate} userID={this.props.userID} todaysBudget={this.props.todaysBudget} todaysVariable={this.props.todaysVariable} day={moment().startOf('week').add(2, 'days').format('ddd D MMM')} />
+                    <DailyBudget sendDate={this.props.sendDate} userID={this.props.userID} todaysBudget={this.props.todaysBudget} todaysVariable={this.props.todaysVariable} day={moment().startOf('week').add(3, 'days').format('ddd D MMM')} />
+                    <DailyBudget sendDate={this.props.sendDate} userID={this.props.userID} todaysBudget={this.props.todaysBudget} todaysVariable={this.props.todaysVariable} day={moment().startOf('week').add(4, 'days').format('ddd D MMM')} />
+                    <DailyBudget sendDate={this.props.sendDate} userID={this.props.userID} todaysBudget={this.props.todaysBudget} todaysVariable={this.props.todaysVariable} day={moment().startOf('week').add(5, 'days').format('ddd D MMM')} />
+                    <DailyBudget sendDate={this.props.sendDate} userID={this.props.userID} todaysBudget={this.props.todaysBudget} todaysVariable={this.props.todaysVariable} day={moment().startOf('week').add(6, 'days').format('ddd D MMM')} />
                 </div>
             </div>
         )

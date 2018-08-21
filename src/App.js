@@ -10,7 +10,6 @@ import VariableExpense from "./components/VariableExpense";
 import SavingsStatus from "./components/SavingsStatus";
 import WeekContainer from './components/WeekContainer.js';
 import EndOfDay from "./components/EndOfDay";
-import AnalyticsPage from "./components/AnalyticsPage";
 import DailyBudget from "./components/DailyBudget";
 import Breakdown from "./components/BreakdownOfDailySpending"
 
@@ -38,6 +37,7 @@ class App extends Component {
     this.handleClickOpen = this.handleClickOpen.bind(this);
     this.handleClickClose = this.handleClickClose.bind(this);
     this.toggleFlag = this.toggleFlag.bind(this)
+    this.sendDate = this.sendDate.bind(this)
   }
   getUserIdFromLogin(userID) {
     this.setState({ userID: userID }); //sending the userID to the components where needed
@@ -77,6 +77,10 @@ class App extends Component {
 
   toggleFlag(){
     this.setState({ receivedAlert: true})
+  }
+
+  sendDate(date){
+    this.setState({ dateToSend: date})
   }
 
   render() {
@@ -151,6 +155,7 @@ class App extends Component {
                 userID={this.state.userID}
                 todaysBudget={this.state.todaysBudget}
                 todaysVariable={this.state.todaysVariable}
+                sendDate={this.sendDate}
               />
             )}
           />
@@ -171,7 +176,9 @@ class App extends Component {
           <Route
             path="/analytics"
             exact={true}
-            render={() => <Breakdown />}
+            render={() => <Breakdown 
+            userID={this.state.userID}
+            dateToSend={this.state.dateToSend}/>}
           />
 
 
