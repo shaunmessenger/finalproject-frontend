@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import '../App.css'
 import { RadialChart } from 'react-vis';
+import { Link, withRouter } from "react-router-dom";
 
-class DailyBudget extends Component {
+class DailyBudgetBasic extends Component {
     constructor() {
         super()
         this.state = {
             budget: 0,
             spent: 0
         }
+        this.handleClickOtherDayBreakdown = this.handleClickOtherDayBreakdown.bind(this)
 
     }
     componentDidMount() {
@@ -40,6 +42,11 @@ class DailyBudget extends Component {
                 this.setState({ budget: startOfDayBudget, spent: spent })
             })
     }
+    handleClickOtherDayBreakdown(){
+        this.props.sendDate(this.props.day + " 2018")
+        this.props.history.push('/analytics')
+    }
+
     render() {
         let date = this.props.day
         let numbersOnly = parseInt(date.replace(/[^0-9]/g, ""))
@@ -62,6 +69,7 @@ class DailyBudget extends Component {
                            
                                 Budget: ${this.props.todaysBudget + this.props.todaysVariable + " "}
                                 Spent: ${this.props.todaysVariable}
+
                                 <div><RadialChart 
                                                 data={[{angle:this.props.todaysVariable, className:"exp-spent"}, {angle:this.props.todaysBudget, className:"exp-budget"}]}
                                                 height={55}
@@ -76,6 +84,7 @@ class DailyBudget extends Component {
                             
                                 Budget: ${this.state.budget + " "}
                                 Spent: ${this.state.spent}
+                                <button onClick={this.handleClickOtherDayBreakdown}>See my breakdown</button>
                                 <div className="exp-inactive"><RadialChart 
                                                 data={[{angle:this.state.spent}, {angle:this.state.budget}]}
                                                 height={55}
@@ -92,5 +101,5 @@ class DailyBudget extends Component {
     }
 }
 
-
+let DailyBudget = withRouter(DailyBudgetBasic)
 export default DailyBudget;

@@ -1,21 +1,27 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+import { PieChart, Pie, Legend, Tooltip } from "recharts";
 
-class Breakdown extends Component {
+class BreakdownBasic extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            //userID: this.props.userID,
-            userID: 7195,
-            //date: this.props.date,
-            date: "21 Aug 2018"
+            userID: this.props.userID,
+            // userID: 858,
+            date: this.props.dateToSend,
+            // date: "Tue 21 Aug 2018",
+            totalCoffee: 0,
+            totalFood: 0,
+            totalOther: 0,
+            totalShopping: 0,
+            totalTransport: 0
         }
     }
 
 
 
 
-    fetch() {
+    componentDidMount() {
         fetch("/getDaysAnalytics", {
             method: "POST",
             body: JSON.stringify({
@@ -27,32 +33,54 @@ class Breakdown extends Component {
             .then(response => {
                 let parsed = JSON.parse(response)
                 console.log(parsed)
-                let totalCoffee;
-                let totalOther;
-                let totalFood;
-                let totalShopping;
-                let totalTransport;
+
                 for (let i = 0; i < parsed.length; i++) {
-                    if (parsed.type === "coffee") {
-                        totalCoffee += parseFloat(parsed.amount)
-                    } else if (parsed.type === "food") {
-                        totalFood += parseFloat(parsed.amount)
-                    } else if (parsed.type === "transport") {
-                        totalTransport += parseFloat(parsed.amount)
-                    } else if (parsed.type === "shopping") {
-                        totalShopping += parseFloat(parsed.amount)
+                    if (parsed[i].type === "coffee") {
+                        this.setState({ totalCoffee: this.state.totalCoffee + parseFloat(parsed[i].amount) })
+                    } else if (parsed[i].type === "food") {
+                        this.setState({ totalFood: this.state.totalFood + parseFloat(parsed[i].amount) })
+                    } else if (parsed[i].type === "transport") {
+                        this.setState({ totalTransport: this.state.totalTransport + parseFloat(parsed[i].amount) })
+                    } else if (parsed[i].type === "shopping") {
+                        this.setState({ totalShopping: this.state.totalShopping + parseFloat(parsed[i].amount) })
                     } else {
-                        totalOther += parseFloat(parsed.amount)
+                        this.setState({ totalOther: this.state.totalOther + parseFloat(parsed[i].amount) })
                     }
-                })
+                }
+            })
     }
-}
 
     render() {
-        return ()
+        let data = [{ name: "Coffee", value: this.state.totalCoffee },
+        { name: "Transport", value: this.state.totalTransport },
+        { name: "Other", value: this.state.totalOther },
+        { name: "Food", value: this.state.totalFood },
+        { name: "Shopping", value: this.state.totalShopping}
+
+        ]
+        return (
+            <div>
+
+                <PieChart width={800} height={400}>
+                    <Pie
+                        isAnimationActive={false}
+                        data={data}
+                        cx={200}
+                        cy={100}
+                        outerRadius={100}
+                        fill="#8884d8"
+                        label
+                    />
+                    <Tooltip />
+                </PieChart>
+
+            </div>
+        )
     }
 
 
 
 }
-export default Breakdown
+
+let Breakdown = withRouter(BreakdownBasic)
+export default Breakdown;
