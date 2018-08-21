@@ -110,30 +110,36 @@ class FixedInputsBasic extends Component {
           </FormControl>
 
           <Expense
+            className="bogo"
             value={this.state.inputIncome}
             onChange={this.handleIncomeChange}
             label={"Personal income"}
           />
 
           <Expense
+            className="bogo"
             value={this.state.inputHousing}
             onChange={this.handleHousingChange}
             label={"Housing expense"}
           />
 
           <Expense
+            className="bogo"
             value={this.state.inputTransport}
             onChange={this.handleTransportChange}
             label={"Transport expense"}
           />
 
           <Expense
+            data-component={"expense"}
+            className={"bogo"}
             value={this.state.inputFood}
             onChange={this.handleFoodChange}
             label={"Food expense"}
           />
 
           <Expense
+            className="bogo"
             value={this.state.inputOther}
             onChange={this.handleOtherChange}
             label={"Other expense"}
