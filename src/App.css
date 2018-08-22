@@ -176,20 +176,20 @@ body {
   justify-content: space-evenly;
   padding: 5px;
 }
-.today-chart{
+.today-chart {
   transform: translateY(-15px);
 }
-.weekcontainer{
+.weekcontainer {
   display: flex;
   align-items: center;
   width: 100%;
   flex-direction: column;
   justify-content: center;
 }
-.exp-inactive{
+.exp-inactive {
   transform: translateY(-15px);
 }
-.analytics{
+.analytics {
   transform: translateY(-15px);
   font-size: 25px;
 }
