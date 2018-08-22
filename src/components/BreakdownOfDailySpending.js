@@ -51,11 +51,11 @@ class BreakdownBasic extends Component {
     }
 
     render() {
-        let data = [{ name: "Coffee", value: this.state.totalCoffee, fill: 'purple' },
-        { name: "Transport", value: this.state.totalTransport, fill: 'red' },
-        { name: "Other", value: this.state.totalOther, fill: 'orange'},
-        { name: "Food", value: this.state.totalFood, fill: 'yellow' },
-        { name: "Shopping", value: this.state.totalShopping, fill: 'green'}
+        let data = [{ name: "Coffee", value: this.state.totalCoffee, fill: '#76D7C4' },
+        { name: "Transport", value: this.state.totalTransport, fill: '#7FB3D5' },
+        { name: "Other", value: this.state.totalOther, fill: '#C39BD3'},
+        { name: "Food", value: this.state.totalFood, fill: '#F7DC6F' },
+        { name: "Shopping", value: this.state.totalShopping, fill: '#7DCEA0'}
 
         ]
         return (
@@ -63,7 +63,7 @@ class BreakdownBasic extends Component {
 
                 <h2 className='h2title'>{this.state.date}</h2>
                 <div className='piechart'>
-                <PieChart width={400} height={400}>
+                <PieChart width={400} height={250}>
                     <Pie
                         isAnimationActive={false}
                         data={data}
@@ -71,11 +71,13 @@ class BreakdownBasic extends Component {
                         cy={100}
                         outerRadius={100}
                         fill={data.fill}
-                        label
+                        // label
                     />
                     <Tooltip />
                 </PieChart>
+        
                 </div>
+                <div className='signup-title'>Hover over each slice to see how much you've spent</div>
             </div>
         )
     }

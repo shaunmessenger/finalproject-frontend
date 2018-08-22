@@ -264,6 +264,7 @@ div:after {
 .piechart {
   justify-content: center;
   display: flex;
+  padding-top: 35px;
 }
 
 @keyframes progressbarslidein {
