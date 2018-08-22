@@ -63,7 +63,7 @@ class BreakdownBasic extends Component {
                 <div className='piechart'>
                 <PieChart width={400} height={250}>
                     <Pie
-                        isAnimationActive={false}
+                        isAnimationActive={true}
                         data={data}
                         cx={200}
                         cy={100}

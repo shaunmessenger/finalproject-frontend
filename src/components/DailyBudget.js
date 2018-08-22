@@ -93,7 +93,7 @@ class DailyBudgetBasic extends Component {
                                {
                                    (isAfter) ?
                                    null:
-<div>
+                        <div className="chart-button">
                                     <div className="exp-inactive"><RadialChart 
                                                 data={[{angle:this.state.spent, className:"past-spent"}, {angle:this.state.budget - this.state.spent, className:"past-budget"}]}
                                                 height={55}
