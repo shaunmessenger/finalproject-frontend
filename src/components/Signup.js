@@ -47,18 +47,20 @@ class SignupForm extends Component {
     return (
       <div className="login-container">
         <h2 className="signup-title">New User?</h2>
-        <InputUsername
-          placeholder="new username"
-          value={this.state.username}
-          onChange={this.handleNewName}
-        />
+        <div className="login-input">
+          <InputUsername
+            placeholder="new username"
+            value={this.state.username}
+            onChange={this.handleNewName}
+          />
+          <br />
+          <InputPassword
+            placeholder="new password"
+            value={this.state.password}
+            onChange={this.handleNewPassword}
+          />
         <br />
-        <InputPassword
-          placeholder="new password"
-          value={this.state.password}
-          onChange={this.handleNewPassword}
-        />
-        <br />
+        </div>
         <div className="signup-button">
         <SubmitButton onClick={this.handleSubmit}/>
         </div>

@@ -94,15 +94,17 @@ class GoalSetupForm extends Component {
             </Select>
           </FormControl>
           <br />
-          <InputGoalAmount
-            value={this.state.goalValue}
-            onChange={this.newGoalValue}
-          />
-          <br />
-          <InputGoalDate
-            value={this.state.goalDate}
-            onChange={this.newGoalDate}
-          />
+          <div className="login-input">
+            <InputGoalAmount
+              value={this.state.goalValue}
+              onChange={this.newGoalValue}
+            />
+            <br />
+            <InputGoalDate
+              value={this.state.goalDate}
+              onChange={this.newGoalDate}
+            />
+          </div>
           <br />
           <div className="goal-items">
             <SubmitButton onClick={this.handleSubmit} />

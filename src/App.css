@@ -70,7 +70,9 @@
   display: flex;
   justify-content: center;
 }
-
+.login-input{
+  width:95%;
+}
 .fixed-container {
   width: 450px;
   display: fixed;
