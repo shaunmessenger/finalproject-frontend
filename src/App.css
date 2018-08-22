@@ -156,14 +156,17 @@ body {
   border: solid darkgreen 1px;
   background: green;
   color: white;
+  
 }
 .day-budget {
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  padding: 3px;
   border: solid green;
-  margin: 5px 0px 5px 0px;
+  margin: 3px 0px 3px 0px;
   background: floralwhite;
+  font-family: "Roboto Slab";
+  font-size: 21px;
 }
 .day-budget-item {
   display: flex;
@@ -268,6 +271,7 @@ label.MuiInputLabel-focused-* {
 .piechart {
   justify-content: center;
   display: flex;
+  padding-top: 35px;
 }
 
 @keyframes progressbarslidein {
