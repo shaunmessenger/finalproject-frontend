@@ -255,6 +255,10 @@ div:after {
   border-color: rgb(60, 182, 60) !important;
 }
 
+label.MuiInputLabel-focused-* {
+  color: rgb(60, 182, 60) !important;
+}
+
 .h2title {
   text-align: center;
   margin-top: 10px;
