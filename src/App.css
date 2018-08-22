@@ -184,6 +184,9 @@ body {
   flex-direction: column;
   justify-content: center;
 }
+.rad-chart{
+  margin-bottom: 10px;
+}
 .analytics{
   background-color: transparent !important;
 }
