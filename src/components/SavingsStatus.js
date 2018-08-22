@@ -92,7 +92,7 @@ class SavingsStatusBasic extends Component {
             backgroundImage: "url(" + images[this.state.goalType] + ")"
           }}
         >
-          <div>Today's Budget ${this.state.todaysBudget}</div>
+          <div className="todays-budget">Today's Budget ${this.state.todaysBudget}</div>
         </div>
         <div className="progressbar">
           <div
