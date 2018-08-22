@@ -202,7 +202,8 @@ body {
   display: flex;
   justify-content: center;
   color: #66bc6a;
-  font-family: "Bangers", cursive;
+  font-family: "Bangers", cursive; 
+  /* Roboto Slab for alternate */
   font-size: 55px;
 }
 
