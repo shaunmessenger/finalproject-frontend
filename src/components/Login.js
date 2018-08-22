@@ -85,14 +85,16 @@ class LoginBasic extends Component {
       <div className='login-container'>
         <form onSubmit={this.handleSubmit}>
           <h2 className="login-title">Login</h2>
-          <InputUsername
-            value={this.state.inputUsername}
-            onChange={this.handleUsernameChange}
-          />
-          <InputPassword
-            value={this.state.inputPassword}
-            onChange={this.handlePasswordChange}
-          />
+          <div className ="login-input">
+            <InputUsername
+              value={this.state.inputUsername}
+              onChange={this.handleUsernameChange}
+            />
+            <InputPassword
+              value={this.state.inputPassword}
+              onChange={this.handlePasswordChange}
+            />
+          </div>
         <div className='buttons-at-login'>
           <SubmitButton onClick={this.handleSubmit} />
           
