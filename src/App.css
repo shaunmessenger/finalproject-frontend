@@ -164,12 +164,13 @@ body {
   flex-direction: column;
   padding: 3px;
   width: 90%;
-  border: solid green;
+  border: none;
   margin: 3px 0px 3px 0px;
-  background: floralwhite;
+  background: white;
   font-family: "Roboto Slab";
   font-size: 21px;
   max-width: 550px;
+  border-radius: 10px;
 }
 .day-budget-item {
   display: flex;
@@ -177,13 +178,8 @@ body {
   justify-content: space-evenly;
   padding: 5px;
 }
-<<<<<<< HEAD
 .today-chart {
-  transform: translateY(-15px);
-=======
-.today-chart{
   transform: translateY(-12px);
->>>>>>> ce62437fef20aa14487845ade30a5c0eca516da0
 }
 .weekcontainer {
   display: flex;
@@ -195,18 +191,16 @@ body {
 .exp-inactive {
   transform: translateY(-15px);
 }
-<<<<<<< HEAD
-.analytics {
-=======
-.chart-button{
+.chart-button {
   display: flex;
   flex-flow: row;
 }
-.analytics{
->>>>>>> ce62437fef20aa14487845ade30a5c0eca516da0
+.analytics {
   transform: translateY(-15px);
   font-size: 25px;
+  border-radius: 10px;
 }
+
 .navbar-title {
   display: flex;
   justify-content: center;
