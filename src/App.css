@@ -71,7 +71,7 @@
   justify-content: center;
 }
 .login-input{
-  width:95%;
+  width:90% !important;
 }
 .fixed-container {
   width: 450px;
