@@ -17,8 +17,8 @@ class EndOfDayForm extends Component {
   constructor() {
     super();
     this.state = {
-      daySavings: undefined,
-      dayRollover: undefined,
+      daySavings: null,
+      dayRollover: null,
       open: false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
