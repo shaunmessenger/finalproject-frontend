@@ -184,11 +184,10 @@ body {
   flex-direction: column;
   justify-content: center;
 }
-.rad-chart{
-  margin-bottom: 10px;
-}
+
 .analytics{
-  background-color: transparent !important;
+
+font-size: 25px;
 }
 .navbar-title {
   display: flex;
@@ -245,6 +244,14 @@ a:link {
 .exp-budget {
   stroke: #30b937 !important;
   fill: #35bb3b !important;
+}
+.past-spent{
+  stroke: rgb(60, 182, 60) !important;
+  fill: rgba(87, 241, 88, 0.68) !important;
+}
+.past-budget{
+  stroke: #35bb3b !important;
+  fill: rgb(117, 193, 121) !important;
 }
 
 button {

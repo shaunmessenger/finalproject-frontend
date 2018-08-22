@@ -3,6 +3,7 @@ import '../App.css'
 import { RadialChart } from 'react-vis';
 import { Link, withRouter } from "react-router-dom";
 
+
 class DailyBudgetBasic extends Component {
     constructor() {
         super()
@@ -85,16 +86,18 @@ class DailyBudgetBasic extends Component {
                             
                                 Budget: ${this.state.budget + " "}
                                 Spent: ${this.state.spent}
-                                <button onClick={this.handleClickOtherDayBreakdown} className="analytics">
+                               
                                     <div className="exp-inactive"><RadialChart 
-                                                data={[{angle:this.state.spent}, {angle:this.state.budget - this.state.spent}]}
+                                                data={[{angle:this.state.spent, className:"past-spent"}, {angle:this.state.budget - this.state.spent, className:"past-budget"}]}
                                                 height={55}
                                                 width={55}
                                                 radius={20}
                                                 innerRadius={10}
                                                    />
                                     </div>
-                                </button>
+                                    <button onClick={this.handleClickOtherDayBreakdown} className="analytics">
+                                        <i class="far fa-arrow-alt-circle-right"></i>
+                                    </button>
                         </div>
                 }
 
