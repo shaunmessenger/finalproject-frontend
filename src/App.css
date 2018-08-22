@@ -173,11 +173,12 @@ body {
 }
 .day-budget-item {
   display: flex;
+  flex-direction: row;
   justify-content: space-evenly;
   padding: 5px;
 }
 .today-chart{
-  transform: translateY(-15px);
+  transform: translateY(-12px);
 }
 .weekcontainer{
   display: flex;
@@ -188,6 +189,10 @@ body {
 }
 .exp-inactive{
   transform: translateY(-15px);
+}
+.chart-button{
+  display: flex;
+  flex-flow: row;
 }
 .analytics{
   transform: translateY(-15px);
