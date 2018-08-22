@@ -1,12 +1,7 @@
 import React, { Component } from "react";
-import { withStyles } from "@material-ui/core/styles";
-import MenuItem from "@material-ui/core/MenuItem";
 import TextField from "@material-ui/core/TextField";
 
 class InputGoalAmount extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
       <div>

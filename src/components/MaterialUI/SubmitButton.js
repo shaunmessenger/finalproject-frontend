@@ -1,11 +1,8 @@
 import React, { Component } from "react";
-import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 
-class GoalsSubmitButton extends Component {
-  constructor(props) {
-    super(props);
-  }
+class SubmitButton extends Component {
+
   render() {
     return (
       <div>
@@ -17,4 +14,4 @@ class GoalsSubmitButton extends Component {
   }
 }
 
-export default GoalsSubmitButton;
+export default SubmitButton;

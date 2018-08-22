@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import InputUsername from "./MaterialUI/SignupInputUsername";
 import InputPassword from "./MaterialUI/SignupInputPassword";
-import SubmitButton from "./MaterialUI/SignupSubmit";
+import SubmitButton from "./MaterialUI/SubmitButton";
 import '../App.css'
 
 class SignupForm extends Component {

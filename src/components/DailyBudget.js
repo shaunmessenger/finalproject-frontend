@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css'
 import { RadialChart } from 'react-vis';
-import { Link, withRouter } from "react-router-dom";
+import {  withRouter } from "react-router-dom";
 
 var moment = require('moment');
 
@@ -54,12 +54,10 @@ class DailyBudgetBasic extends Component {
         let momentDate = moment(date, "DD MM YYYY")
         
         let numbersOnly = parseInt(date.replace(/[^0-9]/g, ""))
-        // console.log(typeof(numbersOnly))
         let today = new Date()
         let isAfter = momentDate.isAfter(today)
         console.log(momentDate + " " + isAfter)
         let todaysDate = today.getDate()
-        // console.log(typeof(todaysDate))
         return (
             <div className="day-budget">
                 <div>
@@ -95,7 +93,7 @@ class DailyBudgetBasic extends Component {
                                {
                                    (isAfter) ?
                                    null:
-<div>
+                        <div className="chart-button">
                                     <div className="exp-inactive"><RadialChart 
                                                 data={[{angle:this.state.spent, className:"past-spent"}, {angle:this.state.budget - this.state.spent, className:"past-budget"}]}
                                                 height={55}
@@ -105,25 +103,12 @@ class DailyBudgetBasic extends Component {
                                                    />
                                     </div>
                                     <button onClick={this.handleClickOtherDayBreakdown} className="analytics">
-                                        <i class="far fa-arrow-alt-circle-right"></i>
+                                        <i className="far fa-arrow-alt-circle-right"></i>
                                     </button>
                         </div>
 
                                }
-                               {/* <div>
-                                    <div className="exp-inactive"><RadialChart 
-                                                data={[{angle:this.state.spent, className:"past-spent"}, {angle:this.state.budget - this.state.spent, className:"past-budget"}]}
-                                                height={55}
-                                                width={55}
-                                                radius={20}
-                                                innerRadius={10}
-                                                   />
-                                    </div>
-                                    <button onClick={this.handleClickOtherDayBreakdown} className="analytics">
-                                        <i class="far fa-arrow-alt-circle-right"></i>
-                                    </button>
-                        </div> */}
-                {/* } */}
+                           
 
             </div>
                 }

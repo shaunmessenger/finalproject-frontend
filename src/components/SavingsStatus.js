@@ -6,7 +6,7 @@ import house from "../images/house.png";
 import other from "../images/other.png";
 import AlertDialogSlide from "./PopUp";
 import EndofDayButton from "./MaterialUI/GSSEndofDayButton";
-import SubmitButton from "./MaterialUI/GSSSubmitButton";
+import ExpenseSubmitButton from "./MaterialUI/GSSSubmitButton";
 import "../App.css";
 
 const divStyle = {
@@ -103,7 +103,7 @@ class SavingsStatusBasic extends Component {
         <div style={divStyle}>{parseInt(percentage)}% of goal reached</div>
         <div className="buttoncontainer">
           <Link to="/inputVariable">
-            <SubmitButton>RecordExpense</SubmitButton>
+            <ExpenseSubmitButton>RecordExpense</ExpenseSubmitButton>
           </Link>
           <Link to="/endOfDay">
             <EndofDayButton />

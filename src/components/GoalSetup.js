@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import InputGoalAmount from "./MaterialUI/GoalsInputAmount";
 import InputGoalDate from "./MaterialUI/GoalsInputDate";
-import GoalsSubmitButton from "./MaterialUI/GoalsSubmitButton";
+import SubmitButton from "./MaterialUI/SubmitButton";
 import UnrealisticGoalSubmitButton from "./MaterialUI/UnrealisticGoalSubmitButton";
 
 class GoalSetupForm extends Component {
@@ -105,7 +105,7 @@ class GoalSetupForm extends Component {
           />
           <br />
           <div className="goal-items">
-            <GoalsSubmitButton onClick={this.handleSubmit} />
+            <SubmitButton onClick={this.handleSubmit} />
           </div>  
         </form>
         <p>

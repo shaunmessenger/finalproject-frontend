@@ -4,12 +4,7 @@ import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
-import FoodExpense from "./MaterialUI/FixedExpFood";
-import HousingExpense from "./MaterialUI/FixedExpHousing";
-import OtherExpense from "./MaterialUI/FixedExpOther";
-import TransportExpense from "./MaterialUI/FixedExpTransport";
-import IncomeInput from "./MaterialUI/FixedIncomeInput";
-import SubmitButton from "./MaterialUI/FixedSubmitButton";
+import SubmitButton from "./MaterialUI/SubmitButton";
 import Expense from "./MaterialUI/Expense";
 
 class FixedInputsBasic extends Component {

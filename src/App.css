@@ -173,11 +173,17 @@ body {
 }
 .day-budget-item {
   display: flex;
+  flex-direction: row;
   justify-content: space-evenly;
   padding: 5px;
 }
+<<<<<<< HEAD
 .today-chart {
   transform: translateY(-15px);
+=======
+.today-chart{
+  transform: translateY(-12px);
+>>>>>>> ce62437fef20aa14487845ade30a5c0eca516da0
 }
 .weekcontainer {
   display: flex;
@@ -189,7 +195,15 @@ body {
 .exp-inactive {
   transform: translateY(-15px);
 }
+<<<<<<< HEAD
 .analytics {
+=======
+.chart-button{
+  display: flex;
+  flex-flow: row;
+}
+.analytics{
+>>>>>>> ce62437fef20aa14487845ade30a5c0eca516da0
   transform: translateY(-15px);
   font-size: 25px;
 }
