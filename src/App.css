@@ -177,6 +177,9 @@ body {
   justify-content: space-evenly;
   padding: 5px;
 }
+.today-chart{
+  transform: translateY(-15px);
+}
 .weekcontainer{
   display: flex;
   align-items: center;
@@ -184,10 +187,12 @@ body {
   flex-direction: column;
   justify-content: center;
 }
-
+.exp-inactive{
+  transform: translateY(-15px);
+}
 .analytics{
-
-font-size: 25px;
+  transform: translateY(-15px);
+  font-size: 25px;
 }
 .navbar-title {
   display: flex;

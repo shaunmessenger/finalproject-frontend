@@ -72,7 +72,7 @@ class DailyBudgetBasic extends Component {
                                 Budget: ${this.props.todaysBudget + this.props.todaysVariable + " "}
                                 Spent: ${this.props.todaysVariable}
 
-                                <div><RadialChart 
+                                <div className="today-chart"><RadialChart 
                                                 data={[{angle:this.props.todaysVariable, className:"exp-spent"}, {angle:this.props.todaysBudget, className:"exp-budget"}]}
                                                 height={55}
                                                 width={55}
