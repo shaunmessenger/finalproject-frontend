@@ -93,6 +93,7 @@
 
 .fixed-selector {
   margin-top: 15px !important;
+  min-width: 100px !important;
 }
 
 .fixed-title {
@@ -156,21 +157,19 @@ body {
   border: solid darkgreen 1px;
   background: green;
   color: white;
-  font-family: "Roboto Slab"
-  
+  font-family: "Roboto Slab";
 }
 .day-budget {
   display: flex;
   flex-direction: column;
   padding: 3px;
-  width:90%;
+  width: 90%;
   border: solid green;
   margin: 3px 0px 3px 0px;
   background: floralwhite;
   font-family: "Roboto Slab";
   font-size: 21px;
   max-width: 550px;
-  
 }
 .day-budget-item {
   display: flex;
@@ -250,11 +249,11 @@ a:link {
   stroke: #30b937 !important;
   fill: #35bb3b !important;
 }
-.past-spent{
+.past-spent {
   stroke: rgb(60, 182, 60) !important;
   fill: rgba(87, 241, 88, 0.68) !important;
 }
-.past-budget{
+.past-budget {
   stroke: #35bb3b !important;
   fill: rgb(117, 193, 121) !important;
 }
