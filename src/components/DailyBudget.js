@@ -3,6 +3,7 @@ import '../App.css'
 import { RadialChart } from 'react-vis';
 import { Link, withRouter } from "react-router-dom";
 
+var moment = require('moment');
 
 class DailyBudgetBasic extends Component {
     constructor() {
@@ -50,9 +51,13 @@ class DailyBudgetBasic extends Component {
 
     render() {
         let date = this.props.day
+        let momentDate = moment(date, "DD MM YYYY")
+        
         let numbersOnly = parseInt(date.replace(/[^0-9]/g, ""))
         // console.log(typeof(numbersOnly))
         let today = new Date()
+        let isAfter = momentDate.isAfter(today)
+        console.log(momentDate + " " + isAfter)
         let todaysDate = today.getDate()
         // console.log(typeof(todaysDate))
         return (
@@ -86,7 +91,11 @@ class DailyBudgetBasic extends Component {
                             
                                 Budget: ${this.state.budget + " "}
                                 Spent: ${this.state.spent}
-                               
+
+                               {
+                                   (isAfter) ?
+                                   null:
+<div>
                                     <div className="exp-inactive"><RadialChart 
                                                 data={[{angle:this.state.spent, className:"past-spent"}, {angle:this.state.budget - this.state.spent, className:"past-budget"}]}
                                                 height={55}
@@ -99,9 +108,27 @@ class DailyBudgetBasic extends Component {
                                         <i class="far fa-arrow-alt-circle-right"></i>
                                     </button>
                         </div>
-                }
+
+                               }
+                               {/* <div>
+                                    <div className="exp-inactive"><RadialChart 
+                                                data={[{angle:this.state.spent, className:"past-spent"}, {angle:this.state.budget - this.state.spent, className:"past-budget"}]}
+                                                height={55}
+                                                width={55}
+                                                radius={20}
+                                                innerRadius={10}
+                                                   />
+                                    </div>
+                                    <button onClick={this.handleClickOtherDayBreakdown} className="analytics">
+                                        <i class="far fa-arrow-alt-circle-right"></i>
+                                    </button>
+                        </div> */}
+                {/* } */}
 
             </div>
+                }
+            </div>
+            
         )
     }
 }
