@@ -1,15 +1,13 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-import { PieChart, Pie, Legend, Tooltip } from "recharts";
+import { PieChart, Pie, Tooltip } from "recharts";
 
 class BreakdownBasic extends Component {
     constructor(props) {
         super(props)
         this.state = {
             userID: this.props.userID,
-            // userID: 858,
             date: this.props.dateToSend,
-            // date: "Tue 21 Aug 2018",
             totalCoffee: 0,
             totalFood: 0,
             totalOther: 0,

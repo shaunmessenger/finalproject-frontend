@@ -10,7 +10,7 @@ import VariableExpense from "./components/VariableExpense";
 import SavingsStatus from "./components/SavingsStatus";
 import WeekContainer from './components/WeekContainer.js';
 import EndOfDay from "./components/EndOfDay";
-import DailyBudget from "./components/DailyBudget";
+// import DailyBudget from "./components/DailyBudget";
 import Breakdown from "./components/BreakdownOfDailySpending"
 
 class App extends Component {

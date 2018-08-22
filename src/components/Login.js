@@ -3,7 +3,7 @@ import { withRouter } from "react-router-dom";
 import LoginButton from "./MaterialUI/LoginButton";
 import InputPassword from "./MaterialUI/LoginInputPassword";
 import InputUsername from "./MaterialUI/LoginInputUsername";
-import LoginSubmitButton from "./MaterialUI/LoginSubmitButton";
+import SubmitButton from "./MaterialUI/SubmitButton";
 import "../App.css";
 
 class LoginBasic extends Component {
@@ -94,7 +94,7 @@ class LoginBasic extends Component {
             onChange={this.handlePasswordChange}
           />
         <div className='buttons-at-login'>
-          <LoginSubmitButton onClick={this.handleSubmit} />
+          <SubmitButton onClick={this.handleSubmit} />
           
           <LoginButton onClick={this.linkToSignup}>New User?</LoginButton>
        </div>

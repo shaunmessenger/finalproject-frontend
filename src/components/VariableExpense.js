@@ -4,7 +4,7 @@ import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
-import LoginSubmitButton from "./MaterialUI/LoginSubmitButton";
+import SubmitButton from "./MaterialUI/SubmitButton";
 import Expense from "./MaterialUI/Expense";
 
 class VariableExpenseForm extends Component {
@@ -12,7 +12,7 @@ class VariableExpenseForm extends Component {
     super();
     this.state = {
       expenseType: "food",
-      expenseAmt: null
+      expenseAmt: undefined
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleNewExpense = this.handleNewExpense.bind(this);
@@ -77,7 +77,7 @@ class VariableExpenseForm extends Component {
             onChange={this.handleNewExpense}
           />
           <br />
-          <div className="var-submit"> <LoginSubmitButton onClick={this.handleSubmit} /></div>
+          <div className="var-submit"> <SubmitButton onClick={this.handleSubmit} /></div>
         
       </div>
     );

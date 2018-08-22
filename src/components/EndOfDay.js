@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import AlertDialogSlide from "./PopUp";
 import Expense from "./MaterialUI/Expense";
-import SubmitButton from "./MaterialUI/SignupSubmit";
+import SubmitButton from "./MaterialUI/SubmitButton";
 import "../App.css";
 
 const divStyle = {
@@ -17,8 +17,8 @@ class EndOfDayForm extends Component {
   constructor() {
     super();
     this.state = {
-      daySavings: null,
-      dayRollover: null,
+      daySavings: undefined,
+      dayRollover: undefined,
       open: false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -28,7 +28,6 @@ class EndOfDayForm extends Component {
 
   handleSubmit(evt) {
     evt.preventDefault();
-    // if(this.state.daySavings && this.state.dayRollover){
 
     let notStateDaySavings = this.state.daySavings;
     if (!notStateDaySavings) {
@@ -67,7 +66,6 @@ class EndOfDayForm extends Component {
         let todaysVariable = parsed.todaysVariable;
         this.props.sendInfoToApp(todaysBudget, todaysVariable);
       });
-    // }
   }
 
   handleSavings(evt) {
@@ -140,54 +138,14 @@ class EndOfDayForm extends Component {
           </div>
         ) : (
           <div>
-            {/* <form onSubmit={this.handleSubmit}> */}
             You over spent today, the balance has been deducted from tomorrow's
             budget
-            {/* <input type='submit' value="go back"/> */}
             <SubmitButton onClick={this.handleSubmit} />
-            {/* </form> */}
           </div>
         )}
       </div>
     );
 
-    // return (
-
-    //     <div className='login-container'>
-    //     <AlertDialogSlide open={this.state.open} handleClose={this.handleClose} text={text}/>
-    //         {(this.props.todaysBudget > 0) ?
-    //             <div>
-    //                 <form onSubmit={this.handleSubmit}>
-
-    //                     <h2>Done for the day?</h2>
-    //                     <div>Your daily save goal: ${this.props.dailySaveGoal}</div>
-    //                     <div>Budget remaining: ${this.props.todaysBudget}</div>
-    //                     <div>
-    //                     Add to savings:
-    //         <input placeholder={'$' + this.props.dailySaveGoal}
-    //                         value={this.state.daySavings}
-    //                         onChange={this.handleSavings} />
-    //                         </div>
-    //                         <div>
-    //                     Rollover to tomorrow:
-    //         <input placeholder={'$' + (this.props.todaysBudget - this.state.daySavings)}
-    //                         value={this.state.dayRollover}
-    //                         onChange={this.handleRollover} />
-    //                         </div>
-    //                     <input type="submit" />
-    //                 </form>
-    //             </div> :
-
-    //             <div>
-    //                 <form onSubmit={this.handleSubmit}>You over spent today, the balance has been deducted from tomorrow's budget
-    //         <input type='submit' value="go back"/>
-    //                 </form>
-    //             </div>
-
-    //         }
-
-    //     </div>
-    // )
   }
 }
 
