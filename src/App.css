@@ -184,8 +184,10 @@ body {
   justify-content: space-evenly;
   padding: 5px;
 }
-.today-chart{
-  transform: translateY(-12px);
+.today-chart {
+  
+  transform: translate(-20px);
+  transform: translateY(-10px);  
 }
 .weekcontainer{
   margin-top: 1px;
@@ -195,24 +197,25 @@ body {
   flex-direction: column;
   justify-content: center;
 }
-.exp-inactive{
+.exp-inactive {
   transform: translateY(-15px);
 }
-.chart-button{
+.chart-button {
   display: flex;
   flex-flow: row;
 }
-.analytics{
+.analytics {
   transform: translateY(-15px);
   font-size: 25px;
   border-radius: 5px;
 }
+
 .navbar-title {
   display: flex;
   justify-content: center;
   color: #66bc6a;
-  font-family: "Raleway";
-    /* Roboto Slab, Bangers for alternate */
+  font-family: "Bangers";
+    /* Roboto Slab, Raleway for alternate */
   font-size: 55px;
 }
 
