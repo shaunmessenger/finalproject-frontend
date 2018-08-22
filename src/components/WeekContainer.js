@@ -22,7 +22,7 @@ class WeekContainer extends Component {
                     Week of: {moment().startOf('week').format('ddd D MMM')} to {moment().startOf('week').add(6, 'days').format('ddd D MMM')}
                 </div>
                 
-                <div>
+                <div className="weekcontainer">
                     <DailyBudget sendDate={this.props.sendDate} userID={this.props.userID} todaysBudget={this.props.todaysBudget} todaysVariable={this.props.todaysVariable} day={moment().startOf('week').format('ddd D MMM')} />
                     <DailyBudget sendDate={this.props.sendDate} userID={this.props.userID} todaysBudget={this.props.todaysBudget} todaysVariable={this.props.todaysVariable} day={moment().startOf('week').add(1, 'days').format('ddd D MMM')} />
                     <DailyBudget sendDate={this.props.sendDate} userID={this.props.userID} todaysBudget={this.props.todaysBudget} todaysVariable={this.props.todaysVariable} day={moment().startOf('week').add(2, 'days').format('ddd D MMM')} />

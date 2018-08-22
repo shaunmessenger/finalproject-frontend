@@ -85,15 +85,16 @@ class DailyBudgetBasic extends Component {
                             
                                 Budget: ${this.state.budget + " "}
                                 Spent: ${this.state.spent}
-                                <button onClick={this.handleClickOtherDayBreakdown}>See my breakdown</button>
-                                <div className="exp-inactive"><RadialChart 
+                                <button onClick={this.handleClickOtherDayBreakdown} className="analytics">
+                                    <div className="exp-inactive"><RadialChart 
                                                 data={[{angle:this.state.spent}, {angle:this.state.budget - this.state.spent}]}
                                                 height={55}
                                                 width={55}
                                                 radius={20}
                                                 innerRadius={10}
                                                    />
-                                </div>
+                                    </div>
+                                </button>
                         </div>
                 }
 

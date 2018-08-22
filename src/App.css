@@ -156,22 +156,36 @@ body {
   border: solid darkgreen 1px;
   background: green;
   color: white;
+  font-family: "Roboto Slab"
   
 }
 .day-budget {
   display: flex;
   flex-direction: column;
   padding: 3px;
+  width:90%;
   border: solid green;
   margin: 3px 0px 3px 0px;
   background: floralwhite;
   font-family: "Roboto Slab";
   font-size: 21px;
+  max-width: 550px;
+  
 }
 .day-budget-item {
   display: flex;
   justify-content: space-evenly;
   padding: 5px;
+}
+.weekcontainer{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+}
+.analytics{
+  background-color: transparent !important;
 }
 .navbar-title {
   display: flex;
