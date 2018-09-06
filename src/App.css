@@ -115,6 +115,7 @@ max-width: 100%;
 .buttons-at-login {
   display: flex;
   justify-content: space-between;
+  margin-top: 15px;
 }
 
 .status-container {
@@ -167,37 +168,53 @@ body {
 .weekof-container {
   display: flex;
   justify-content: center;
-  border: solid darkgreen 1px;
-  background: green;
+  border: solid #66bd6a 1px;
+  background: #66bd6a;
   color: white;
   font-family: "Raleway";
-  /* font-family: "Roboto Slab"; */
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 .day-budget {
   display: flex;
   flex-direction: column;
   padding: 3px;
-  width: 90%;
-  /* border: solid green; */
+  width: 50%;
+  height: 80px;
   margin: 2px 0px 2px 0px;
-  background: floralwhite;
+  background: white;
   font-family: "Raleway";
-  /* font-family: "Roboto Slab"; */
   font-size: 21px;
   max-width: 550px;
   border-radius: 7px;
 }
+
+.textinputs{
+  display: flex;
+  flex-direction: column;
+}
+
+.chartandbutton{
+  display: flex;
+  flex-direction: row;
+  margin-top: 7px;
+}
+
+
+.date{
+  font-size: 14px;
+  margin-bottom: 3px;
+}
 .day-budget-item {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-  padding: 5px;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  /* padding: 5px; */
 }
-.today-chart {
-  
-  transform: translate(-20px);
-  transform: translateY(-10px);  
-}
+
 .weekcontainer{
   margin-top: 1px;
   display: flex;
@@ -341,5 +358,11 @@ label.MuiInputLabel-focused-* {
   }
   .fixed-input-container {
     width: 235px;
+  }
+  .textinputs{
+    font-size: 15px;
+  }
+  .date{
+    font-size: 12px;
   }
 }
